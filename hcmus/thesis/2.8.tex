@@ -1,0 +1,507 @@
+\begin{center}
+\textbf{2.8. BÀI TOÁN DIRICHLET - PHƯƠNG PHÁP PERRON}
+\end{center}
+
+Cho  $\Omega$ là một tập mở, liên thông, bị chặn bất kì và  $\varphi$ là một hàm số liên tục xác định trên 
+$\partial \Omega$, tìm hàm $u$ sao cho $\Delta u = 0$ trên $\Omega$ và $u=\varphi$ trên $\partial\Omega$. Đây được gọi là bài toán Dirichlet cổ điển. Tính giải được của bài tóan Dirichlet cổ điển đã được Perron đã giải quyết hoàn chỉnh bằng cách sử dụng các hàm subharmonic.
+\\
+\\
+\textbf{\underline{Định nghĩa:}}
+\\
+\textit{Một hàm $u\in C^0(\Omega) $ được gọi là subharmonic (superharmonic) trong  $\Omega $ nếu 
+với mọi $B(y,r) \subset  \subset \Omega$ và với mọi $h \in C^0(\overline {B(y,r)}) \cap C^2({B(y,r)}) $ thỏa mãn:
+\\
+$(i)$ $h$ harmonic trong $B(y,r).$
+\\
+$(ii)$ $u \le h$ ($u \ge h$) trên $\partial B(y,r)$
+\\
+Thì $u\le h$($u\ge h$) trong B(y,r).}
+\\
+\\
+\textbf{\underline{Mệnh đề 1:}}
+\\
+\textit{Cho $u$ là một hàm subharmonic (superharmonic) trên $\Omega$ khi đó với mọi quả cầu $B(y,r) \subset\subset \Omega$ ta có:
+\\
+$(1)\quad u(y) \le ( \ge )\dfrac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {u(x)dS(x)} $
+\\
+$(2)\quad u(y) \le ( \ge )\dfrac{1}{{\omega _n r^n }}\int\limits_{B(y,r)} {u(x)dx} $}
+\\
+\textbf{Chứng minh:}
+\\
+{$\bullet$  {Chứng minh (1):} }
+Lấy $B(y,r) \subset\subset \Omega$ bất kì. Vì u liên tục trên $\partial B(y,r)$ nên theo định lí 2.6 tồn tại $h  \in C^2 (B(y,r)) \cap C^0 (\overline {B(y,r)} )$ thỏa mãn $\Delta h = 0$ trên $B(y,r)$ và $h (x) = u(x)$ trên $\partial B(y,r)$.
+Do u subharmonic và $u(x) \le h(x)$ trên $\partial B(y,r)$ nên $u(x)\le h(x)$ trong B(y,r). Suy ra:
+\[
+u(y) \le h(y) = \frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {h(x)dS(x) = } \frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {u(x)dS(x)} 
+\]
+{$\bullet$ {Chứng minh (2):} }
+Ta có:
+\[
+ \int\limits_{B(y,r)} {u(x)dx = \int\limits_0^r {\left( {\int\limits_{\partial B(y,s)} {u(x)dS(x)} } \right)ds} }  
+  \ge \int\limits_0^r {n\omega _n s^{n - 1} u(y)ds}  = \left. {n\omega _n u(y)\frac{{s^n }}{n}} \right|_{s = 0}^{s = r}  = \omega _n r^n u(y) \\ 
+\]
+
+Từ đó suy ra (2). $\blacksquare$
+\\
+
+Cùng với nhận xét sau chứng minh của Định lí 2.2, ta có:
+\\
+{ \underline{\bf Mệnh đề 2:}}
+\\
+{\it Cho $u\in C(\Omega)$ và thỏa mãn
+\[u(y) \le ( \ge )\frac{1}{{\omega _n r^n }}\int\limits_{B(y,r)} {u(x)dx},\quad \forall B(y,r) \subset\subset \Omega\]
+Giả sử tồn tại một điểm $y\in \Omega$ sao cho $
+u(y) = \mathop {\sup }\limits_\Omega  u(\mathop {{\rm{inf}}}\limits_\Omega  u)$ thì $u$ là hằng số.}
+\\
+\\
+{\underline {\bf Mệnh đề 3:}} {\it Lấy $u \in C (\overline\Omega ) $ thỏa mãn:
+\[u(y) \le ( \ge )\frac{1}{{\omega _n r^n }}\int\limits_{B(y,r)} {u(x)dx},\quad \forall B(y,r) \subset\subset \Omega\]
+Nếu $\Omega$ bị chặn thì ta có:
+\[
+\mathop {\sup }\limits_\Omega  u = \mathop {\sup }\limits_{\partial \Omega } u(\mathop {{\rm{inf}}}\limits_\Omega  u = \mathop {{\rm{inf}}}\limits_{\partial \Omega } u)
+\]}
+
+Hơn nữa, theo Mệnh đề 1, nếu $u$ là một hàm subharmonic(superharmonic) trên $\Omega$ thì:
+\[
+u(y) \le ( \ge )\frac{1}{{\omega _n r^n }}\int\limits_{B(y,r)} {u(x)dx},\quad \forall B(y,r) \subset\subset \Omega
+\]
+
+Vì vậy ta có:
+\\
+{ \underline{\bf Mệnh đề 4:}} 
+\\
+{\it Cho $u$ là hàm subharmonic(superharmonic) trong $\Omega$ và giả sử tồn tại một điểm $y\in \Omega$ sao cho $
+u(y) = \mathop {\sup }\limits_\Omega  u(\mathop {{\rm{inf}}}\limits_\Omega  u)$ thì $u$ là hàm hằng.}
+ \\
+ \\
+{ \underline{\bf Mệnh đề 5:}} 
+\\
+{\it Lấy $u \in C^0 (\overline \Omega  )$ là một hàm subharmonic(superharmonic) trong $\Omega$. Nếu $\Omega$ bị chặn thì ta có:
+\[
+\mathop {\sup }\limits_\Omega  u = \mathop {\sup }\limits_{\partial \Omega } u(\mathop {{\rm{inf}}}\limits_\Omega  u = \mathop {{\rm{inf}}}\limits_{\partial \Omega } u)
+\]}
+
+Mệnh đề sau đây là chiều đảo của mệnh đề 1:
+\\
+{\bf\underline {Mệnh đề 6:}}
+\\
+ {\it Cho $u \in C^0(\Omega)$.  Khi đó nếu 	
+$$
+u(y) \le ( \ge )\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {u(x)dS(x)},\quad\forall B(y,r) \subset  \subset \Omega 
+$$
+thì u là subharmonic (superhamonic).}
+\\
+{\bf Chứng minh:}
+
+Lấy $B(y_0,R) \subset  \subset \Omega $ bất kì, $h\in C^0(\overline{B(y_0,R)}$  là harmonic trong $B(y_0,R)$ và thỏa mãn $u \le h$ trên $\partial B(y_0,R)$.  Ta cần chứng minh $u\le h$ trong $B(y_0,R)$.
+
+Đặt $w=u-h.$ Khi đó  $\forall  B(y,r) \subset  \subset B(y_0,R)$ ta có:
+$$
+u(y) \le\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {u(x)dS(x)} 
+$$
+$$
+h(y) =\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {h(x)dS(x)} 
+$$
+
+Suy ra
+$$ w(y)=u(y)-h(y) \le\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {w(x)dS(x)} $$
+
+Như vậy
+$$ w(y)\le\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {w(x)dS(x)},\quad\forall  B(y,r) \subset \subset B(y_0,R) $$
+
+Nhắc lại mệnh đề 3:
+
+Lấy $w \in C (\overline\ell  ) $ thỏa mãn:
+$$w(y) \le \frac{1}{{\omega _n r^n }}\int\limits_{B(y,r)} {w(x)dx}, \quad \forall B(y,r) \subset\subset\ell $$
+
+ Nếu $\ell $ bị chặn thì ta có: $\mathop {\sup }\limits_\ell  w = \mathop {\sup }\limits_{\partial \ell } w$
+ 
+Chọn $\ell=B(y_0,R)$, ta có: $$\mathop {\sup }\limits_{B(y_0 ,R)} {\rm{w(y) = }}\mathop {{\rm{sup}}}\limits_{\partial {\rm{B(y}}_{\rm{0}} ,R)} {\rm{w(y) = }}\mathop {{\rm{sup}}}\limits_{\partial {\rm{B(y}}_{\rm{0}} ,R)} (u(y) - h(y)) = 0$$
+
+Vậy $w\le 0$ trên $B(y_0,R)$ hay $u\le h$ trên $B(y_0,R)$ (đpcm) $\blacksquare$
+\\
+
+Từ mệnh đề 1 và mệnh đề 6 ta có:
+\\
+{ \underline {\bf Mệnh đề 7:}} 
+\\
+{\it Cho $u \in C^0(\Omega)$.  Khi đó u subharmonic(superharmonic) trên $\Omega$ nếu và chỉ nếu 	
+$$
+u(y) \le ( \ge )\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {u(x)dS(x)},\quad\forall B(y,r) \subset  \subset \Omega 
+$$}
+\\
+{ \bf \underline {Mệnh đề 8:}}
+\\
+{\it
+$(i)$ Cho $u,v \in C^0(\Omega)$ và $u,v$ subharmonic(superharmonic) trên $\Omega$ thì $u+v$ cũng subharmonic trên $\Omega.$ 	\\
+$(ii)$ $u$ subharmonic thì $\lambda u$ subharmonic với mọi $\lambda >0$\\
+$(iii)$ Cho $u_1,u_2,...,u_n \in C^0(\Omega)$  và  $u_1,u_2,...,u_n$ subharmonic(superharmonic)  trên $\Omega$ thì 
+$$u(x)=max\{u_1(x),...,u_n(x)\}$$ cũng subharmonic trên $\Omega.$ }
+\\
+{\bf {Chứng minh:}}
+\\
+ $(i)$ Lấy $u,v$ subharmonic ta chứng minh $u+v$ subharmonic, do mệnh đề 7 nên ta cần chứng minh:
+ $$
+ (1)\quad(u+v)(y) \le\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {(u+v)(x)dS(x)} ,\forall B(y,r) \subset  \subset \Omega 
+$$
+$u,v$ subharmonic nên theo mệnh đề 7 ta có: 
+ $$
+(2)\quad u(y) \le\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {u(x)dS(x)},\quad\forall B(y,r) \subset  \subset \Omega 
+$$
+ $$
+(3)\quad v(y) \le\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {v(x)dS(x)} ,\quad\forall B(y,r) \subset  \subset \Omega 
+$$
+
+Cộng (2) và (3) vế theo vế suy ra (1)
+\\
+ $(ii)$ Lấy $u$ subharmonic và $\lambda>0$, chứng minh $\lambda u$ subharmonic.
+ 
+ Theo mệnh đề 7 ta cần chứng minh 
+ $$
+(1)\quad \lambda u(y) \le\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {\lambda u(x)dS(x)},\quad\forall B(y,r) \subset  \subset \Omega 
+$$
+
+Vì u subharmonic nên theo mệnh đề 7 ta có:
+$$
+(2)\quad u(y) \le\frac{1}{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(y,r)} {u(x)dS(x)} \quad,\forall B(y,r) \subset  \subset \Omega 
+$$
+
+Ta có (2) nên có (1)
+\\
+$(iii)$ Lấy $u_1,u_2,...,u_n \in C^0(\Omega)$  và  $u_1,u_2,...,u_n$ subharmonic  trên $\Omega$. Đặt 
+$$(1)\quad u(x)=max\{u_1(x),...,u_n(x)\}$$ 
+
+Ta cần chứng minh u cũng subharmonic trên $\Omega.$
+
+Lấy $B(y,r) \subset  \subset \Omega$ và  $h \in C^0(\overline {B(y,r)}) \cap C^2({B(y,r)}) $ thỏa mãn:
+\\
+$(2)$ $h$ harmonic trong $B(y,r).$
+\\
+$(3)$ $u \le h$ trên $\partial B(y,r)$
+
+Ta cần chứng minh $u\le h$ trong B(y,r).
+
+Từ (1) và (3) suy ra $u_i(x)\le h(x)$  trên $\partial B(y,r)$ ,$\forall i \in 1,...,n$. Vì các $u_i$ sub harmonic cho nên:  $u_i(x)\le h(x)$  trên $B(y,r)$ ,$\forall i \in 1,...,n$.
+
+Do đó $u(x)=max\{u_1(x),...,u_n(x)\} \le h(x)$ trong B(y,r). $\blacksquare$
+\\
+(*Ghi chú: Ta cũng có thể dễ dàng chứng minh mệnh đề (iii) theo kiểu tích phân như (i),(ii))
+\\
+\\
+{ \bf\underline{Mệnh đề 9:}}
+\\
+{\it Cho $\Omega$ bị chận, $u,v \in C(\overline \Omega  )$ và $u$ subharmonic, v superharmonic trong  $\Omega$, giả sử $v\ge u$ trên $\partial \Omega$. Khi đó hoặc $v>u$ trong $\Omega$ hoặc  $v \equiv u$}
+\\
+{ \bf{Chứng minh:}}
+\\
+$ \bullet$ Trước hết ta chứng minh $-v$ subharmonic   $\quad(1)$
+
+Lấy $B(y,r) \subset  \subset \Omega$ và  $h \in C^0(\overline {B(y,r)}) \cap C^2({B(y,r)}) $ thỏa mãn:\\
+$(2)$ $h$ harmonic trong $B(y,r).$\\
+$(3)$ $-v \le h$ trên $\partial B(y,r)$
+
+Ta cần chứng minh $-v \le h$ trong B(y,r).
+
+Thật vậy, từ (3) ta có  $v \ge -h$ trên $\partial B(y,r)$, chú ý $h$ harmonic thì $-h$ harmonic và do v superharmonic cho nên $v \ge -h$ trên $ B(y,r)$ hay  $-v \le h$ trong B(y,r).
+\\
+$ \bullet$ Như vậy $u$ và $-v$ subharmonic nên theo mệnh đề 8 suy ra $u-v$ subharmonic  $\quad(4)$
+
+Áp dụng mệnh đề 5 ta có:
+$$\mathop {\sup }\limits_\Omega  (u-v) = \mathop {\sup }\limits_{\partial \Omega } (u-v)\le 0$$
+(do $u-v\le 0$ trên $\partial \Omega$)
+
+Như vậy $u\le v$ trên $\Omega$. Giả sử tồn tại $x_0  \in \Omega $ sao cho $v(x_0)=u(x_0)$ ta cần chứng minh $v \equiv u$ trên $\Omega$. Thật vậy, vì $(u-v)(x_0)=\sup\limits_\Omega  (u-v)=0$. do đó áp dụng mệnh đề 4 thì $u-v$ phải  là hàm hằng trên $\Omega$. Suy ra $u-v \equiv (u-v)(x_0) \equiv 0$ $\blacksquare$
+\\
+\\
+{ \bf\underline{Mệnh đề 10:}}
+\\
+{\it Cho u là hàm subharmonic trên $\Omega$ và quả cầu $B \subset  \subset \Omega$. Kí hiệu $\overline u $ là hàm điều hòa trong B (cho bởi tích phân Poisson của u trên $\partial B$) thỏa mãn $\overline u=u$ trên $\partial B$\\
+Chúng ta định nghĩa trong $\Omega$ hàm harmonic lifting của $u$ như sau:
+\[
+(1)\quad U(x) = \left\{ \begin{array}{l}
+ \overline u (x),\quad\forall x \in B \\ 
+ u(x),\quad\forall x \in \Omega \backslash B \\ 
+ \end{array} \right.
+\]
+Khi đó U là hàm subharmonic trong $\Omega$ và $u\le U$ trong $\Omega$.}\\
+{\bf {Chứng minh:}}\\
+$ \bullet$ Do $\overline u  \in C^0 (\overline B )$,$u \in C^0(\Omega) $ và $\overline u  = u$  trên $\partial B$ nên $U\in C^0(\Omega)$
+\\
+$ \bullet$ Ta chứng minh $u\le U$ trong $\Omega$, thật vậy do $\overline u$ điều hòa trong B, $u=\overline u$ trên $\partial B$ và u subharmonic nên $u\le \overline u$ trong B. Suy ra  $u\le U$ trong $\Omega$
+\\
+$ \bullet$ Ta chứng minh U là hàm subharmonic
+
+Xét một quả cầu tùy ý  $B' \subset  \subset \Omega$ và h là một hàm điều hòa trong $B'$ sao cho $U\le h$ trên $\partial B'$. Ta cần chứng minh $U\le h$ trong $B'$.
+
+Do $u\le U$ trong $\Omega$ nên $u\le h$ trên $\partial B$, mà $u$ subharmonic nên $u\le h$ trong $B'$, kết hợp điều này với (1) ta có $U\le h$ trong  $B'\backslash B\quad(2)$
+
+Vì $\partial (B \cap B') \subset \partial B' \cup (B'/B)$ nên suy ra $U\le h$ trên $\partial(B\cap B')$
+
+Đặt $ w=U-h$ thì w harmonic trong $B'\cap B$ và $w\le 0$ trong trên $\partial (B'\cap B)$ do đó $w\le 0$ trong $B'\cap B$ (nguyên tắc cực đại)$\quad(3)$
+
+Từ (2) và (3) suy ra $U\le h$ trong B' (đpcm) $\blacksquare$
+\\
+\\
+{\bf \underline{Định nghĩa:}} 
+\\
+{\it Lấy $\Omega$ là tập mở, liên thông, bị chận trong $R^n$ và $\phi$ là một hàm số bị chận trên $\partial \Omega$. Một hàm  subharmonic $u\in C^0(\overline \Omega)  $ được gọi là subfunction theo $\phi$ nếu $u\le \phi$ trên $\partial \Omega$.}
+\\
+
+Kí hiệu  $S_{\phi}$  là tập hợp tất cả các subfunction theo $\phi$. Sau đây là kết quả cơ bản trong phương pháp của Perron:\\
+{\bf \underline{Định lí 2.12:}}
+\\
+{\it Đặt $u(x) = \mathop {\sup }\limits_{v \in S_\phi  } v(x),\forall x\in \overline \Omega$. Khi đó u điều hòa trong $\Omega$}\\
+{\bf Chứng minh:}
+\\
+$ \bullet $  Lấy $x\in \overline \Omega$ bất kì, ta luôn có $
+v(x) \le \mathop {\sup }\limits_{\partial \Omega } v \le \mathop {\sup }\limits_{\partial \Omega } \phi ,\forall v \in S_\phi  $, do đó hàm u xác định trên $\Omega$. (dấu "$\le$" thứ nhất là do v harmonic trong $\Omega$, dấu "$\le$" thứ hai là do $v\le \phi$ trong $\partial \Omega$)
+\\
+$ \bullet$ Lấy y bất kì trong $\Omega$ , do định nghĩa hàm u nên tồn tại một dãy $
+{\rm{\{ }}v_n {\rm{\} }} \subset S_\phi  $ sao cho ${v_n(y)}$ hội tụ về $v(y)$     $\quad (1)$
+
+Lấy $R$ sao cho $B = B_R (y) \subset  \subset \Omega $. Ta luôn có thể giả sử $\{v_n\}$ là một dãy hàm điều hòa, bị chận trong B. Thủ thuật như sau:
+
+* Chú ý $v=\mathop {{\rm{inf}}}\limits_{\partial \Omega } \phi$ là hàm hằng nên $v\in S_\phi$ do vậy $max\{v_n,v\}\in S_\phi$ . Ta có $v_n\le max\{v_n,v\}\le u$. Do (1) nên theo định lí kẹp ta có $max\{v_n(y),v(y)\}$ hội tụ về $u(y)$. Vì vậy bằng việc thế chỗ $v_n$ bởi $max\{v_n(y),v(y)\}$ ta luôn có thể giả sử 
+$\mathop {{\rm{inf}}}\limits_{\partial \Omega } \phi  \le v_n  \le \mathop {\sup }\limits_{\partial \Omega } \phi ,\forall n$. $\quad (2)$
+
+* Định nghĩa $V_n$ là harmonic lifting của $u$ trong $B$ khi đó $V_n$ harmonic trong $\Omega$ và $V_n\le \phi$ trên $\partial \Omega$ (do $V_n=v_n$ trên $\partial \Omega$ và $v_n\le \phi$ trên $\partial \Omega$). Vậy $V_n\in S_\phi$. Mặt khác: 
+\[
+V_n (y) = \frac{1}{{n\omega _n R^{n - 1} }}\int\limits_{\partial B} {V_n (z)dS_z }  = \frac{1}{{n\omega _n R^{n - 1} }}\int\limits_{\partial B} {v_n (z)dS_z }  \ge v_n (y)
+\]
+
+Vậy $v_n(y)\le V_n(y)\le u(y)$ kết hợp điều này với (1) suy ra $V_n(y)$ hội tụ về $u(y)$. Hơn nữa
+$V_n$ điều hòa trong B nên $
+\mathop {\inf }\limits_{\partial B } V_n  \le V_n (x) \le \mathop {\sup }\limits_{\partial B } V_n ,\forall x \in B$, lại có $\mathop {\inf }\limits_{\partial B} V_n  = \mathop {\inf }\limits_{\partial B} v_n  \ge \mathop {\inf }\limits_{\partial \Omega } \phi $ và $\mathop {\sup }\limits_{\partial B} V_n  = \mathop {\sup }\limits_{\partial B} v_n  \le \mathop {\sup }\limits_{\partial \Omega } \phi $ suy ra $
+\mathop {\inf }\limits_{\partial B } \phi  \le V_n (x) \le \mathop {\sup }\limits_{\partial B } \phi ,\forall x \in B$.
+
+Như vậy bằng việc thay thế dãy $\{v_n\}$ bởi dãy $\{V_n\}$ ta luôn có thể giả sử $\{v_n\}$ là một dãy hàm điều hòa và bị chận trong B.
+\\
+$ \bullet $ $\{v_n\}$ là một dãy hàm điều hòa và bị chận trong $B$ do đó theo định lí 2.11 luôn tồn tại $\{v_{n_k}\}\subset\{v_n\}$ hội tụ đều trong một quả cầu $B_1={B_r(y)}$ với $0<r<R$ đến một hàm điều hòa $v$ trong B.  Kết hợp điều này với $v_n\le u,\forall n$ và $v_n(y)$ hội tụ về u(y) suy ra $v\le u$ trong $B_1$ và $v(y)=u(y) \quad (3)$
+
+Để chứng minh $u$ điều hòa trong $\Omega$ ta chỉ cần chứng minh $u=v$ trong $B_1$ là xong. 
+
+Giả sử ngược lại, tức có một $z\in B_1$ sao cho $v(z)<u(z)$ khi đó tồn tại $\overline u\in S_\phi$ sao cho $v(z)<\overline u(z)\le u(z)$.
+
+Định nghĩa $w_k=max\{\overline u,v_{n_k}\}\in S_\phi$ và $W_k$ là harmonic lifting của $w_k$ trong $B_1$. Ta có $W_k\in S_\phi$ và $v_{n_k}\le w_k\le W_k\le u,\forall k.$  trong $B_1$ $\quad (4)$
+
+Từ (4) suy ra $W_k$ bị chận trong $B_1$ (bị chận dưới bởi $\mathop {{\rm{inf}}}\limits_{\partial \Omega } \varphi$, bị chận trên bởi $\mathop {{\rm{sup}}}\limits_{\partial \Omega } \varphi$). Như vậy $W_k$ là hàm điều hòa, bị chận trong $B_1$ nên theo định lí 2.11 tồn tại một dãy con $W_{k_l}$ hội tụ đều trong $B_2=B_s(y)$ (với  $\left| {y - s} \right| < s < r$) đến một hàm điều hòa w trong $B_1$. Do (4) nên $v\le w\le u$ trong $B_2$ $\quad (5)$
+
+Từ (3) và (5) suy ra $v(y)=w(y)=u(y)$. Như vậy v-w là hàm điều hòa trong $B_2$ (do $v$ và $w$ đều điều hòa), có $v-w\le 0$ trong $B_2$ (do (5)) và $(v-w)(y)=0$ do đó theo nguyên lí cực đại mạnh ta có $v=w$ trong $B_2$. Nói riêng ta có: $v(z)=w(z)$ $\quad (6)$.
+
+Mặt khác ta lại có $W_k\ge w_k\ge \overline u,\forall k$ (trong $B_1$) nên $w\ge \overline u$ trong $B_2$ , suy ra $w(z)\ge\overline u(z)> v(z)$  (mâu thuẫn (6)). $\blacksquare$
+\\
+\\
+\textit{\underline {Nhận xét:}}\\
+{\it Nếu bài toán Dirichlet giải được thì lời giải của nó phải trùng với lời giải của Perron. Nói rõ hơn, Cho $\Omega$ là một tập mở, liên thông, bị chận trong $R^n$ và $\phi$ là hàm số liên tục trên 
+$\partial \Omega $ khi đó nếu $w\in C^0(\overline \Omega)$, $\Delta {\rm{w}} = 0$ trong $\Omega$, và $w=\phi$ trên $\partial \Omega$ thì $w=u$ trong $\overline\Omega$ (trong đó  $u(x) = \mathop {\sup }\limits_{v \in S_\phi  } v(x),\forall x\in \overline\Omega$). Thật vậy, rõ ràng $w \in S_\phi$ nên $w\le u$ trong $\overline\Omega$, mặt khác, theo nguyên lí cực đại thì với mọi $v\in \Omega$ ta luôn có $(v-w)(x)\le\mathop {\sup }\limits_{\partial \Omega } (v - {\rm{w) = }}\mathop {\sup }\limits_{\partial \Omega } (v - \phi {\rm{)}} \le {\rm{0,}}\forall {\rm{x}} \in \overline\Omega $, suy ra $w\ge v$ trong $\overline\Omega,\forall v\in S_\phi$, hay $w\ge u$ trong $\overline\Omega$. Vậy w=u trong $\overline\Omega$.}
+\\
+\\
+{\bf \underline{Định nghĩa:}}
+\\{\it
+{\bf (a)} Cho $\xi$ là một điểm thuộc $\partial \Omega $ . Khi đó hàm $w = {w_\xi } \in {C^0}\left( {\overline \Omega  } \right)$ được gọi là một barrier tại $\xi $ liên hệ với $\Omega $ nếu thoả mãn hai điều kiện sau:\\
+(i)       $w$ là superharmonic trong $\Omega $ \\
+(ii)       $w > 0$ trong $\overline \Omega  \backslash \xi $ , $w\left( \xi  \right) = 0$ .\\
+{\bf (b)} $\xi \in \partial \Omega$ được gọi là regular nếu tồn tại một barrier w tại điểm đó.}
+\\
+
+Khái niệm barrier có tính chất địa phương, điều đó được thể hiện qua mệnh đề sau đây:
+\\
+{\bf \underline {Mệnh đề:}}
+\\
+{\it
+Lấy $w$ là một local barrier tại $\xi \in \partial \Omega$, nghĩa là tồn tại một  lân cận $N$ của $\xi$ sao cho $w$ là một barrier tại $\xi$ ứng với $\Omega  \cap N$. Chọn $B=B_r(\xi) \subset  \subset N$ sao cho $\overline {N \cap \Omega } \backslash B \ne \emptyset $ . Đặt:
+$m = \mathop {{\rm{inf}}}\limits_{\overline {N \cap \Omega } \backslash B} {\rm{w}}$. Đặt:
+  \[\overline w \left( x \right) = \left\{ {\begin{array}{*{20}{c}}
+   {\min \left( {m,w\left( x \right)} \right)} & {,x \in \overline \Omega   \cap B}  \\
+   m & {,x \in \overline \Omega  \backslash B}  \\
+\end{array}} \right.\] \\
+Chứng minh rằng $\overline w$ là một barrier của $\xi$ liên hệ với $\Omega$ .}\\
+{\bf Chứng minh:}
+\\
+$ \bullet$ Trước hết ta chứng minh có $B=B_r(\xi) \subset  \subset N$ sao cho $\overline {N \cap \Omega } \backslash B \ne \emptyset $, thực vậy do $\xi \in \partial \Omega$ và $N$ là lân cận của $\xi$ nên tồn tại $x\in \Omega$ và $x\in N$. Chọn $B=B_r(\xi)$ với $0<r<|x-\xi|$. Ta có $x\in \overline {N \cap \Omega } \backslash B$ nên $\overline {N \cap \Omega } \backslash B \ne \emptyset$
+\\
+$ \bullet$ Với B được chọn như trên ta chứng minh $$m = \mathop {{\rm{inf}}}\limits_{\overline {N \cap \Omega } \backslash B} {\rm{w}}>0.\quad (1)$$
+
+Thật vậy, giả sử ngược lại  $m = \mathop {{\rm{inf}}}\limits_{\overline {N \cap \Omega } \backslash B} {\rm{w}}=0$ khi đó tồn tại 
+$\left\{ {x_n } \right\} \subset \overline {\Omega  \cap N} \backslash B$ sao cho $w(x_n)$ hội tụ về 0. Do $
+\overline {\Omega  \cap N} \backslash B$ đóng và bị chận trong $R^n$ nên compact nên tồn tại dãy con $\left\{ {x_{n_k } } \right\} \subset \left\{ {x_n } \right\}$ sao cho $\left\{ {x_{n_k } } \right\}$ hội tụ về $x \in \overline {\Omega  \cap N} \backslash B$. Từ đây ta suy ra $w(x)=0$ (mâu thuẫn ${\rm{w(y) > 0,}}\forall y \in \overline {N \cap \Omega } \backslash \xi $)
+\\
+$ \bullet$ Chú ý $\overline \Omega   \cap B \subset \overline {\Omega  \cap B}  \subset \overline {\Omega  \cap N}$ nên ${\overline{w}}
+$ xác định trên $\overline \Omega$
+\\
+$\bullet$ Để chứng minh $\overline w$ là một barrier của $\xi$ liên hệ với $\Omega$, ta cần chứng minh những điều sau đây:
+$(i)$ $\overline {\rm{w}}  \in C^0 (\overline \Omega  )$\\
+$(ii)$ $\overline w$ superharrmonic trong $\Omega$\\
+$(iii)$ $\overline w>0$ trong $\Omega \backslash \xi $ và $\overline w(\xi)=0$\\\\
+$*$  \underline {Chứng minh (i):}
+
+Ta sử dụng tính chất sau: Nếu A,B đóng và f liên tục trên A,B thì f liên tục trên $A \cup B$. Do đó để chứng minh $\overline w$ liên tục trên $\overline \Omega$ ta chỉ cần chứng minh $\overline w$ liên tục trên $\overline {\Omega  \cap B} $ và $\overline w$ liên tục trên $\overline \Omega  \backslash B$ là xong.
+
+Vì $\overline w$ là hàm hằng trên $\overline \Omega  \backslash B$ nên liên tục trên $\overline \Omega  \backslash B$.
+
+Bây giở ta sẽ chứng minh $\overline w$ liên tục trên $\overline {\Omega  \cap B} $. Lấy $x\in \overline {\Omega  \cap B}$ cần chứng minh $\overline w$ liên tục tại $x.$ Ta chia làm hai trường hợp:
+\\
++ Trường hợp 1: $x \in \overline \Omega   \cap B$, lấy $\left\{ {x_n } \right\} \in \overline {\Omega  \cap B}$ và $\{x_n\}$ hội tụ về $x$. Chứng minh $\overline w(x_n)$ hội tụ về $\overline w(x)$. Thật vậy, do $x\in B$ và B mở nên có $B_r(x)\subset B$, Vì $\{x_n\}$ hội tụ về $x$ nên tồn tại N sao cho $x_n\in B_r(x),\forall n\ge N$. Như vậy $x_n\in \overline \Omega\cap B,\forall n\ge N$ và $x_n$ hội tụ về $x\in  \overline \Omega   \cap B$ suy ra $\overline w(x_n)$ hội tụ về $\overline w(x)$ (do $\overline w$ liên tục trên $\overline \Omega \cap B$)\\\\
++ Trường hợp 2: Nếu $x \in \overline {\Omega  \cap B} /(\overline \Omega   \cap B)$. Lấy $\varepsilon  > 0$ tìm $\delta (\varepsilon ) > 0$ sao cho \[
+\left| {\overline {\rm{w}} {\rm{(y) - }}\overline {\rm{w}} {\rm{(x)}}} \right| < \varepsilon ,\forall y \in \overline {\Omega  \cap B} :\left| {y - x} \right| < \delta (\varepsilon )
+\]
+
+Nếu $y \in \overline \Omega  \backslash B$ thì $\left| {\overline {\rm{w}} {\rm{(y) - }}\overline {\rm{w}} {\rm{(x)}}} \right|=0<\varepsilon.$ 
+
+Nếu $y \in \overline \Omega   \cap B$ thì \[
+\begin{array}{l}
+ \left| {\overline {\rm{w}} (x) - \overline {\rm{w}} (y)} \right| = \left| {m - \overline {\rm{w}} (y)} \right| = m - \min (m,{\rm{w(y)}} 
+ {\rm{ = max\{ 0,m - w(y)\} }} \le {\rm{max\{ 0,w(x) - w(y)\} }} \\ 
+ \end{array}
+\]
+
+Vì $w$ liên tục trên $\overline {\Omega  \cap {\rm{B}}} $ nên tồn tại $\delta '(\varepsilon )$ sao cho \[
+\left| {{\rm{w(x) - w(y)}}} \right| < \varepsilon ,\forall y \in \overline {\Omega  \cap B} :\left| {y - x} \right| < \delta '(\varepsilon )
+\]
+
+Chọn $\delta (\varepsilon ) = \delta '(\varepsilon ).$
+\\
+$*$ \underline{Chứng minh $(ii):$}
+
+Xét một quả cầu tùy ý $B' \subset  \subset \Omega $ và một hàm $h \in C^0 (B') \cap C^2 (B')$ điều hòa trong $B'$ sao cho $\overline {\rm{w}}  \ge h$ trên $\partial B'$. Ta cần chứng minh $\overline {\rm{w}}  \ge h$ trong $ B'$. Thật vậy:
+
+Vì $\overline {\rm{w}}  \le m$ trong $\Omega$ cho nên $h\le m$ trên $\partial B'$. Do đó theo nguyên lí cực đại thì $h\le m$ trong $B'$. Suy ra $h\le \overline w$ trong $B'\backslash B \quad (2)$
+
+Vì $\partial (B' \cap B) \subset \partial B' \cup (B'\backslash B)$ nên suy ra $h\le \overline w$ trên $\partial(B'\cap B)$, trong $B' \cap B$ ta có $m,w$ là superharmonic  trong $B' \cap B$ nên $\overline w=\min(m,w)$ cũng superharrmonic  trong $B' \cap B$ do đó theo nguyên lí cực đại thì $h\le \overline w$ trong $B'\cap B \quad (3)$
+
+Từ (2) và (3) suy ra $\overline {\rm{w}}  \ge h$ trong $ B'$ (đpcm)
+\\
+$*$ \underline {Chứng minh $(iii)$:}
+
+Do $m>0$, $w>0$ trong $\overline \Omega   \cap B/\xi $ và $w(\xi)=0$ nên theo định nghĩa của $\overline w$ ta suy ra  $\overline w>0$ trong $\Omega \backslash \xi $ và $\overline w(\xi)=0$. $\blacksquare$
+\\
+\\
+{\bf \underline{Bổ đề 2.13:}}
+\\
+{\it
+Cho $u$ là một hàm điều hòa định nghĩa trong $\Omega $ bởi phương pháp Perron (định lý 2.12):  $u(x) = \mathop {\sup }\limits_{v \in S_\varphi  } v$.\\
+ Nếu $\xi $ là một điểm biên regular của $\Omega $ và $\varphi $ liên tục tại $\xi$ thì $u\left( x \right) \to \varphi \left( \xi  \right)$ khi $x \to \xi $ .}
+ \\
+{\bf Chứng minh:}
+
+Cho $\varepsilon  > 0$ tùy ý. Do $\varphi$ bị chặn nên có $M = \mathop {\sup }\limits_{x \in \partial \Omega } \left| \varphi  \right|\quad {\bf (1)}$.
+
+Ta có $\varphi $ liên tục tại $\xi$ nên  $\exists \delta  > 0$ sao cho $\left| {\varphi \left( x \right) - \varphi \left( \xi  \right)} \right| < \varepsilon $ $,\forall x \in \partial \Omega: $ $\left| {x - \xi } \right| < \delta $ $\quad (2)$
+
+$\xi $ là điểm biên regular nên tồn tại một barrier $w$ tại $\xi $ . Theo định nghĩa:
+\\
+ $ \bullet {\rm{ }}w \in {C^0}\left( {\overline \Omega  } \right)$ là superharmonic $\quad (3)$
+\\
+$ \bullet {\rm{ }}w > 0$ trong $\overline \Omega  \backslash \xi \quad (4)$
+\\
+$ \bullet {\rm{ }}w\left( \xi  \right) = 0$ 	$\quad (5)$
+
+Chú ý $\mathop {\min }\limits_{x\in\overline \Omega  \backslash B\left( {\xi ,\delta } \right)} w(x)>0$ nên tồn tại k đủ lớn ( $k = \frac{{2M}}{{\mathop {\min }\limits_{x\in\overline \Omega  \backslash B\left( {\xi ,\delta } \right)} w(x)}}$)
+sao cho $$kw\left( x \right) \ge k.\mathop {\min }\limits_{x\in\overline \Omega  \backslash B\left( {\xi ,\delta } \right)} w(x)\ge 2M{\rm{ }}, \quad\forall \left| {x - \xi } \right| \ge \delta \quad (6)$$
+
+Đặt
+\[f\left( x \right) = \varphi \left( \xi  \right) + \varepsilon  + kw\left( x \right) \] 
+\[g\left( x \right) = \varphi \left( \xi  \right) - \varepsilon  - kw\left( x \right) \] 
+
+Ta có $f,g \in {C^0}\left( \Omega  \right)$ tương ứng là các hàm superharmonic và subharmonic. $\quad (7)$.
+
+Hơn nữa, vì (2) nên $$\left| {\varphi \left( x \right) - \varphi \left( \xi  \right)} \right| < \varepsilon\le \varepsilon+kw(x)  \forall x \in \partial \Omega:\left| {x - \xi } \right| < \delta $$
+
+Vì (1) và (6) nên $$\left| { \varphi (x)-\varphi (\xi ) } \right| \le 2M \le k{\rm{w(x),}}\forall {\rm{x}} \in \partial \Omega {\rm{:}}\left| {{\rm{x - }}\xi } \right| \ge \delta $$
+
+Do đó: 
+\[
+\left| {\varphi (x)-\varphi (\xi ) } \right| \le \varepsilon  + k{\rm{w(x),}}\forall {\rm{x}} \in \partial \Omega \quad {\bf (8)}
+\]
+
+Từ (8) suy ra:  \[
+\varphi (\xi ) - \varepsilon  - k{\rm{w(x)}} \le \varphi (x) \le \varphi (\xi ) + \varepsilon  + k{\rm{w(x),}}\forall {\rm{x}} \in \partial \Omega 
+\]
+
+Hay $g \le \varphi  \le f$  trên $\partial \Omega \quad (9)$
+
+Từ (7) và (9) suy ra $f,g$ tương ứng là các superfunction và subfunction theo $\varphi \quad (10)$
+
+Ta có nhận xét: Một hàm g subfunction theo $\phi$ trên $\Omega$ luôn bé hơn hoặc bằng một hàm f superfunction theo $\phi$ trên $\Omega$. Thật vậy theo định nghĩa ta có $g\le \phi \le f$ trên $\partial \Omega$, lưu ý $g-f$ subharmonic nên $g-f\le \mathop {\sup}\limits_{\partial \Omega } (g -f) \le 0$ trên $\Omega$ (nguyên lí cực đại)
+
+Kết hợp nhận xét trên với (9) và định nghĩa của $u$ suy ra $g \le u \le f$ trong $\Omega$. Viết rõ ra là:
+\[
+\varphi (\xi ) - \varepsilon  - k{\rm{w(x)}} \le {\rm{u(x)}} \le \varphi {\rm{(}}\xi {\rm{) + }}\varepsilon {\rm{ + kw(x)}}
+\]
+trong $\Omega$, hay
+\[\left| {u\left( x \right) - \varphi \left( \xi  \right)} \right| \le \varepsilon  + kw\left( x \right){\rm{ }},\forall x \in \overline \Omega  \]
+
+Mặt khác, do (3),(5) thì $w\left( x \right) \to w\left( \xi  \right) = 0$  khi $x \to \xi $  cho nên tồn tại một $\delta ' > 0$ sao cho $\left| {kw\left( x \right)} \right| < \varepsilon $  khi  $x \in \overline \Omega  ,\left| {x - \xi } \right| < \delta '$.
+Suy ra $\left| {u\left( x \right) - \varphi \left( \xi  \right)} \right| \le 2\varepsilon ,\forall x\in \Omega:\left| {x - \xi } \right| < \delta '$.
+Vậy $u\left( x \right) \to \varphi \left( \xi  \right)$ khi $x \to \xi$ $\blacksquare$
+\\
+\\
+\textbf{\underline{Định lý 2.14:}}
+\\
+\textit{
+Bài toán Dirichlet cho miền mở, liên thông, bị chặn
+có nghiệm với mọi hàm giá trị biên liên tục khi và chỉ khi mọi điểm biên đều regular.
+}
+\\
+\textbf{Chứng minh:}
+
+Nếu mọi điểm biên đều regular và hàm giá trị biên liên tục thì theo định lý 2.12 và
+bổ đề 2.13, tồn tại một hàm điều hòa thỏa mãn bài toán điều kiện biên.
+
+Giả sử ngược lại, bài toán Dirichlet trên miền mở, liên thông, bị chặn $\Omega$ luôn có nghiệm với mọi hàm giá trị biên liên tục.
+
+Khi đó, xét điểm $\xi$ thuộc $\partial \Omega$ bất kì, xét hàm  $\varphi \left( x \right) = \left| {x - \xi } \right|$, ta có $\varphi$ là hàm liên tục trên $\partial \Omega$.
+
+Giả sử u là nghiệm của bài toán Dirichlet với giá trị biên $\varphi$ khi đó theo nguyên lý cực đại( chú ý là ta giả thiết $\Omega$ liên thông), ta có u luôn dương trên $\Omega$ và do đó ta có u là barrier tại $\xi$ theo $\Omega$. $\blacksquare$
+\\
+
+Vấn đề là đối với một miền $\Omega$ cho trước, ta tìm một điều kiện cần để điểm biên $\xi$ là điểm regular.
+
+Ta xét trường hợp không gian $R^2$, tập mở liên thông, bị chặn $\Omega$ và điểm biên $z_0$. Không mất tính tổng quát ta có thể giả sử $z_0 = 0$ và xét các tọa độ cực r, $\theta$.
+
+Giả sử rằng tồn tại một lân cận N của $z_0$ sao cho tồn tại một nhánh đơn trị của $\theta$ xác định liên tục trên $\overline {N \cap \Omega } \backslash {\rm{\{ z}}_{\rm{0}} {\rm{\} }}$.
+
+Khi đó ta biết rằng hàm $\frac{1}{{\log z}} $ khả vi trên $N \cap \Omega$ nên hàm 
+\[
+w =  - Re\frac{1}{{\log z}} =  - \frac{{\log r}}{{\log ^2 r + \theta ^2 }}
+\]
+là hàm điều hòa trên $N \cap \Omega$.
+
+Giả sử thêm rằng N nằm trong $B\left( z_0, 1 \right)$, lúc đó w luôn không âm.
+
+Ta còn có w liên tục trên $\overline {N \cap \Omega } \backslash {\rm{\{ z}}_{\rm{0}} {\rm{\} }}$, ta chỉ còn phải chứng minh w liên tục tại $z_0$( tại đó ta xác định w bằng 0).
+
+Ta cần chứng minh 
+\[
+\frac{{\log r}}{{\log ^2 r + \theta ^2 }} \to 0
+\]
+khi $r \to 0$ và $\theta$ bị chặn.
+
+Điều này tương đương với \[
+\frac{1}{{\log r + \frac{{\theta ^2 }}{{\log r}}}} \to 0
+\]
+(đúng)
+
+Vậy w đúng là barrier tại $z_0$.
+
+Ngoài ra nếu tồn tại một tập con A của $N \cap \Omega$ sao cho $z_0$ là điểm biên của A, và $N \cap \Omega \backslash A = B$ thỏa mãn $ \overline{A}\cap \overline{B} = \emptyset$ ( chú ý bao đóng được lấy trong $R^n$), và tồn tại một nhánh đơn trị của $\theta$ xác định liên tục trên $\overline {A} \backslash {\rm{\{ z}}_{\rm{0}} {\rm{\} }}$.
+
+Khi đó, theo trên ta đã xác định được w trên A, còn trên tập B ta chỉ cần định nghĩa w = 1.
+
+Xét trường hợp không gian $R^n$ với $n \ge 2$, nếu điểm $\xi$ thuộc biên của $\Omega$ thỏa mãn the exterior sphere condition, tức là tồn tại một quả cầu $B = B(y,r)$ thỏa mãn $ \overline{B} \cap \overline{\Omega} = \xi $ thì $\xi$ là điểm regular, với hàm barrier được cho bởi 
+\begin{displaymath}
+w(x) = \left\{ \begin{array}{ll}
+ R^{2 - n}  - \left| {x - y} \right|^{2 - n} & {\rm{\qquad n}} \ge {\rm{3}} \\ 
+ \log \frac{{\left| {x - y} \right|}}{R} & {\rm{\qquad n = 2}} \\ 
+ \end{array} \right.
+\end{displaymath}
+
+Thực vậy, ta thấy theo kết quả trong quá trình tìm lời giải cơ bản của phương trình Laplace, thì hàm \begin{displaymath}
+\varphi (x) = \left\{ \begin{array}{ll}
+ \left| {x - y} \right|^{2 - n} & {\rm{\qquad n}} \ge {\rm{3}} \\ 
+ \log \frac{{\left| {x - y} \right|}}{R} &{\rm{\qquad n = 2}} \\ 
+ \end{array} \right.
+\end{displaymath}
+là hàm điều hòa trên $R^n \backslash {\rm{\{ y\} }}$, nên hàm $\omega$ điều hòa trên $\Omega$.
+
+Các điều kiện khác của barrier được kiểm chứng dễ dàng.

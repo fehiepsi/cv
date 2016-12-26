@@ -1,0 +1,68 @@
+\begin{center}
+\textbf{2.3. BẤT ĐẲNG THỨC HARNACK}
+\end{center}
+
+Bên cạnh nguyên lý cực đại và cực tiểu, định lý 2.1 còn cho ta một kết quả khác (\textbf{bất đẳng thức Harnack}) như sau:
+\\
+\textbf{\underline{Định lý 2.5:}}
+\\
+\textit{Cho $u$ là hàm điều hòa không âm trên $\Omega$. Khi đó với mọi miền bị chận $\Omega'\subset\subset \Omega$, tồn tại hằng số C chỉ phụ thuộc vào $n$, $\Omega'$ và $\Omega$ sao cho}
+\[ \mathop {\sup }\limits_{\Omega '} u \le C\mathop {\inf }\limits_{\Omega '} u \]
+\textbf{{Chứng minh:}}
+
+Lấy $y\in\Omega$ và chọn R sao cho $B_{4R}(y)\subset\Omega$. Khi đó với $x_{1}, x_{2}\in B_{R}(y)$, ta có:
+\[
+u(x_1 ) = \frac{1}{{\omega _n R^n }}\int\limits_{B_R (x_1 )} {u dx}  \le \frac{1}{{\omega _n R^n }}\int\limits_{B_{2R} (y)} {u dx} 
+\]
+
+\[
+u(x_2 ) = \frac{1}{{\omega _n (3R)^n }}\int\limits_{B_{3R} (x_2 )} {udx}  \ge \frac{1}{{\omega _n (3R)^n }}\int\limits_{B_{2R} (y)} {udx} 
+\]
+
+\[
+\int\limits_{B_{3R} (x_2 )} {udx}  = 3^n \int\limits_{B_R (x_2 )} {udx} 
+\]
+
+Suy ra \[\mathop {\sup }\limits_{B_R (y)} u \le 3^n \mathop {\inf }\limits_{B_R (y)} u\]   
+
+Lấy $\Omega'\subset\subset\Omega$ và chọn $x_{1}, x_{2}\in\overline{\Omega'}$ sao cho
+\[ u(x_1) = \mathop {\sup }\limits_{\Omega '} u\]
+\[ u(x_2) = \mathop {\inf }\limits_{\Omega '} u \]
+
+Đặt $d = dist(\Omega', \partial\Omega)$. Do $\Omega'$ là miền bị chận nên tồn tại $M$ quả cầu $B_1, B_2, ..., B_M$ với bán kính $d/8$ sao cho
+\[\overline{\Omega'} \subset \bigcup\limits_{i = 1}^M {{B_i}} \]
+đồng thời do nhận xét trên, trong mỗi quả cầu $B_i$, ta luôn có
+\[ \mathop {\sup }\limits_{B_i} u \leq 3^n \mathop {\inf }\limits_{B_i} u\]
+
+Trước hết lấy một quả cầu chứa $x_1$ (xem như đó là quả cầu $B_1$), lúc đó thì:
+\[u(x_1) \leq \mathop {\sup }\limits_{B_1} u \leq 3^n \mathop {\inf }\limits_{B_1} u\]
+
+Ta sẽ xây dựng một cách quy nạp như sau: Nếu $B_1$ không chứa $x_2$, chọn quả cầu, gọi là $B_2$ sao cho $B_1 \cap B_2$ khác rỗng. Ta hoàn toàn có thể chọn quả cầu $B_2$ như thế vì nếu không, ta sẽ có
+\[\Omega' = (B_1 \cap \Omega') \cup ( \bigcup\limits_{i = 2}^M {{B_i}}\cap \Omega')\] 
+nghĩa là $\Omega'$ có thể được phân tích thành tích của hai tập mở không trống rời nhau, điều này trái với tính liên thông của $\Omega'$.
+
+Tuy nhiên, từ cách xây dựng, ta có
+\[
+\mathop{\inf u}\limits_{B_1} \leq \mathop{\sup u}\limits_{B_2}\]
+\[\mathop{\inf u}\limits_{B_2} \leq \mathop{\sup u}\limits_{B_1}
+\]
+nên nếu $max \lbrace\mathop{\inf u}\limits_{B_1}, \mathop{\inf u}\limits_{B_2} \rbrace = \mathop{\inf u}\limits_{B_1}$
+\[\mathop{\inf u}\limits_{B_1} \leq \mathop{\sup u}\limits_{B_2} \leq 3^n \mathop{\inf u}\limits_{B_2} \leq 3^n \mathop{\inf u}\limits_{B_1 \cup B_2}\]
+
+Tương tự với $max \lbrace\mathop{\inf u}\limits_{B_1}, \mathop{\inf u}\limits_{B_2} \rbrace = \mathop{\inf u}\limits_{B_2}$, ta suy ra được
+\[max \lbrace\mathop{\inf u}\limits_{B_1}, \mathop{\inf u}\limits_{B_2} \rbrace \leq 3^n\mathop{\inf u}\limits_{B_1 \cup B_2}\]
+
+Từ những điều trên, ta thu được
+\[\mathop{\sup u}\limits_{B_1 \cup B_2} = max \lbrace\mathop{\sup u}\limits_{B_1}, \mathop{\sup u}\limits_{B_2} \rbrace 
+\leq max \lbrace\mathop{3^n\inf u}\limits_{B_1}, \mathop{3^n\inf u}\limits_{B_2} \rbrace
+=3^n max \lbrace\mathop{\inf u}\limits_{B_1}, \mathop{\inf u}\limits_{B_2} \rbrace \leq 3^{2n}\mathop{\inf u}\limits_{B_1 \cup B_2}\]
+
+Từ đây, với cách làm tương tự, nếu $B_2$ là không chứa $x_2$, ta lại chọn 1 quả cầu gọi là $B_3$, thực hiện các bước tương tự như trên ta lại có
+\[\mathop{\sup u}\limits_{B_1 \cup B_2 \cup B_3} \leq 3^{3n}\mathop{\inf u}\limits_{B_1 \cup B_2 \cup B_3}\]
+
+Tất nhiên, vì số quả cầu đã thiết lập là hữu hạn và chắc chắn phải có 1 quả cầu chứa $x_2$ nên sau một số hữu hạn $N \leq M$ bước thực hiện, ta sẽ có quả cầu $B_N$ chứa $x_2$, đồng thời cũng có
+\[\mathop{\sup u}\limits_{\bigcup \limits_{i=1}^N B_i} \leq 3^{Nn}\mathop{\inf u}\limits_{\bigcup \limits_{i=1}^N B_i}\]
+và suy ra
+\[u(x_1) \leq 3^{Nn}u(x_2) \leq 3^{Mn}u(x_2)\]
+
+Như vậy, ta thu được định lý 2.5 với $C=3^{Mn}$. $\blacksquare$

@@ -1,0 +1,3113 @@
+\documentclass[a4paper, 11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb, amsthm, graphicx, enumerate}
+\usepackage[pdftex, bookmarks, bookmarksnumbered, pdfborder={0 0 0}, colorlinks=false]{hyperref}
+
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lmm}{Lemma}[chapter]
+\newtheorem{crr}{Corollary}[chapter]
+\newtheorem{prn}{Proposition}[chapter]
+\theoremstyle{definition}\newtheorem*{rmk}{Remark}
+\renewcommand{\thesection}{\arabic{section}.}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\capa}{cap}
+\DeclareMathOperator{\dive}{div}
+
+\begin{document}
+\pagenumbering{roman}
+
+\begin{titlepage}
+\hskip -3.1cm
+\begin{tabular}[c]{lcr}
+\includegraphics[width=4cm, height=1.1in]{logouniv.pdf} 
+&\hskip 2cm
+\includegraphics[width=4cm, height=1.1in]{logopoisson.png} 
+&\hskip 2cm
+\includegraphics[width=4.5cm, height=1.2in]{cnrslogo.pdf}
+\end{tabular}
+
+\begin{center}
+\vspace{3cm}
+\textbf{\Huge Master Thesis}
+
+\vspace{2cm}
+\textbf{\Huge Phan Van Du}
+
+\vspace{2cm}
+\textit{\Huge Reduced Measures}
+
+\vspace{1cm}
+\textit{\large arcording to H. Brezis, M. Marcus $\&$ A.C. Ponce}
+
+\vspace{2cm}
+\textbf{\Large Advisor:} \textit{\Large Laurent V\'eron}
+
+\vspace{1cm}
+\textbf{\Large Defense: Wednesday June $27^{th}$, 2012}
+\end{center}
+\end{titlepage}
+
+\begin{abstract}
+\mbox{}
+\setcounter{page}{2}
+
+\begin{flushright}
+\textit{most written by Professor Laurent V\'eron}
+\end{flushright}
+Reduced measures have been introduced by Brezis, Marcus and Ponce in the study of semilinear elliptic equations in $\mathbb{R}^N$. Typical example is the following: consider the problem
+\begin{equation}\label{abs1}
+\left\{
+\begin{aligned}
+-\Delta u + g(u) &= \mu &&\text{in }\Omega,\\
+u &= 0 && \text{on }\partial \Omega,
+\end{aligned}
+\right.
+\end{equation}
+where $g:\mathbb{R}\to \mathbb{R}$ is a continuous non-decreasing function with $g(t) = 0$ for all $t \leq 0$ and $\mu$ is a bounded Borel measure in $\Omega$. It is well-known that this problem cannot be solved for any measure if $g$ has a too strong growth at infinity. The idea of reduced measure comes from the approximation of \eqref{abs1} where $g$ is replaced by $g_k$ ($k>0$), where $g_k(r) = \min\{k, g(r)\}$ for all $r \in \mathbb{R}$. The approximate problem becomes
+\[
+\left\{
+\begin{aligned}
+-\Delta u_k + g_k(u_k) &= \mu &&\text{in }\Omega,\\
+u_k &= 0 && \text{on }\partial \Omega.
+\end{aligned}
+\right.
+\]
+When $k$ increases, $u_k$ decreases and converges to some $u^*$, but $g_k (u_k)$ does not converge to $g(u^*)$. By Fatou’s Lemma, there is a loss, and finally, $u^*$ is a solution of a relaxed problem with a new measure $\mu^*$:
+\[
+\left\{
+\begin{aligned}
+-\Delta u + g(u) &= \mu^* &&\text{in }\Omega,\\
+u &= 0 && \text{on }\partial \Omega.
+\end{aligned}
+\right.
+\]
+The measure $\mu^*$ is called the reduced measure. The properties of the reduced measures have been thoroughly studied by Brezis, Marcus and Ponce.
+
+The subject of this Master thesis is to read the article of Brezis, Marcus and Ponce \cite{BMP} and to make a detailed review of their contents. The first chapter presents a result by Brezis and Strauss in 1973, which tells that \eqref{abs1} has a unique solution when $\mu \in L^1(\Omega)$. The second one makes a translation from $L^1$ data to measure data. Some preliminaries which are necessary for studying reduce measure will be displayed in the third chapter. Finally, Chapter 4 is devoted to the construction of measures and their properties.
+\end{abstract}
+
+\tableofcontents
+\setcounter{page}{3}
+\thispagestyle{empty}
+
+\chapter{\texorpdfstring{$L^1$ theory}{L1 theory}}
+\mbox{}
+\pagenumbering{arabic}
+
+Consider the problem:
+\begin{equation}\label{main}
+\left\{
+\begin{aligned}
+-\Delta u + g(u) & = f && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\end{equation}
+with the following assumptions:
+\begin{itemize}
+\item $\Omega \subset \mathbb{R}^N$ is a bounded open set with smooth boundary.
+\item $g: \mathbb{R} \to \mathbb{R}$ is a continuous, non-decreasing function such that $g(0) = 0$.
+\end{itemize}
+
+The main content of this chapter is the following theorem which is a result by Brezis-Strauss \cite[Theorem 1]{BS}:
+
+\begin{thm}\label{L1thm}
+For $f \in L^1(\Omega)$, the problem \eqref{main} has a unique weak solution $u$ such that
+\begin{equation}\label{weak}
+\left\{
+\begin{aligned}
+& u \in L^1(\Omega ),\quad g(u) \in L^1(\Omega ) ,\\
+&-\int_{\Omega} u \Delta \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}f\varphi, \quad \forall \varphi \in C^2_0(\overline{\Omega}) .
+\end{aligned}
+\right.
+\end{equation}
+\end{thm}
+
+Here $C^2_0(\overline{\Omega}) = \{\varphi \in C^2(\overline{\Omega}): \varphi = 0 \text{ on } \partial \Omega\}$.
+
+First, to prove this theorem, we will show the existence of a weak solution in case $f \in L^2(\Omega)$ and $g$ bounded.
+
+\begin{lmm}\label{L2glmm}
+For $f \in L^2(\Omega)$ and $g$ bounded, the problem \eqref{main} has a weak solution $u \in H^1_0(\Omega )$ such that
+\[
+\int_{\Omega} \nabla u . \nabla \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}f\varphi, \quad \forall \varphi \in H^1_0(\Omega) .
+\]
+\end{lmm}
+
+\begin{proof}
+We prove this lemma by using the ``minimization'' method.
+
+Considering the functional:
+\begin{equation}\label{funJ}
+J[u] = \frac{1}{2} \int_{\Omega}|\nabla u|^2 + \int_{\Omega}G(u) - \int_{\Omega}fu  \text{in } H^1_0(\Omega),
+\end{equation}
+where $G(t) = \int_0^t g(s)\,ds$.
+
+Let $M = \sup |g|$. Due to $g(t)t \ge 0$, we have $G(t)\ge 0$ for all $t \in \mathbb{R}$. Moreover, by $u \in H^1_0(\Omega)$ and
+\[
+G(u) = \int_0^u g(s)\,ds \le M|u|,
+\]
+we have $G(u) \in L^2(\Omega)$. And since $\Omega$ is bounded, we have $\varphi \in L^1(\Omega)$. This means the functional $J[u]$ is well-defined in $H^1_0(\Omega)$.
+
+Then, we will show that the functional $J[u]$ is bounded from below in $H^1_0(\Omega)$. Indeed, by using Cauchy's Inequality and then Poincar\'e's Inequality, we have
+\begin{equation}\label{est1}
+\int_{\Omega}fu \le \frac{1}{2\epsilon}\int_{\Omega}f^2 + \frac{\epsilon}{2}\int_{\Omega}u^2 \le \frac{1}{2\epsilon}\int_{\Omega}f^2 +  \frac{\epsilon C}{2} \int_{\Omega}|\nabla u|^2, \quad \forall \epsilon > 0,
+\end{equation}
+where $C>0$ is a constant depending only on $\Omega$. Choosing $\epsilon = C^{-1}$ and applying the above inequality to \eqref{funJ}, we get
+\[
+J[u] \ge - \frac{C}{2}\int_{\Omega}f^2, \quad \forall u \in H^1_0(\Omega).
+\]
+
+Next, put
+\[
+\inf J = \inf \{J[u]: u\in H^1_0(\Omega)\},
+\]
+and let $\{ u_n\}$ be a sequence in $H^1_0(\Omega)$ such that $\lim\limits_{n\to \infty} J[u_n] = \inf J$. It is clear that $\{J[u_n]\}$ is a bounded sequence. Note that in \eqref{est1}, if we choose $\epsilon = (2C)^{-1}$ and apply it to \eqref{funJ}, we will get the estimate:
+\[
+\int_{\Omega}|\nabla u|^2 \le 4J[u] + 4C\int_{\Omega}f^2.
+\]
+
+Due to the boundedness of the sequence $\{J[u_n]\}$, this estimate infers $\{u_n\}$ is a bounded sequence in $H^1_0(\Omega)$ (through the equivalent of the norm $\| \nabla u \|_{L^2}$ and the norm $\| u \|_{H^1}$ in $H^1_0(\Omega)$ when $\Omega$ is bounded).
+
+By the reflexibility of $H^1_0(\Omega)$ space and the existence of a compact embedding from $H^1(\Omega)$ space to $L^2(\Omega)$ space, there exists $u \in H^1_0(\Omega )$ and a subsequence $\{u_{n_k}\}$ of $\{u_n\}$ such that
+\begin{equation}\label{conv1}
+u_{n_k} \to u\quad \text{in } L^2(\Omega),
+\end{equation}
+\begin{equation}\label{conv2}
+u_{n_k} \to u \quad \text{a.e.\ in } \Omega,
+\end{equation}
+\begin{equation}\label{conv3}
+\nabla u_{n_k} \rightharpoonup \nabla u \quad \text{weakly in } L^2(\Omega) .
+\end{equation}
+
+From \eqref{conv1}, we get
+\begin{equation}\label{res1}
+\int_{\Omega}fu_{n_k} \to \int_{\Omega}fu .
+\end{equation}
+
+From \eqref{conv2}, we get
+\[
+G(u_{n_k}) \to G(u)\quad \text{a.e.\ in }\Omega,
+\]
+and by Fatou's Lemma, we have
+\begin{equation}\label{res2}
+\liminf \int_{\Omega} G(u_{n_k}) \ge G(u).
+\end{equation}
+
+From \eqref{conv3}, we get
+\[
+\int_{\Omega}\nabla u_{n_k}.\nabla u \to \int_{\Omega}|\nabla u|^2  .
+\]
+
+Since
+\[
+\int_{\Omega} |\nabla u_{n_k}|^2 \ge 2\int_{\Omega} \nabla u_{n_k}.\nabla u - \int_{\Omega}|\nabla u|^2,
+\]
+we have
+\begin{equation}\label{res3}
+\liminf \int_{\Omega} |\nabla u_{n_k}|^2 \ge \int_{\Omega} |\nabla u|^2 .
+\end{equation}
+
+From \eqref{res1}, \eqref{res2} and \eqref{res3}, we conclude that
+\[
+\inf J = \liminf J[u_{n_k}] \ge J[u],
+\]
+which means that $u$ is a minimizer of the functional $J$.
+
+Now we will show that this minimizer is indeed a solution to our problem.
+
+For every $\epsilon \neq 0$ and $\varphi \in H^1_0(\Omega)$, we have
+\[
+\frac{J[u+\epsilon \varphi] - J[u]}{\epsilon} = \epsilon \left(\int_{\Omega}\nabla u . \nabla \varphi - \int_{\Omega} f\varphi \right) + \int_{\Omega}\frac{G(u+\epsilon \varphi) - G(\varphi)}{\epsilon} .
+\]
+
+So,
+\begin{equation}\label{dev}
+\lim_{\epsilon \to 0} \frac{J[u+\epsilon \varphi]-J[u]}{\epsilon} =\int_{\Omega}\nabla u . \nabla \varphi - \int_{\Omega} f\varphi + \int_{\Omega} g(u)\varphi .
+\end{equation}
+
+Moreover, we have 
+\[
+J[u+\epsilon \varphi] \ge J[u],\quad \forall \epsilon \in \mathbb{R},\forall\varphi \in H^1_0{(\Omega)} .
+\]
+ 
+Let $\epsilon \to 0^+$ and then $\epsilon \to 0^-$, we have
+\[
+\lim_{\epsilon \to 0} \frac{J[u+\epsilon \varphi]-J[u]}{\epsilon} = 0 .
+\]
+
+This and \eqref{dev} imply that $u$ is a solution to our problem.
+\end{proof}
+
+Removing the boundedness of $g$, we obtain
+
+\begin{lmm}\label{L2lmm}
+For $f \in L^2(\Omega)$, the problem \eqref{main} has a weak solution $u\in H^1_0(\Omega)$ such that $g(u) \in L^1(\Omega )$ and
+\[
+\int_{\Omega} \nabla u . \nabla \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}f\varphi, \quad \forall \varphi \in H^1_0(\Omega)\cap L^{\infty}(\Omega).
+\]
+\end{lmm}
+
+We will use Vitali's ``compactness'' method to prove this lemma.
+
+\begin{lmm}[Vitali's Theorem]\label{vlmm}
+Let $\{f_n\}$ be a sequence in $L^p(\Omega)$ with $1 \le p < \infty$. Assume that
+\begin{enumerate}[i)]
+\item $\forall \epsilon > 0, \exists \delta > 0$ such that for every $n$ and every measurable set $A \subset \Omega$ with $|A| < \delta$, we have $\int_{A}|f_n| < \epsilon$.
+\item $f_n \to f \quad\text{a.e.\ in }\Omega$.
+\end{enumerate}
+Then, $f \in L^p(\Omega)$ and $f_n \to f$ in $L^p(\Omega)$.
+\end{lmm}
+
+\begin{proof}[Proof of Lemma \ref{L2lmm}]
+\mbox{}
+
+Let
+\[
+g_n(t)=\left\{
+\begin{aligned}
+& g(t) \quad &&\text{if } |t| \le n,\\
+& g(n) \quad &&\text{if } t > n,\\
+& -g(n) \quad &&\text{if } t < -n.
+\end{aligned}
+\right.
+\]
+
+By Lemma \ref{L2glmm}, for each $g_n$, there is $u_n \in H^1_0(\Omega)$ such that
+\begin{equation}\label{sol3}
+\int_{\Omega} \nabla u_n . \nabla \varphi + \int_{\Omega} g_n(u_n)\varphi = \int_{\Omega}f\varphi \quad \forall \varphi \in H^1_0(\Omega).
+\end{equation}
+
+Replacing $\varphi$ by $u_n$, we get
+\begin{equation}\label{equa1}
+\int_{\Omega} |\nabla u_{n}|^2 + \int_{\Omega} g_n(u_n)u_n = \int_{\Omega}fu_n,
+\end{equation}
+which implies that
+\[
+\| \nabla u_n\|^2_{2} \le \int_{\Omega}fu_n .
+\]
+
+Using H\"older's Inequality and Poincar\'e's Inequality, we get the estimate:
+\begin{equation}\label{ineq1}
+\int_{\Omega}fu_n \le \| f\|_{2}\| u_n\|_{2} \le C \| f\|_{2}\| \nabla u_n\|_2,
+\end{equation}
+where $C>0$ is a constant depending only on $\Omega$. 
+
+This leads to
+\begin{equation}\label{ineq2}
+\| \nabla u_n\|_{2} \le C \| f\|_{2},
+\end{equation}
+which means that $\{u_n\}$ is a bounded sequence in $H^1_0(\Omega)$.
+
+So there exist $u \in H^1_0(\Omega )$ and a subsequence $\{u_{n_k}\}$ of $\{u_n\}$ such that
+\[
+u_{n_k} \to u\quad \text{in } L^2(\Omega),
+\]
+\[
+u_{n_k} \to u \quad \text{a.e.\ in } \Omega,
+\]
+\begin{equation}\label{conv6}
+\nabla u_{n_k} \rightharpoonup \nabla u \quad \text{weakly in } L^2(\Omega) .
+\end{equation}
+
+For each $x\in \Omega$ such that $u_{n_k}(x) \to u(x)$, we choose $M_x$ large enough such that $n_k > |u(x)| + 1$ and $|u_{n_k}(x) - u(x)| < 1$ for each $k > M_x$. These inequalities imply that $n_k > |u_{n_k}(x)|$ for each $k > M_x$. So, by the definition of sequence $g_n$, we get 
+\[
+g_{n_k}(u_{n_k}(x)) = g(u_{n_k}(x)), \quad\forall k > M_x,
+\]
+which implies
+\[
+g_{n_k}(u_{n_k})\to g(u)\quad \text{a.e.\ in }\Omega .
+\]
+
+Now, we will prove that $g_{n_k}(u_{n_k})$ is equi-integrable.
+
+First, from \eqref{equa1}, we have
+\[
+\int_{\Omega} g_{n_k}(u_{n_k})u_{n_k} \le \int_{\Omega} f u_{n_k}.
+\]
+
+Then, by \eqref{ineq1} and \eqref{ineq2}, we get
+\[
+\int_{\Omega} g_{n_k}(u_{n_k})u_{n_k} \le C^2\| f\|^2_{2}.
+\]
+
+For each $M > 0$ and for each measurable set $E$ in $\Omega$, we have
+\begin{align*}
+\int_E |g_{n_k}(u_{n_k})|& \le \int_{E\cap [|u_{n_k}| \le M]} |g_{n_k}(u_{n_k})| + \int_{E\cap[|u_{n_k}| > M]} |g_{n_k}(u_{n_k})|\\
+&\le \max_{[-M,M]} |g|.|E| + \frac{1}{M}\int_{E\cap[|u_{n_k}| > M]} g_{n_k}(u_{n_k})u_{n_k}\\
+&\le \max_{[-M,M]} |g|.|E| + \frac{C^2\| f\|^2_2}{M}.
+\end{align*}
+
+For $\epsilon > 0$, let $M$ large enough such that
+\[
+\frac{C^2\| f\|^2_{2}}{M} < \frac{\epsilon}{2},
+\]
+and with this fixed $M$, let $\delta > 0$ small enough such that
+\[
+\max_{[-M,M]} |g|.|E| < \frac{\epsilon}{2}\quad \text{if } |E| < \delta.
+\]
+
+So we have
+\[
+\int_E|g_{n_k}(u_{n_k})| < \epsilon \quad \text{if } |E|<\delta ,
+\]
+meaning that $\{g_{n_k}(u_{n_k})\}$ is equi-integrable.
+
+Using Vitali's Theorem (Lemma \ref{vlmm}), we conclude $g(u)\in L^1(\Omega)$ and
+\begin{equation}\label{conv7}
+g_{n_k}(u_{n_k})\to g(u)\quad \text{in } L^1(\Omega).
+\end{equation}
+
+From \eqref{conv6} and \eqref{conv7}, for every $\varphi \in H^1_0(\Omega)\cap L^{\infty}(\Omega)$, we have
+\[
+\int_{\Omega}\nabla u_{n_k} . \nabla \varphi + \int_{\Omega}g(u_{n_k})\varphi \to \int_{\Omega}\nabla u . \nabla \varphi + \int_{\Omega}g(u)\varphi.
+\]
+
+By \eqref{sol3}, $u$ is a solution to our problem.
+\end{proof}
+
+\begin{rmk}
+In the proofs of the two above lemmas, we do not need the monotone of $g$. This means that we can get the same results for continuous function $g$ such that $g(t)t \ge 0$ for all $ t\in \mathbb{R}$.
+\end{rmk}
+
+For the transition from $f\in L^2(\Omega)$ to $f\in L^1(\Omega)$, we need the following a priori estimates.
+
+\begin{lmm}\label{L1e1lmm}
+For $f \in L^1(\Omega)$, if
+\begin{equation}\label{wmp1}
+-\int_{\Omega} f\Delta\varphi \le 0, \quad \forall \varphi \in C_0^2(\overline{\Omega}), \varphi \ge 0,
+\end{equation}
+then
+\[
+f \le 0 \quad \text{a.e.\ in }\Omega .
+\]
+\end{lmm}
+\begin{proof}
+\mbox{}
+
+For each $\psi \in C_c^{\infty}(\Omega)$, there exists $\varphi \in C^2_0(\overline{\Omega})$ such that $-\Delta \varphi = \psi$ in $\Omega$.
+
+By classical maximum principle, if $\psi \ge 0$, then $\varphi \ge 0$. 
+
+So if $f$ satisfies \eqref{wmp1}, then
+\[
+\int_{\Omega} f\psi \le 0 \quad \forall \psi \in C_c^{\infty}(\Omega), \psi \ge 0.
+\]
+
+This implies
+\[
+f \le 0 \quad \text{a.e.\ in } \Omega. \qedhere
+\]
+\end{proof}
+
+\begin{lmm}\label{L1e2lmm}
+For $f \in L^1(\Omega)$ and $u\in L^1(\Omega)$ such that
+\[
+-\int_{\Omega} u\Delta \varphi = \int_{\Omega} f \varphi, \quad \forall \varphi \in C^2_0(\overline{\Omega}),
+\]
+we have
+\[
+\| u \|_{L^1(\Omega)} \le C\| f\|_{L^1(\Omega)},
+\]
+where $C$ is a constant depending only on $\Omega$.
+\end{lmm}
+\begin{proof}
+\mbox{}
+
+First, we suppose that $u\in C^2_0(\overline{\Omega})$.
+
+By Lemma \ref{L2glmm}, let $\varphi \in H^1_0(\Omega)$ is a solution to the problem:
+\begin{equation}\label{rep}
+\int_{\Omega} \nabla \varphi.\nabla \psi = \int_{\Omega} \sgn(u) \psi, \quad \forall \psi \in H^1_0(\Omega).
+\end{equation}
+
+Choose $\overline{\varphi} \in C^2_0(\overline{\Omega})$ such that $-\Delta \overline{\varphi} = 1$ in $\Omega$.
+
+Since $\sgn(u)\le 1$, we get
+\[
+-\int_{\Omega} (\varphi - \overline{\varphi})\Delta \psi \le 0, \quad \forall \psi \in C_0^2(\overline{\Omega}), \psi \ge 0,
+\]
+which implies (by Lemma \ref{L1e1lmm})
+\begin{equation}\label{max1}
+\varphi \le \overline{\varphi} \quad \text{a.e.\ in }\Omega.
+\end{equation}
+
+Similarly, since $-\sgn(u)\le 1$, we get
+\[
+-\int_{\Omega} (-\varphi - \overline{\varphi})\Delta \psi \le 0, \quad \forall \psi \in C_0^2(\overline{\Omega}), \psi \ge 0,
+\]
+which implies (by Lemma \ref{L1e1lmm})
+\begin{equation}\label{max2}
+-\varphi \le \overline{\varphi} \quad \text{a.e.\ in }\Omega.
+\end{equation}
+
+From \eqref{max1} and \eqref{max2}, we get
+\[
+\| \varphi\|_{\infty} \le C,
+\]
+where $C = \| \overline{\varphi}\|_{\infty}$ is a constant depending only on $\Omega$.
+
+Replace $\psi$ by $u$ in \eqref{rep}, we get
+\[
+\int_{\Omega}\sgn(u)u = \int_{\Omega}\nabla u.\nabla \varphi = \int_{\Omega}\Delta u .\varphi,
+\]
+and thus,
+\begin{equation}\label{case1}
+\| u\|_{1} \le \| \Delta u\|_{1} \| \varphi\|_{\infty} \le C\| \Delta u\|_{1}.
+\end{equation}
+
+Now, we consider $u\in L^1(\Omega)$. Let $\{f_n\}$ be a sequence in $C^{\infty}_c(\Omega)$ which converges to $f$ in $L^1(\Omega)$. For each $f_n$, choose $u_n \in C^2_0(\overline{\Omega})$ such that
+\begin{equation}\label{dddd}
+\Delta u_n = f_n .
+\end{equation}
+
+By \eqref{case1}, we have
+\[
+\| u_m - u_n \|_1 \le C \| f_m - f_n \|_1 ,\quad \forall m, n,
+\]
+which implies that $\{u_n\}$ is a Cauchy sequence in $L^1(\Omega)$. So, $\{ u_n\}$ converges to $v \in L^1(\Omega)$.
+
+From \eqref{dddd}, we have
+\[
+-\int_{\Omega} u_n\Delta \varphi = \int_{\Omega} f_n \varphi, \quad \forall \varphi \in C^2_0(\overline{\Omega}).
+\]
+
+Taking the limits of both sides gives
+\[
+-\int_{\Omega} v\Delta \varphi = \int_{\Omega} f \varphi, \quad \forall \varphi \in C^2_0(\overline{\Omega}),
+\]
+which implies
+\[
+\int_{\Omega} (u-v)\Delta \varphi = 0, \quad \forall \varphi \in C^2_0(\overline{\Omega}).
+\]
+
+Since
+\[
+\{ \Delta \varphi: \varphi \in C_0^2(\overline{\Omega})\} \subset C_c^{\infty}(\Omega),
+\]
+we have
+\[
+u = v\quad \text{a.e.\ in } \Omega .
+\]
+
+From \eqref{case1}, we obtain
+\[
+\| u_n\|_1 \le C\| f_n\|_1.
+\]
+
+Taking the limits of both sides, we get the conclusion.
+\end{proof}
+
+\begin{lmm}\label{L1e3lmm}
+For $f \in L^1(\Omega)$ and $u\in L^1(\Omega)$ such that
+\[
+-\int_{\Omega} u\Delta \varphi = \int_{\Omega} f \varphi, \quad \forall \varphi \in C^2_0(\overline{\Omega}).
+\]
+Then
+\[
+\int_{\Omega} f.\sgn(u) \ge 0 .
+\]
+\end{lmm}
+
+\begin{proof}
+\mbox{}
+
+Let $p\in C^2(\mathbb{R})$ such that 
+\begin{equation}\label{1}
+p(0)=0,\quad p' \ge 0,\quad\text{and}\quad |p|\le 1 .
+\end{equation}
+
+Let $\{f_n\}$ be a sequence in $C^{\infty}_c(\Omega)$ which converges to $f$ in $L^1(\Omega)$. For each $f_n$, choose $u_n \in C^2_0(\overline{\Omega})$ such that $\Delta u_n = f_n$,
+which implies
+\begin{equation}\label{dd3}
+\int_{\Omega}\nabla u_n.\nabla \varphi = \int_{\Omega} f_n \varphi ,\quad \forall \varphi \in C^2_0(\overline{\Omega}).
+\end{equation}
+
+For each $n$, from \eqref{1}, we have $p(u_n)\in C^2_0(\overline{\Omega})$. So, in \eqref{dd3}, if we take $\varphi = p(u_n)$, then
+\begin{equation}\label{dd2}
+\int_{\Omega} f_n.p(u_n) = \int_{\Omega} \nabla u_n.\nabla(p(u_n)) = \int_{\Omega} p'(u_n)|\nabla u_n|^2 \ge 0.
+\end{equation}
+
+By the same argument as in Lemma \ref{L1e2lmm}, we obtain
+\[
+u_n \to u \quad \text{in }L^1(\Omega).
+\]
+
+We may take a subsequence $\{n_k \}$ and $h \in L^1(\Omega)$ such that
+\[
+u_{n_k} \to u \quad \text{a.e.\ in }\Omega,
+\]
+\[
+f_{n_k} \to f \quad \text{a.e.\ in }\Omega,
+\]
+\[
+|f_{n_k}| < h \quad \text{a.e.\ in } \Omega,\forall k.
+\]
+
+Consequently,
+\[
+f_{n_k}.p(u_{n_k}) \to f.p (u)\quad \text{a.e.\ in } \Omega,
+\]
+\[
+|f_{n_k}.p(u_{n_k})| < h1 \quad \text{a.e.\ in } \Omega,\forall k.
+\]
+
+The dominated convergence theorem gives
+\[
+\int_{\Omega} f_{n_k}.p(u_{n_k}) \to \int_{\Omega} f.p(u),
+\]
+which together with \eqref{dd2} imply
+\begin{equation}\label{dd1}
+\int_{\Omega} f.p(u) \ge 0.
+\end{equation}
+
+Now let $\{p_n\}$ be a sequence of non-decreasing functions in $C^2(\mathbb{R})$ such that $p_n(0) = 0$, $p_n(t) = 1$ if $t > \frac{1}{n}$, $p_n(t) = -1$ if $t < -\frac{1}{n}$.
+
+From \eqref{dd1}, we have
+\[
+\int_{\Omega} f.p_n(u) \ge 0, \quad \forall n.
+\]
+
+Moreover, it is clear that
+\[
+p_n(u)\to \sgn(u),
+\]
+which implies
+\[
+f.p_n(u)\to f.\sgn(u).
+\]
+
+Since $|p_n(u)|\le 1$ for all $n$, applyng the dominated convergence theorem, we reach the conclusion.
+\end{proof}
+
+Now we prove Theorem \ref{L1thm}.
+
+\begin{proof}[Proof of Theorem \ref{L1thm}]
+\mbox{}
+
+Let $\{f_n\}$ be a sequence in $C^{\infty}_c(\Omega)$ which converges to $f$ in $L^1(\Omega)$.
+
+By Lemma \ref{L2lmm}, for each $f_n$, there exists $u_n\in H^1_0(\Omega)$ such that $g(u_n)\in L^1(\Omega)$ and
+\begin{equation}\label{ddd4}
+-\int_{\Omega} u_n\Delta \varphi +\int_{\Omega} g(u_n)\varphi = \int_{\Omega} f_n \varphi, \quad\forall \varphi\in C^2_0(\overline{\Omega}).
+\end{equation}
+
+So, for each $m,n$, we have
+\[
+-\int_{\Omega} (u_m-u_n)\Delta \varphi = \int_{\Omega} (f_m-f_n-g(u_m)+g(u_n)) \varphi, \quad\forall \varphi\in C^2_0(\overline{\Omega}).
+\]
+
+By Lemma \ref{L1e3lmm}, we have
+\[
+\int_{\Omega} (f_m-f_n-g(u_m)+g(u_n)).\sgn(u_m-u_n) \ge 0, \quad \forall m,n.
+\]
+
+Because $g$ is non-decreasing, for each $m,n$,
+\begin{align*}
+\| g(u_m)-g(u_n)\|_1 &= \int_{\Omega} (g(u_m)-g(u_n)).\sgn(u_m-u_n)\\
+&\le \int_{\Omega} (f_m-f_n).\sgn(u_m-u_n),
+\end{align*}
+which gives us
+\begin{equation}\label{ddd0}
+\| g(u_m)-g(u_n)\|_1\le \| f_m - f_n \|_1 \quad \forall m,n.
+\end{equation}
+
+In addition, Lemma \ref{L1e2lmm} give us
+\begin{equation}\label{ddd1}
+\| u_m - u_n\|_1 \le \| f_m-f_n-g(u_m)+g(u_n) \|_1 \le 2\| f_m - f_n \|_1\quad \forall m,n.
+\end{equation}
+
+By \eqref{ddd1}, we conclude that $\{u_n\}$ is a Cauchy sequence in $L^1(\Omega)$. So, $\{u_n\}$ converges to $u$ in $L^1(\Omega)$. We take a subsequence $\{u_{n_k}\}$ which converges to $u$ a.e.\ on $\Omega$. By the continuity of $g$, we have 
+\begin{equation}\label{ddd2}
+g(u_{n_k})\to g(u) \quad \text{a.e.\ on }\Omega.
+\end{equation}
+
+The inequality \eqref{ddd0} implies $\{g(u_n)\}$ is a Cauchy sequence in $L^1(\Omega)$. So, together with \eqref{ddd2}, we conclude that $g(u_n)$ converges to $g(u)$ in $L^1(\Omega)$.
+
+Taking the limits of both sides in \eqref{ddd4}, we obtain that $u$ is a solution to our problem.
+
+Now to prove the uniqueness, suppose that $v$ is a solution to our problem. We have
+\begin{equation}\label{ddd6}
+-\int_{\Omega}(u-v)\Delta \varphi = \int_{\Omega}(g(v)-g(u))\varphi, \quad \forall \varphi\in C^2_0(\overline{\Omega}).
+\end{equation}
+
+From Lemma \ref{L1e3lmm}, we have
+\[
+\int_{\Omega}(g(v)-g(u))\sgn(u-v) \ge 0.
+\]
+
+Since $g$ is non-decreasing, we get
+\[
+(g(v)-g(u))\sgn(u-v) \le 0.
+\]
+
+So we have
+\[
+(g(v)-g(u))\sgn(u-v) = 0\quad \text{a.e.\ on }\Omega,
+\]
+which implies
+\[
+g(u) = g(v) \quad \text{a.e.\ on }\Omega.
+\]
+
+This and \eqref{ddd6} give
+\[
+\int_{\Omega}(u-v)\Delta \varphi = 0, \quad \forall \varphi\in C^2_0(\overline{\Omega}).
+\]
+
+Since
+\[
+\{\Delta \varphi:\varphi\in C^2_0(\overline{\Omega})\} \subset C_c^{\infty}(\Omega),
+\]
+we have
+\[
+u = v \quad \text{a.e.\ on }\Omega,
+\]
+which solves the uniqueness of solutions to our problem.
+\end{proof}
+
+\chapter{Transition to measures}
+
+\section{Definition of measures}
+\mbox{}
+
+Recall that because of the compactness of $\overline{\Omega}$, a Radon measure on $\overline{\Omega}$ is a bounded Borel measure. By Riesz Representation Theorem, it can be considered as a continuous linear functional on $C(\overline{\Omega})$, through the isometric isomorphism:
+\[
+\mu \mapsto I_{\mu},
+\]
+where
+\[
+I_{\mu}: f\mapsto \langle \mu, f\rangle = \int_{\overline{\Omega}}f\,d\mu .
+\]
+
+Denote $C_0(\overline{\Omega}) = \{u\in C(\overline{\Omega}): u = 0 \text{ on }\partial\Omega\}$.
+
+From now, by a \emph{measure} $\mu$ we mean a continuous linear functional on $C_0(\overline{\Omega})$. It can be considered as a Radon measure on $\overline{\Omega}$ such that $|\mu | (\partial \Omega) = 0$, as showed in the following theorem:
+
+\begin{thm}\label{meathm}
+Given $\mu\in [C_0(\overline{\Omega})]^*$, there exists a unique $[\tilde{\mu} \in C(\overline{\Omega})]^*$ such that
+\begin{equation}\label{2333}
+\tilde{\mu} = \mu \quad \text{on } C_0(\overline{\Omega}),
+\end{equation}
+and
+\begin{equation}\label{2334}
+|\tilde{\mu}|(\partial \Omega) = 0.
+\end{equation}
+In addition, the map $\mu \mapsto \tilde{\mu}$ is a linear isometry.
+\end{thm}
+
+To prove this theorem, we need the following lemma:
+\begin{lmm}\label{mealmm}
+Given $\epsilon > 0$, there exists $\delta > 0 $ such that if
+\[
+f \in C_0(\overline{\Omega}),\quad |f| \le 1 \text{ in } \overline{\Omega},\quad\text{and}\quad\supp f \subset \overline{\Omega}\setminus \Omega_{\delta},
+\]
+then
+\[
+|\langle \mu ,f \rangle |\le \epsilon.
+\]
+\end{lmm}
+
+Here $\Omega_{\delta} = \{ x\in \Omega : d(x,\partial \Omega) > \delta\}$.
+
+\begin{proof}
+We prove this lemma by contradiction.
+
+Assume that there exists $\epsilon > 0$ and a sequence $\{f_n\}\subset C_0(\overline{\Omega})$ such that for each $n$,
+\[
+\| f_n \|_{\infty} \le 1 \text{ in } \overline{\Omega},\quad\supp f_n \subset \overline{\Omega}\setminus \Omega_{1/n},
+\]
+and
+\[
+|\langle \mu ,f_n \rangle |> \epsilon.
+\]
+
+Due to the continuity of $\mu$, we can choose $\delta > 0$ such that for every $f, g \in C(\overline{\Omega})$, if 
+\[
+\| f - g \|_{\infty} \le \delta , 
+\] 
+then 
+\[
+|\langle \mu, f -g \rangle |< \epsilon / 2 .
+\]
+
+For each $n$, $f_n$ is uniformly continuous on the compact set $\overline{\Omega}\setminus \Omega_{1/n}$.
+
+As a result, we can choose $m > n$ such that for every $x, y \in \overline{\Omega}$, if
+\[
+|x - y| \le 1/m,
+\]
+then
+\[
+|f_n(x) - f_n(y)| < \delta .
+\]
+
+This implies that
+\[
+\sup_{\overline{\Omega}\setminus \Omega_{1/m}} |f_n| \le \delta .
+\]
+
+By Urysohn's Lemma, we can choose $g_n \in C(\overline{\Omega})$ such that
+\[
+\supp g_n \subset \Omega,\quad 0 \le g_n.\sgn (f_n) \le |f_n|,
+\]
+and
+\[
+g_n = f_n \quad\text{in }\overline{\Omega}_{1/m}.
+\]
+
+Having these properties, the sequence $\{g_n\} \subset C_0(\overline{\Omega})$ satisfies that for each $n$,
+\[
+\| g_n\|_{\infty} \le 1 \text{ in } \overline{\Omega},\quad\supp g_n \subset \Omega\setminus \Omega_{1/n} ,
+\]
+and
+\[
+|\langle \mu, g_n\rangle | > \epsilon / 2 ,
+\]
+which together imply that there is a subsequence $\{g_{n_k}\}$ such that all $\supp g_{n_k}$ are disjoint.
+
+For any $k \ge 1$, set $G_k = \sum^{k}_{j=1} g_{n_j}$. We have 
+\[
+\| G_k \|_{\infty} \le 1,\quad \supp G_k \subset \Omega,
+\]
+and
+\[
+|\mu, G_k| > k\epsilon / 2,
+\]
+which imply that
+\[
+\| \mu \|_{[C_0(\overline{\Omega})]^*} > k\epsilon / 2,\quad \forall k.
+\]
+
+This gives us a contradiction.
+\end{proof}
+
+\begin{rmk}
+We can replace the condition $|f| \le 1$ in the above lemma by $|f| \le C$, where $C > 0$ is a given constant.
+\end{rmk}
+
+\begin{proof}[Proof of Theorem \ref{meathm}]
+\mbox{}
+
+For $f \in C(\overline{\Omega})$, by Urysohn's Lemma, we can construct a sequence $\{ f_n \} \subset C_0(\overline{\Omega})$ such that
+\begin{equation}\label{2111}
+0 \le f_n.\sgn (f) \le |f|\quad \text{and} \quad f_n = f \text{ in } \Omega_{1/n}.
+\end{equation}
+
+For each $m > n$, by \eqref{2111}, we have
+\[
+\| f_m - f_n \|_{\infty} \le \| f\|_{\infty}\quad \text{and}\quad f_m = f_n \text{ in } \Omega_{1/n},
+\]
+which also imply that
+\[
+\supp (f_m - f_n) \subset \overline{\Omega}\setminus \Omega_{1/n}.
+\]
+
+For $\epsilon > 0$, we can choose $M > 0$ large enough such that $M^{-1}<\delta$, with $\delta$ comes from Lemma \ref{mealmm}. 
+
+For all $m > n \ge M$, we have
+\[
+|\langle \mu ,f_m - f_n \rangle |\le \epsilon.
+\]
+
+
+Thus, $\{\langle \mu, f_n\rangle\}$ is a Cauchy sequence in $\mathbb{R}$, and so it converges to some limit.
+
+Moreover, also by Lemma 2.1, this limit is independent of the way we construct a sequence $\{ f_n\}$. Indeed, if $\{ g_n\}$ is a subsequence in $C_0(\overline{\Omega})$ which satisfies \eqref{2111}, then for $\epsilon > 0$, choose $M > 0$ as above, we will get
+\[
+|\langle \mu ,f_n - g_n \rangle |\le \epsilon, \quad \forall n \ge M,
+\]
+which implies $\langle \mu ,f_n \rangle $ and $\langle \mu ,g_n \rangle $ have the same limit. 
+
+So it is safe to set $\langle \tilde{\mu}, f\rangle$ as this limit.
+
+Because $\mu$ is linear, it is clear that $\tilde{\mu}$ is a linear functional on $C(\overline{\Omega})$. Its continuity is given by the estimate:
+\begin{align*}
+\langle \tilde{\mu} , f \rangle = \lim_{n \to \infty} \langle \mu, f_n \rangle &\le \liminf_{n\to\infty}\| \mu \|_{[C_0(\overline{\Omega})]^*} \| f_n \|_{\infty} \\
+&\le \| \mu \|_{[C_0(\overline{\Omega})]^*} \| f \|_{\infty} \quad \text{(by \eqref{2111})}.
+\end{align*}
+
+We have proved that $\tilde{\mu} \in [C(\overline{\Omega})]^*$ and it satisfies \eqref{2333}.
+
+Now we show that it satisfies \eqref{2334}.
+
+For $\epsilon > 0$, we have $f \in C(\overline{\Omega})$ such that
+\begin{equation}\label{h1}
+\| f\|_{\infty}\le 1\quad \text{and}\quad \langle \tilde{\mu}, f \rangle > \| \tilde{\mu}\|_{[C(\overline{\Omega})]^*} - \epsilon .
+\end{equation}
+
+Choosing a sequence $\{f_n\} \subset C_0(\overline{\Omega})$ which satisfies \eqref{2111}, we have
+\[
+\langle \tilde{\mu} , f \rangle = \lim_{n \to \infty} \langle \mu, f_n \rangle.
+\]
+
+And then, for $n$ large enough, we have
+\begin{equation}\label{h2}
+|\langle \mu, f_n - f \rangle | \le \epsilon / 3.
+\end{equation}
+
+By the same argument as in the proof of Lemma 2.1, we obtain $g\in C_0(\overline{\Omega})$ is a function such that
+\begin{equation}\label{h3}
+\| g\|_{\infty}\le 1,\quad \supp g \subset \Omega, \quad \text{and}\quad |\langle \mu, g - f_n \rangle | < \epsilon / 3.
+\end{equation}
+
+From \eqref{h1}, \eqref{h2}, and \eqref{h3}, we conclude that there exists $g\in C_0(\overline{\Omega})$ such that
+\[
+\| g\|_{\infty}\le 1 ,\quad \supp g \subset \Omega,\quad \text{and} \quad|\langle \tilde{\mu} , g \rangle | > \| \tilde{\mu}\|_{[C(\overline{\Omega})]^*} - \epsilon / 3.
+\]
+
+Let $m$ large enough such that $\supp g \subset \Omega_{1/m}$. Then
+\[
+|\tilde{\mu} | (\overline{\Omega}_{1/m})\ge \int_{\overline{\Omega}_{1/n}} g \,d\tilde{\mu} = \int_{\overline{\Omega}} g \,d\tilde{\mu} > |\tilde{\mu} | (\overline{\Omega}) -\epsilon / 3 .
+\]
+
+Consequently,
+\[
+|\tilde{\mu} | (\overline{\Omega}\setminus \overline{\Omega}_{1/m}) < \epsilon / 3,
+\]
+which implies that
+\[
+|\tilde{\mu} | (\overline{\Omega}\setminus \Omega) < \epsilon / 3 \quad \forall \epsilon > 0.
+\]
+
+Hence $|\tilde{\mu} | (\partial \Omega ) = 0$, which is \eqref{2334}.
+
+Now, we prove that 
+\[
+\| \tilde{\mu}\|_{[C(\overline{\Omega})]^*} = \| \mu\|_{[C_0(\overline{\Omega})]^*}.
+\]
+
+By \eqref{2333}, it is clear that 
+\[
+\| \tilde{\mu}\|_{[C(\overline{\Omega})]^*} \ge \| \mu\|_{[C_0(\overline{\Omega})]^*}.
+\]
+
+For the reverse side, let $f\in C(\overline{\Omega})$. There exists a sequence $\{f_n\}\subset C_0(\overline{\Omega})$ which satisfies \eqref{2111}, and from
+\[
+\langle \tilde{\mu} , f \rangle = \lim_{n \to \infty} \langle \mu, f_n \rangle \le \| \mu\|_{[C_0(\overline{\Omega})]^*}\| f\|_{\infty},
+\]
+we get
+\[
+\| \tilde{\mu}\|_{[C(\overline{\Omega})]^*} \le \| \mu\|_{[C_0(\overline{\Omega})]^*}.
+\]
+
+Next, we prove the uniqueness of $\tilde{\mu}$.
+
+Assume that there are $\mu_1, \mu_2$ both satisfy \eqref{2333} and \eqref{2334}.
+
+For $f \in C(\overline{\Omega})$, we construct a sequence $\{f_n\}$ in $C_0(\overline{\Omega})$ which satisfies \eqref{2111}.
+
+We have
+\[
+\| f_n \|_{\infty} \le \| f\|_{\infty},
+\]
+and
+\[
+f_n \to f \quad \text{in }\Omega.
+\]
+
+So, by the dominated convergence theorem, we get
+\[
+\int_{\Omega}f_n \,d\mu_i \to \int_{\Omega}f \, d\mu_i,\quad \text{for }i=1,2.
+\]
+
+Furthermore, by \eqref{2333}, we have
+\[
+\int_{\Omega}f_n \,d\mu_1 = \int_{\Omega}f_n \, d\mu_2\quad, \forall n,
+\]
+which leads to
+\[
+\int_{\Omega}f \,d\mu_1 = \int_{\Omega}f \, d\mu_2.
+\]
+
+Moreover, because both $\mu_1$ and $ \mu_2$ satisfy \eqref{2334}, we conclude that
+\[
+\int_{\overline{\Omega}}f \,d\mu_1 = \int_{\overline{\Omega}}f \, d\mu_2.
+\]
+
+And thus, $\mu_1 =\mu_2$.
+
+Finally, the map $\mu \mapsto \tilde{\mu}$ is linear due to the way we construct $\tilde{\mu}$.
+\end{proof}
+
+We denote by $\mathcal{M}(\Omega)$ the space of such measures, which are Radon measures on $\overline{\Omega}$ vanishing on the boundary of $\Omega$. From the above theorem, its norm is given by
+\[
+\| \mu \|_{\mathcal{M}} = \sup \left\{\int_\Omega \varphi \, d\mu : \varphi \in C_0(\overline{\Omega}) \text{ and } \|\varphi\|_{\infty} \le 1\right\}.
+\]
+
+The following proposition is useful in the sequel. It is clear due to the density of $C_c^{\infty}(\Omega)$ space in $C_0(\overline{\Omega})$ space (with norm $L^{\infty}(\Omega)$).
+
+\begin{prn}\label{21prn}
+Let $\mu, \nu \in \mathcal{M}(\Omega)$. We have $\mu \leq \nu$ in $\Omega$ if and only if $\mu \leq \nu$ in $\mathcal{D}'(\Omega)$, which is
+\[
+\int_{\Omega}\varphi\,d\mu \leq \int_{\Omega}\varphi\,d\nu,\quad\forall \varphi \in C_c^{\infty}(\Omega),\varphi \geq 0.
+\]
+\end{prn}
+
+Here by $\mu \le \nu$ (in $\Omega$) we mean that for every Borel subset E of $\Omega$,
+\[
+\mu(E) \le \nu(E).
+\]
+
+\begin{rmk}
+We consider $L^1(\Omega)$ as a subspace of $\mathcal{M}(\Omega)$ by the embedding:
+\begin{equation}\label{L12M}
+f \mapsto T_f,
+\end{equation}
+where 
+\[
+\langle T_f, \varphi \rangle = \int_{\Omega}f\varphi, \quad\forall \varphi \in C_0(\overline{\Omega}).
+\]
+Moreover, we have
+\[
+\|T_f\|_{\mathcal{M}} = \| f \|_1, \quad \forall f \in L^1(\Omega).
+\]
+\end{rmk}
+
+\section{Convolution with measures}
+\mbox{}
+
+Let $\mu \in \mathcal{M}(\Omega)$. Here we will demonstrate one way, through \emph{convolution}, to approximate $\mu$ by functions in $C(\overline{\Omega})$.
+
+Recall that a sequence of mollifiers $\{\rho_n\}$ is any sequence of functions in $C_c^{\infty}(\mathbb{R}^N)$ such that
+\begin{equation}\label{mol}
+\supp \rho_n \subset \overline{B(0, 1/n)},\quad\int_{\mathbb{R}^N}\rho_n = 1 ,\quad\text{and}\quad \rho_n \ge 0 \text{ on } \mathbb{R}^N.
+\end{equation}
+
+Here is a well-known example of such sequence of mollifiers. First let $\rho$ is the function:
+\[
+\rho(x) = \left\{
+\begin{aligned}
+&e^{1/(x^2 -1)}&&\text{if } |x|< 1 , \\
+& 0&&\text{if } |x|\ge 1.
+\end{aligned}
+\right.
+\]
+Then let $C = 1/\int_{\mathbb{R}^N}\rho$, and put 
+\[
+\rho_n(x) = Cn^N\rho(nx), \quad \forall x\in\mathbb{R}^N.
+\]
+
+It is not difficult to check that this is a sequence of functions in $C_c^{\infty}(\Omega)$ which satisfies \eqref{mol}.
+
+From now, by $\{\rho_n\}$ we wean the above sequence of mollifiers.
+
+Set 
+\begin{equation}\label{conv}
+\mu_n = \rho_n * \mu ,
+\end{equation}
+i.e.,
+\[
+\mu_n(x) = \int_{\Omega} \rho_n(x-y) \,d\mu(y)\quad \forall x\in \mathbb{R}^N.
+\]
+
+Here we prove some properties of this sequence of convolutions which will be useful later:
+
+\begin{prn}\label{convthm}
+The sequence $\{\mu_n\}$ satisfies:
+\begin{enumerate}[i)]
+\item $\mu_n \in C_c^{\infty}(\mathbb{R}^N)\quad \forall n$.
+\item $\| \mu_n\|_{L^1(\Omega)} \le \| \mu\|_{\mathcal{M}}\quad \forall n$.
+\item $\mu_n \overset{*}{\rightharpoonup} \mu\quad \text{weak-$^*$ in } \mathcal{M}(\Omega)$.
+\item $\| \mu_n\|_{L^1(\Omega)}  \to \| \mu\|_{\mathcal{M}}$.
+\end{enumerate}
+\end{prn}
+
+\begin{proof}
+\mbox{}
+
+For each $n$, we have
+\begin{align*}
+D^{\alpha}\mu_n (x) &= D^{\alpha}\int_{\Omega}\rho_n(x-y)\, d\mu(y)\\
+&= \int_{\Omega}D^{\alpha}(\rho_n(x-y))\, d\mu(y),
+\end{align*}
+which implies i).
+
+The result ii) can be obtained by
+\begin{align*}
+\int_{\Omega}|\mu_n(x)|\,dx&= \int_{\Omega}\left|\int_{\Omega}\rho_n(x-y)\, d\mu(y)\right|\,dx\\
+&\le \int_{\Omega}\left(\int_{\Omega}\rho_n(x-y)\, d|\mu|(y)\right)\,dx\\
+&= \int_{\Omega}\left(\int_{\Omega}\rho_n(x-y)\,dx\right)\, d|\mu|(y) \quad\text{(by Fubini)}\\
+&= \int_{\Omega}\, d|\mu|\\
+&= \|\mu\|_{\mathcal{M}}.
+\end{align*}
+
+To prove iii), for $f\in C_0(\overline{\Omega})$, we have
+\begin{align*}
+\int_{\Omega}\mu_n(x) f(x)\, dx &= \int_{\Omega}\left(\int_{\Omega}\rho_n(x-y)f(x)\, d\mu(y)\right)\, dx \\
+&= \int_{\Omega}\left(\int_{\Omega}\rho_n(x-y)f(x)\, dx\right)\, d\mu(y)\\
+&= \int_{\Omega}\rho_n*f\, d\mu.
+\end{align*}
+
+Since
+\[
+\rho_n*f \to f \quad\text{uniformly on }\overline{\Omega},
+\]
+we have
+\[
+\int_{\Omega}\rho_n*f\, d\mu \to \int_{\Omega}f\, d\mu.
+\]
+
+In conclusion, we have
+\[
+\int_{\Omega}\mu_nf \to \int_{\Omega}f\, d\mu,
+\]
+which is iii).
+
+The result iv) can be obtained by ii) and the following consequence of iii):
+\[
+\| \mu \|_{\mathcal{M}} \le \liminf \|\mu_n\|_1. \qedhere
+\]
+\end{proof}
+
+\section{A priori estimates for solutions}
+\mbox{}
+
+In translating the result of Brezis-Strauss to measure, we consider the problem:
+\begin{equation}\label{mmain}
+\left\{
+\begin{aligned}
+-\Delta u + g(u) & = \mu && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\end{equation}
+with the following three assumptions:
+\begin{itemize}
+\item $\Omega \subset \mathbb{R}^N$ is a bounded open set with smooth boundary.
+\item $g: \mathbb{R} \to \mathbb{R}$ is a continuous, non-decreasing function such that $g(0) = 0$.
+\item $\mu \in \mathcal{M}(\Omega)$.
+\end{itemize}
+
+We find a solution for the above problem in \emph{weak sense}:
+\begin{equation}\label{mweak}
+\left\{
+\begin{aligned}
+& u \in L^1(\Omega ),\quad g(u) \in L^1(\Omega ) ,\\
+&-\int_{\Omega} u \Delta \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}\varphi\, d\mu \quad \forall \varphi \in C^2_0(\overline{\Omega}) ,
+\end{aligned}
+\right.
+\end{equation}
+
+In case $g \equiv 0$, the linear case, we have the following theorem, which shows the existence, uniqueness and regularity of solutions to our problem. For a proof, see Stampacchia \cite[Th\'eor\`eme 9.1]{S}.
+\begin{thm}\label{lithm}
+Given $\mu \in \mathcal{M}(\Omega)$, there exists a unique $u\in L^1(\Omega)$ satisfying
+\[
+-\int_{\Omega}u\Delta \varphi = \int_{\Omega}\varphi \, d\mu \quad \forall \varphi\in C_0^2(\overline{\Omega}).
+\]
+Moreover, for every $1\le q < \frac{N}{N-1}$, $u\in W^{1,q}_0(\Omega)$ and
+\[
+\| u\|_{W^{1,q}} \le C \| \mu \|_{\mathcal{M}},
+\]
+where $C>0$ is a constant depending only on $\Omega$.
+\end{thm}
+
+By the same argument as in $L^1$ case, we have the uniqueness of solutions to the problem \eqref{mweak}. Now, we will display some a priori estimates which are useful later.
+
+\begin{thm}\label{apthm}
+For every $\mu \in \mathcal{M}(\Omega)$, the problem \eqref{mweak} has at most one solution $u$. Moreover, $u \in W^{1,1}_0(\Omega)$ and satisfies:
+\begin{enumerate}[i)]
+\item $\| g(u) \|_1 \le \| \mu\|_{\mathcal{M}}$.
+\item $\| u \|_1 \le \| u \|_{W^{1,1}} \le C\|\mu\|_{\mathcal{M}}$,\\ where $C>0$ is a constant depending only on $\Omega$.
+
+If $u_1,u_2$ are solutions with measure data $\mu_1,\mu_2$ respectively, then
+\item $\|g(u_1) -g(u_2)\|_1 \le \| \mu_1 - \mu_2 \|_{\mathcal{M}}$.
+\item $\| u_1 - u_2 \|_1 \le \| u_1 - u_2 \|_{W^{1,1}} \le C\|\mu_1 - \mu_2\|_{\mathcal{M}}$,\\
+where $C>0$ is a constant depending only on $\Omega$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\mbox{}
+
+Let $\{\mu_n\}$ be a sequence of convolutions of $\mu$ as defined in \eqref{conv}.
+
+For each $n$, we have $\mu_n \in C_c^{\infty}(\mathbb{R}^N)$. So,
+\[
+\mu_n - g(u) \in L^1(\Omega).
+\]
+
+Let $u_n$ satisfy
+\begin{equation}\label{gg1}
+-\int_{\Omega}u_n\Delta\varphi = \int_{\Omega}(\mu_n - g(u))\varphi,\quad \forall \varphi\in C^2_0(\overline{\Omega}).
+\end{equation}
+
+By Theorem \ref{lithm}, we have
+\begin{equation}\label{gg4}
+\| u_n\|_{W^{1,1}} \le C \| \mu_n - g(u)\|_1 \le C(\| \mu \|_{\mathcal{M}} + \| g(u) \|_1),
+\end{equation}
+which implies $\{ u_n\}$ is a bounded sequence in $W^{1,1}(\Omega)$. By the existence of a compact embedding from $W^{1,1}(\Omega)$ to $L^1(\Omega)$, we can extract a subsequence $\{ u_{n_k}\}$ converging to $v$ in $L^1(\Omega)$. We may suppose more that
+\[
+u_{n_k} \to v \quad \text{a.e.\ in }\Omega.
+\]
+
+By \eqref{gg1}, we have
+\[
+-\int_{\Omega}u_{n_k}\Delta\varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}\mu_{n_k}\varphi,\quad \forall \varphi\in C^2_0(\overline{\Omega}).
+\]
+
+Taking the limits of both sides gives
+\[
+-\int_{\Omega}v\Delta \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}\varphi\, d \mu \quad\forall \varphi \in C^2_0(\overline{\Omega}),
+\]
+which implies
+\[
+\int_{\Omega}(u-v)\Delta \varphi = 0 \quad \forall \varphi \in C^2_0(\overline{\Omega}).
+\]
+
+So,
+\[
+u = v \quad\text{a.e.\ in } \Omega ,
+\]
+and
+\begin{equation}\label{gg2}
+u_{n_k} \to u \quad\text{a.e.\ in } \Omega.
+\end{equation}
+
+Let $p\in C^2(\mathbb{R})$ such that $p(0)=0$, $p' \ge 0$ and $|p|\le 1$.
+
+By the same argument as in Lemma 1.5, from \eqref{gg1}, we have
+\[
+\int_{\Omega} (\mu_n - g(u)).p (u_n) \ge 0,
+\]
+which implies
+\[
+\int_{\Omega} g(u).p (u_{n_k}) \le \int_{\Omega}\mu_{n_k}.p (u_{n_k}) \le \| \mu_{n_k}\|_1 \le \| \mu \|_{\mathcal{M}}.
+\]
+
+Moreover, by the dominated convergence theorem, from \eqref{gg2} we have
+\[
+\int_{\Omega} g(u).p (u_{n_k}) \to \int_{\Omega} g(u).p (u),
+\]
+which implies
+\begin{equation}\label{gg3}
+\int_{\Omega} g(u).p (u) \le \| \mu \|_{\mathcal{M}}.
+\end{equation}
+
+Now, let $\{p_n\}$ be a sequence of non-decreasing functions in $C^2(\mathbb{R})$ such that
+\[
+p_n(t) = \left\{
+\begin{aligned}
+& 0 \quad &&\text{if } t=0,\\
+& 1 \quad &&\text{if } t > \frac{1}{n},\\
+& -1 \quad &&\text{if } t < -\frac{1}{n}.
+\end{aligned}
+\right.
+\]
+
+It is clear that
+\[
+p_n(u)\to \sgn(u)\quad\text{pointwisely in }\Omega,
+\]
+which implies
+\begin{equation}\label{fix1}
+g(u).p_n(u)\to g(u).\sgn(u)\quad\text{pointwisely in }\Omega.
+\end{equation}
+
+Since $|p_n(u)|\le 1$ for all $n$, we can apply the dominated convergence theorem to \eqref{fix1}. So we get
+\[
+\int_{\Omega} g(u).p_n (u)\to \int_{\Omega} g(u).\sgn (u).
+\]
+
+From \eqref{gg3} and $g(u).\sgn (u) = |g(u)|$, i) follows.
+
+Rewriting \eqref{mweak} gets
+\begin{equation}\label{2anh}
+-\int_{\Omega}u\Delta\varphi = \int_{\Omega}\varphi\, d\mu  - \int_{\Omega} g(u)\varphi, \quad  \forall \varphi \in C^2_0(\overline{\Omega}).
+\end{equation}
+
+Let $v\in L^1(\Omega)$ be the unique solution to the problem:
+\begin{equation}\label{1anh}
+-\int_{\Omega}v\Delta\varphi = \int_{\Omega}\varphi\, d\mu  - \int_{\Omega} g(u)\varphi, \quad  \forall \varphi \in C^2_0(\overline{\Omega}).
+\end{equation}
+
+From \eqref{2anh} and \eqref{1anh}, we have
+\[
+\int_{\Omega}u\Delta\varphi = \int_{\Omega}v\Delta\varphi, \quad  \forall \varphi \in C^2_0(\overline{\Omega}),
+\]
+
+Since
+\[
+\{\Delta \varphi : \varphi \in C^2_0(\overline{\Omega})\} \subset C_c^{\infty}(\Omega),
+\]
+we have
+\[
+u = v\quad \text{a.e.\ in } \Omega,
+\]
+which means that $u$ is the unique solution in $L^1(\Omega)$ of the problem \eqref{1anh}.
+
+From Theorem \ref{lithm}, we have $u\in W^{1,1}_0(\Omega)$ and
+\[
+\| u \|_{W^{1,1}} \le C(\| \mu + T_{g(u)} \|_{\mathcal{M}})\le C(\|\mu\|_{\mathcal{M}} + \|g(u)\|_1),
+\]
+where $T_{g(u)}$ is from \eqref{L12M}.
+
+Hence ii) follows i).
+
+Finally, iii) an iv) can be obtained in the same way as i), with a note that
+\[
+(g(u_1)-g(u_2)).\sgn(u_1 - u_2) = |g(u_1) - g(u_2)|.\qedhere
+\]
+\end{proof}
+
+\section{The existence of solutions}
+\mbox{}
+
+The answer for the existence of solutions is negative, as in the following example:
+
+\begin{thm}
+Assume $N\ge 3$. If $p \ge \frac{N}{N-2}$, then, for any $a\in \Omega$, the problem
+\begin{equation}\label{exmain}
+\left\{
+\begin{aligned}
+-\Delta u + |u|^{p-1}u & = \delta_a && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\end{equation}
+has no solution $u\in L^p(\Omega)$.
+\end{thm}
+
+\begin{proof}
+We prove this problem by contradiction.
+
+Assume that the problem \eqref{exmain} has a solution $u\in L^p(\Omega)$. For convenience, we may suppose $a = 0 \in \Omega$ and $B(0,1) \subset \Omega$.
+
+Let $\varphi \in C_c^{\infty}(\mathbb{R}^N)$ such that $\supp \varphi \subset B(0,1)$. Then let $\{\varphi_n\}\subset C_c^{\infty}(\mathbb{R}^N)$ be the sequence given by
+\[
+\varphi_n(x) = \varphi(nx), \quad \forall x\in \mathbb{R}^N, \forall n
+\]
+
+It is clear that 
+\[
+\supp \varphi_n \subset B(0, 1/n), \quad \forall n,
+\]
+and
+\begin{equation}\label{lim1}
+\lim_{n\to \infty} \varphi_n(x) =\lim_{n\to \infty}\varphi(nx) = 0 ,\quad \forall x \neq 0.
+\end{equation}
+
+Using $\varphi_n$ as test function in \eqref{exmain}, we get
+\begin{equation}\label{dira1}
+-\int_{B(0,1)} u \Delta \varphi_n + \int_{B(0,1)} |u|^{p-1}u\varphi_n = \varphi_n(0) = \varphi (0).
+\end{equation}
+
+From \eqref{lim1}, we get
+\[
+\lim_{n\to \infty} |u|^{p-1}u\varphi_n = 0 \quad\text{a.e.\ in } B(0,1).
+\]
+
+Moreover, since
+\[
+||u|^{p-1}u\varphi_n| \le |u|^p \| \varphi\|_{\infty}.
+\]
+
+Applying the dominated convergence theorem, we get
+\begin{equation}\label{dira2}
+\lim_{n\to \infty} \int_{B(0,1)}|u|^{p-1}u\varphi_n = 0.
+\end{equation}
+
+Let $p' = p/(p-1)$, then
+\begin{align*}
+\left|\int_{B(0,1)} u\Delta \varphi_n\right| &= \left|\int_{B(0,1/n)}u\Delta \varphi_n\right|\\
+&= n^2 \left|\int_{B(0,1/n)} u \Delta \varphi (nx)\, dx\right|\\
+&\le n^2 \left(\int_{B(0,1/n)} |u|^p\right)^{1/p}\left(\int_{B(0,1/n)} |\Delta\varphi (nx)|^{p'}\,dx\right)^{1/p'}\\
+&= n^2 \left(\int_{B(0,1/n)} |u|^p\right)^{1/p}\left(n^{-N}\int_{B(0,1/n)} |\Delta\varphi (nx)|^{p'}\,dx\right)^{1/p'}\\
+&= n^{2-N/p'} \left(\int_{B(0,1/n)} |u|^p\right)^{1/p}\left(\int_{B(0,1)} |\Delta\varphi|^{p'}\right)^{1/p'}.
+\end{align*}
+
+Since $p \ge \frac{N}{N-2}$, we have $p' \le N/2$. Hence
+\[
+n^{2-N/p'} \le 1,\quad \forall n.
+\]
+
+So,
+\[
+\left|\int_{B(0,1)} u\Delta \varphi_n\right| \le \left(\int_{B(0,1/n)} |u|^p\right)^{1/p}\left(\int_{B(0,1)} |\Delta\varphi|^{p'}\right) ^{1/p'},\quad\forall n.
+\]
+
+By the dominated convergence theorem, we have
+\[
+\int_{B(0,1/n)} |u|^p = \int_{\Omega}\chi_{B(0,1/n)}|u|^p \to 0,
+\]
+which implies
+\begin{equation}\label{dira3}
+\int_{B(0,1)} u\Delta \varphi_n \to 0.
+\end{equation}
+
+From \eqref{dira1}, \eqref{dira2}, and \eqref{dira3}, we conclude that
+\[
+\varphi(0) = 0.
+\]
+
+To reach a contradiction, pick $\varphi$ such that $\varphi(0) \neq 0$.
+\end{proof} 
+
+Despite of this counterexample, when $g$ is good enough, the answer for the existence of solutions is positive. The following theorem demonstrates a large class of $g$ satisfying the existence. In some sense, it also shows that the value $\frac{N}{N-2}$ in the above example is critical.
+
+\begin{thm}
+Assume $N \ge 2$ and
+\[
+|g(t)| \le C(|t|^p + 1), \quad\forall t\in \mathbb{R},
+\]
+for some $p \in [1, \frac{N}{N-2})$. Then, for every $\mu\in \mathcal{M}(\Omega)$, problem \eqref{mweak} has a unique solution.
+\end{thm}
+
+\begin{proof}
+\mbox{}
+
+Let $\{\mu_n\}$ be a sequence of convolutions of $\mu$ as in \eqref{conv}.
+
+For each $n$, we have $\mu_n \in C_c^{\infty}(\mathbb{R}^N)$, so there is $u_n\in L^1(\Omega)$ satisfies
+\begin{equation}\label{eee3}
+-\int_{\Omega}u_n\Delta\varphi + \int_{\Omega}g(u_n)\varphi = \int_{\Omega}\mu_n \varphi\quad \forall \varphi\in C^2_0(\overline{\Omega}),
+\end{equation}
+or equivalently,
+\[
+-\int_{\Omega}u_n\Delta\varphi = \int_{\Omega}(\mu_n - g(u_n)) \varphi\quad \forall \varphi\in C^2_0(\overline{\Omega}).
+\]
+
+For $p < \frac{N}{N-2}$, we have 
+\[
+\frac{1}{1/p + 1/N} <  \frac{N}{N-1}.
+\]
+
+Let $q$ be such that 
+\[
+\frac{1}{1/p + 1/N} < q < \frac{N}{N-1}.
+\]
+
+By Theorem \ref{lithm}, we have
+\[
+\| u_n \|_{W^{1,q}} \le C_1\| \mu_n - g(u_n) \|_1,
+\]
+and also by Theorem \ref{apthm},
+\[
+\| u_n \|_{W^{1,q}} \le 2C_1\| \mu_n \|_1 \le 2C_1\| \mu \|_{\mathcal{M}}.
+\]
+
+We conclude that the sequence $\{u_n\}$ is bounded in $W^{1,q}(\Omega)$.
+
+Since $q < \frac{N}{N-1}\le N$, there is a compact embedding from $W^{1,q}(\Omega)$ to $L^p(\Omega)$. So there exists a subsequence $\{u_{n_k}\}$ converging in $L^p(\Omega)$ to $u$. 
+
+We may suppose furthermore that
+\begin{equation}\label{e111}
+u_{n_k} \to u \quad\text{a.e.\ in } \Omega,
+\end{equation}
+and there exists some function $h\in L^p(\Omega)$ such that
+\[
+|u_{n_k}| < h \quad \text{a.e.\ in }\Omega.
+\]
+
+By \eqref{e111}, we have
+\[
+g(u_{n_k}) \to g(u) \quad \text{a.e.\ in } \Omega.
+\]
+
+Moreover,
+\[
+|g(u_{n_k})| \le C(|u_{n_k}|^p + 1) \le C(h^p + 1).
+\]
+
+Since $C(h^p + 1) \in L^1(\Omega)$, applying the dominated convergence theorem gives
+\[
+g(u_{n_k}) \to g(u) \quad \text{in } L^1(\Omega).
+\]
+
+Taking the limits of both sides in \eqref{eee3}, we get the conclusion.
+\end{proof}
+
+\chapter{Some preliminaries}
+
+\section{Capacity}
+\mbox{}
+
+Hereafter, the notion \emph{capacity} will stand for the \emph{Newtonian} capacity (or $H^1$-capacity), which is a function of Borel sets with value in $[0,+\infty]$.
+
+Given a compact subset $K$ of $\Omega$, we denote the capacity  of $K$ with respect to $\Omega$ by
+\begin{equation}\label{capdef}
+\capa(K) \equiv \capa_{H^1}(K) = \inf \left\{ \int_{\Omega} |\nabla \varphi |^2: \varphi\in C_c^{\infty}(\Omega), K \subset [\varphi\ge 1]^o \right\},
+\end{equation}
+with the convention that $\inf \emptyset = +\infty$.
+
+By $K \subset [\varphi\ge 1]^o$ we mean that $\varphi \ge 1$ on some neighborhood of $K$.
+
+If $U$ is an open subset of $\Omega$, we denote
+\begin{equation}\label{312}
+\capa(U) = \sup \{\capa(K): K\text{ compact and } K\subset U \}.
+\end{equation}
+
+Finally, for any Borel subset $E$ of $\Omega$, we denote
+\begin{equation}\label{313}
+\capa(E) = \inf \{\capa(U): U\text{ open and } E \subset U\}.
+\end{equation}
+
+Let $K_1, K_2$ be two compact subsets of $\Omega$. We have
+\begin{equation}\label{314}
+\capa(K_1) \le \capa(K_2) \quad\text{if }K_1\subset K_2.
+\end{equation}
+
+By \eqref{314}, we can show that the definition \eqref{313} agrees with \eqref{capdef} and \eqref{312} when $E$ is a compact subset of $\Omega$ and an open subset of $\Omega$ respectively.
+
+The inequality \eqref{314} also implies that
+\begin{equation}\label{cap1}
+\capa(A) \le \capa(B) \quad \text{if }A\subset B.
+\end{equation}
+
+It is clear that $\capa (\emptyset) = 0$.
+
+Moreover, for $K$ compact and for any $\varphi \in C_c^{\infty}(\Omega)$ such that $\varphi \ge 1$ on a neighborhood of $K$, by Poincar\'e's Inequality, we have 
+\[
+|K| \le \int_{\Omega}|\varphi|^2 \le C \int_{\Omega} |\nabla \varphi |^2,
+\]
+which implies that
+\[
+|K| \le C \capa(K),
+\]
+where $C > 0$ is a constant just depending on $\Omega$. 
+
+Using the above estimate, we can show that if $\capa(E) = 0$, then $|E| = 0$ for every $E$ be a Borel subset of $\Omega$.
+
+This capacity also has subadditivity property, which is:
+
+\begin{prn}\label{cap2thm}
+Let $\{A_n\}$ be a sequence of subsets of $\Omega$. We have
+\begin{equation}\label{cap2}
+\capa\left(\bigcup\limits_{n=1}^{\infty}A_n\right) \le \sum\limits_{n=1}^{\infty}\capa(A_n).
+\end{equation}
+\end{prn}\label{311prn}
+
+\begin{proof}
+By \eqref{313}, we can simplify our proof to validate \eqref{cap2} in case $A_n$ is an open set for all $n$.
+
+Let $K$ be a compact subset of $\bigcup\limits_{n=1}^{\infty} A_n$. Then there exist finite sets $A_{n_1},A_{n_2},\ldots ,A_{n_k}$ in sequence $\{A_n\}$ such that
+\[
+K\subset \bigcup\limits_{i=1}^{k} A_{n_i}.
+\]
+
+If we can show that
+\begin{equation}\label{cap4}
+\capa(K) \le \sum\limits_{i=1}^{k}\capa(A_{n_i})
+\end{equation}
+then by
+\[
+\sum\limits_{i=1}^{k}\capa(A_{n_i}) \le \sum\limits_{n=1}^{\infty}\capa(A_n),
+\]
+and \eqref{312}, we get the conclusion.
+
+Instead of proving \eqref{cap4}, it is enough to show that if $K$ is a compact subset of $A \cup B$ with $A, B$ are two open sets, then $\capa(K) \le \capa(A) + \capa(B)$.
+
+For each $x \in K \cap A$, we can pick a neighborhood $U_x$ of $x$ such that $\overline{U}_x \subset A$. Similarly, for each $y \in K \cap B$, we can pick an neighborhood $V_y$ of $y$ such that $\overline{V}_y \subset A$. Now we have
+\[
+K \subset \left(\bigcup\limits_{x\in K\cap A}U_x \right)\cup \left(\bigcup\limits_{y\in K\cap B}V_y\right).
+\]
+By the compactness of $K$, there exists finite points $x_1, x_2,\ldots, x_p\in A$ and $y_1,y_2,\ldots,y_q\in B$ such that
+\[
+K \subset  \left(\bigcup\limits_{i=1}^{p} U_{x_i} \right)\cup  \left( \bigcup\limits_{j=1}^{q} V_{y_j}\right) .
+\]
+Let $C = \bigcup\limits_{i=1}^{p} \overline{U}_{x_i}$ and $D = \bigcup\limits_{j=1}^{q} \overline{U}_{y_j}$. We have $K \subset C \cup D$, where $C,D$ are two compact subsets of $A$ and $B$ respectively. If we can show that
+\begin{equation}\label{cap5}
+\capa (C \cup D) \le \capa(C) + \capa(D),
+\end{equation}
+then we will have
+\[
+\capa(K) \le \capa(C\cup D) \le \capa(C) + \capa(D) \le \capa(A) + \capa(B),
+\]
+which gives us the conclusion.
+
+Now, the remaining thing is to prove \eqref{cap5}.
+
+Let $\varphi_1,\varphi_2\in C_c^{\infty}(\Omega)$ be such that $\varphi_1 \ge 1$ on a neighborhood of $C$ and $\varphi_2\ge 1$ on a neighborhood of $D$; and let $\psi = \max \{\varphi_1, \varphi_2\}$.
+
+It is clear that $\psi \ge 1$ on a neighborhood of $C \cup D$. For $n$ large enough, the function $\psi_n  = \rho_n * \psi$ belongs to $C_c^{\infty}(\Omega)$ and $\psi_n \ge 1$ on a neighborhood of $C \cup D$. So,
+\begin{equation}\label{cap10}
+\capa(C\cup D) \le \int_{\Omega}|\nabla \psi_n|^2.
+\end{equation}
+
+For each $1 \le i \le N$, we have
+\[
+\| \frac{\partial \psi_n}{\partial x_i} \|_2=\| \rho_n * \frac{\partial \psi}{\partial x_i} \|_2 \le \| \rho_n \|_1 \|\frac{\partial \psi}{\partial x_i}\|_2 =  \|\frac{\partial \psi}{\partial x_i}\|_2  ,
+\]
+which implies
+\begin{equation}\label{cap11}
+\int_{\Omega}|\nabla \psi_n|^2 \le \int_{\Omega}|\nabla \psi|^2 .
+\end{equation}
+
+Now, since
+\[
+\nabla \psi  = \left\{
+\begin{aligned}
+&\nabla \varphi_1 &&\text{a.e.\ on }[\varphi_1 \ge \varphi_2],\\
+&\nabla \varphi_2 &&\text{a.e.\ on }[\varphi_1 \le \varphi_2],
+\end{aligned}
+\right.
+\]
+we have
+\begin{equation}\label{cap12}
+|\nabla \psi |^2 \le |\nabla \varphi_1|^2 + |\nabla \varphi_2|^2\quad\text{a.e.\ on }\Omega.
+\end{equation}
+
+Combining \eqref{cap10}, \eqref{cap11}, and \eqref{cap12}, we get
+\[
+\capa(C\cup D) \le \int_{\Omega}|\nabla \varphi_1|^2 + \int_{\Omega}|\nabla \varphi_2|^2,
+\]
+which gives us the conclusion because $\varphi_1, \varphi_2$ are chosen arbitrarily.
+\end{proof}
+
+The following proposition gives us a finer definition of capacity comparing to \eqref{capdef}.
+
+\begin{prn}\label{31prn}
+For every compact set $K\subset \Omega$, we have
+\[
+\capa (K)= \inf \left\{ \int_{\Omega} |\nabla \varphi |^2: \varphi\in C_c^{\infty}(\Omega), 0\le \varphi\le 1, K \subset [\varphi = 1]^o \right\}.
+\]
+\end{prn}
+
+By $K\subset [\varphi = 1]^o$, we mean that $\varphi = 1$ on some neighborhood of $K$.
+
+\begin{proof}
+Denote the right hand side by $T$.
+
+Clearly it is enough to show that
+\[
+\capa (K) \ge \inf \left\{ \int_{\Omega} |\nabla \varphi |^2: \varphi\in C_c^{\infty}(\Omega), 0\le \varphi\le 1, K \subset [\varphi = 1]^o \right\}.
+\]
+
+Indeed, let $\varphi \in C_c^{\infty}(\Omega)$ be such that $\varphi \ge 1$ in some neighborhood of $K$ and let $\psi = \min\{\varphi^+,1\}$.
+
+It is clear that $0\le \psi\le 1$ and $\psi = 1$ on a neighborhood of $K$. For $n$ large enough, the function $\psi_n = \rho_n * \psi$ belongs to $C_c^{\infty}(\Omega)$, $0\le \psi_n \le 1$, and $\psi_n = 1$ on a neighborhood of $K$. So,
+\begin{equation}\label{cap121}
+T \le \int_{\Omega}|\nabla \psi_n|^2.
+\end{equation}
+
+For each $1 \le i \le N$, we have
+\[
+\| \frac{\partial \psi_n}{\partial x_i} \|_2 =\| \rho_n * \frac{\partial \psi}{\partial x_i} \|_2 \le \| \rho_n \|_1 \|\frac{\partial \psi}{\partial x_i}\|_2 =  \|\frac{\partial \psi}{\partial x_i}\|_2  ,
+\]
+which implies
+\begin{equation}\label{cap122}
+\int_{\Omega}|\nabla \psi_n|^2 \le \int_{\Omega}|\nabla \psi|^2 
+\end{equation}
+
+Now, from
+\[
+\nabla \psi  = \left\{
+\begin{aligned}
+&0 &&\text{a.e.\ on }[\varphi \le 0]\cup[\varphi \ge 1],\\
+&\nabla \varphi &&\text{a.e.\ on }[0 \le \varphi \le 1],
+\end{aligned}
+\right.
+\]
+we have
+\begin{equation}\label{cap123}
+|\nabla \psi|^2 \le |\nabla \varphi |^2 \quad\text{a.e.\ on }\Omega.
+\end{equation}
+
+Combining \eqref{cap121}, \eqref{cap122} and \eqref{cap123}, we get
+\[
+T \le \int_{\Omega} |\nabla \psi |^2,
+\]
+which gives us the conclusion because $\varphi$ is chosen arbitrarily.
+\end{proof}
+
+Another definition of capacity for a compact subset $K$ of $\Omega$ is
+\[
+\capa_{\Delta,1}(K) = \inf \left\{\int_{\Omega} |\Delta \varphi |: \varphi\in C_c^{\infty}(\Omega),K \subset [\varphi \ge 1]^o \right\},
+\]
+or (similar to Proposition \ref{31prn})
+\[
+\capa_{\Delta,1}(K) = \inf \left\{\int_{\Omega} |\Delta \varphi |: \varphi\in C_c^{\infty}(\Omega), 0\le\varphi\le 1, K \subset [\varphi = 1]^o\right\}.
+\]
+
+This definition and our definition are equivalent, as shown in the following theorem:
+
+\begin{thm}
+For every compact set $K \subset \Omega$, we have
+\[
+\capa_{\Delta, 1}(K) = 2 \capa_{H^1}(K).
+\]
+\end{thm}
+
+First we need the following lemma whose proof requires some knowledge in Potential Theory (see the main article of this report \cite[Lemma E.1]{BMP}).
+
+\begin{lmm}\label{caplmm}
+Let $K \subset \Omega$ be a compact set. Given $\epsilon > 0$, there exists $\psi \in C_c^{\infty}(\Omega)$ such that $0\le \psi \le 1$ in $\Omega$, $\psi = 1$ in some neighborhood of $K$, and
+\[
+\int_{\Omega}|\Delta \varphi| \le 2 \capa_{H^1}(K) + \epsilon.
+\]
+\end{lmm}
+
+\begin{proof}[Proof of Theorem 3.1]
+Clearly by Lemma \ref{caplmm}, it is enough to prove that
+\[
+\capa_{H^1}(K) \le \frac{1}{2}\capa_{\Delta,1}(K).
+\]
+
+Indeed, let $\varphi \in C_c^{\infty}(\Omega)$ be such that $0\le \varphi \le 1$ in $\Omega$ and $\varphi = 1$ in some neighborhood of $K$. We have
+\[
+\capa_{H^1}(K) \le \int_{\Omega}|\nabla \varphi|^2 = -\int_{\Omega}\varphi \Delta \varphi.
+\]
+
+Because $\varphi$ has compact support in $\Omega$ and $0\le \varphi \le 1$, we have
+\[
+\int_{\Omega}\Delta \varphi = 0\quad\text{and} \quad |\varphi - \frac{1}{2}| \le \frac{1}{2},
+\]
+which imply
+\[
+\capa_{H^1}(K) \le -\int_{\Omega}(\varphi - \frac{1}{2})\Delta \varphi \le \frac{1}{2}\int_{\Omega}|\Delta \varphi|.
+\]
+
+We get the conclusion because $\varphi$ is chosen arbitrarily.
+\end{proof}
+
+\section{Decomposition of measures}
+\mbox{}
+
+We start this section with the following result:
+
+\begin{thm}\label{33thm}
+Let $\mu$ be a bounded Borel measure in $\mathbb{R}^N$ and let $\mathcal{Z}$ be a collection of Borel sets such that
+\begin{enumerate}[i)]
+\item $\mathcal{Z}$ is closed with respect to finite or countable unions.
+\item $(A\in \mathcal{Z} \text{ and } A'\subset A \text{ Borel}) \quad \Rightarrow \quad A' \in \mathcal{Z}$.
+\end{enumerate}
+Then $\mu$ can be represented in the form
+\[
+\mu = \mu_1 + \mu_2,
+\]
+where $\mu_1$ and $\mu_2$ are bounded Borel measures such that
+\[
+|\mu_1|(A) = 0, \quad \forall A \in \mathcal{Z},
+\]
+and
+\[
+|\mu_2|(A_0^c) = 0 \quad \text{for some }A_0 \in \mathcal{Z}.
+\]
+\end{thm}
+
+\begin{proof}
+\mbox{}
+
+First, we assume that $\mu$ is nonnegative.
+
+Denote
+\[
+X_{\mu} = \sup \{\mu(A): A\in \mathcal{Z}\}.
+\]
+
+Because $\mu$ is a finite measure, we have $X_{\mu}$ finite. Let $\{A_n\}$ be a sequence of sets in $\mathcal{Z}$ such that
+\[
+\mu(A_n) \uparrow X_{\mu}.
+\]
+
+Let $A_0 = \bigcup\limits_{n=1}^{\infty} A_n$. From i) and ii), we have
+\begin{equation}\label{331}
+A_0 \in \mathcal{Z} \quad\text{and}\quad\mu(A_0) = X_{\mu}.
+\end{equation}
+
+For every Borel set $E$, we put
+\[
+\mu_1(E) = \mu(E\setminus A_0),\quad \mu_2(E) = \mu(E\cap A_0).
+\]
+
+It is clear that $\mu_2(A_0^c) = 0$. Moreover, for every $E\in \mathcal{Z}$, we have
+\[
+\mu(A_0\cup E) = X_{\mu}\quad\text{(by } A_0 \cup E \in \mathcal{Z}\text{, (3.4) and ii))},
+\]
+and
+\[
+\mu(A_0 \cup E) = \mu(A_0 \cup (E \setminus A_0)) = \mu(A_0) + \mu(E\setminus A_0) = X_{\mu} + \mu_1(E),
+\]
+which imply that $\mu_1(E) = 0$.
+
+Now, when $\mu$ is a signed measure, applying the above result to $\mu^+$ and $\mu^-$, we get
+\[
+\mu = \mu^+ - \mu^- = (\mu^+)_1 + (\mu^+)_2 - (\mu^-)_1 - (\mu^-)_2,
+\]
+where
+\[
+(\mu^+)_1(A) = (\mu^-)_1(A) = 0, \quad \forall A \in \mathcal{Z},
+\]
+and 
+\[
+(\mu^+)_2(B^c) = (\mu^-)_2(C^c) = 0 \quad \text{for some }B,C \in \mathcal{Z}.
+\]
+
+Put $\mu_1 = (\mu^+)_1 - (\mu^-)_1$, $\mu_2 = (\mu^+)_2 - (\mu^-)_2$. We have $B \cup C \in \mathcal{Z}$,
+\[
+|\mu_1|(A) = (\mu^+)_1(A) + (\mu^-)_1(A) = 0, \quad \forall A\in\mathcal{Z},
+\]
+and
+\begin{align*}
+|\mu_2|((B\cup C)^c) &= (\mu^+)_2((B\cup C)^c) + (\mu^-)_2((B\cup C)^c)\\
+&\le (\mu^+)_2(B^c) + (\mu^-)_2(C^c)\\
+&= 0.
+\end{align*}
+
+The last one implies that
+\[
+|\mu_2|((B\cup C)^c) = 0.
+\]
+
+Finally, if $\mu = \mu_1 + \mu_2$ and $\mu = \mu_1' + \mu_2'$ are two decompositions such that
+\[
+|\mu_1|(A) = |\mu_1'|(A) = 0, \quad \forall A\in \mathcal{Z},
+\]
+and
+\[
+|\mu_2|(B^c) = |\mu_2'|(C^c) = 0 \quad \text{for some }B, C\in \mathcal{Z},
+\]
+then for every Borel set $E$,
+\begin{align*}
+\mu_2(E) &= \mu_2(E\cap (B\cup C)) + \mu_2(E\cap (B\cup C)^c)\\
+&= \mu_2 (E\cap (B\cup C))\quad \text{(by }E\cap (B\cup C)^c \subset B^c\text{)}\\
+&= \mu(E\cap (B\cup C)) - \mu_1(E\cap (B\cup C))\\
+&= \mu(E\cap (B\cup C))\\
+&= \mu_2'(E),
+\end{align*}
+which implies the uniqueness.
+\end{proof}
+
+The main content of this section is the following decomposition of a measure into ``diffuse'' and ``concentrated'' parts. We can show that this decomposition is a consequence of \eqref{cap1}, \eqref{cap2} and Theorem \ref{33thm} by putting
+\[
+\mathcal{Z} = \{E \subset \Omega:  E\text{ Borel and } \capa(E) = 0\}.
+\]
+
+
+\begin{crr}\label{331crr}
+Any measure $\mu \in \mathcal{M}(\Omega)$ can be uniquely decomposed as a sum of two measures:
+\[
+\mu = \mu_d + \mu_c,
+\]
+where $|\mu_d|(E)=0$ for every Borel set $E \subset \Omega$ such that $\capa (E) = 0$ and $|\mu_c|(\Omega \setminus F)$ for some Borel set $F \subset \Omega$ such that $\capa (F) = 0$.
+\end{crr}
+
+\begin{rmk}
+By the uniqueness, we can show that
+\[
+(\mu \pm \nu)_d = \mu_d \pm \nu_d \quad \text{and} \quad (\mu \pm \nu)_c = \mu_c \pm \nu_c.
+\]
+It is also clear that $\mu_d$ and $\mu_c$ are mutual singular with respect to each other. So we have
+\[
+(\mu^+)_d = (\mu_d)^+, \quad (\mu^-)_d = (\mu_d)^-,\quad (\mu^+)_c = (\mu_c)^+, \quad\text{and} \quad (\mu^-)_c = (\mu_c)^-.
+\]
+For convenience, we denote these quantities by $\mu^+_d$, $\mu^-_d$, $\mu^+_d$, and $\mu^+_c$ respectively. Moreover, since $\nu - \mu$ is a positive measure if $\mu \le \nu$, we have
+\[
+\mu \le \nu \quad\Rightarrow\quad (\mu_d \le \nu_d \text{ and } \mu_c \le \nu_c).
+\]
+We end this remark with
+\[
+\sup\{\mu_d, \mu_c\} = \mu_c + (\mu_d - \mu_c)^+ = \mu_c + \mu_d^+ + \mu_c^- = \mu_c^+ + \mu_d^+ = \mu^+.
+\]
+\end{rmk}
+
+\section{Diffuse measures}
+\mbox{}
+
+In this section, we concentrate on the ``diffuse'' part of the decomposition in Corollary \ref{331crr}. A measure $\mu \in \mathcal{M}(\Omega)$ is called \emph{diffuse} if $|\mu|(A) = 0$ for every Borel set $A \subset \Omega$ such that $\capa(A) =0$.
+
+Hereafter, we denote by $\mathcal{M}_d(\Omega)$ the set of diffuse measures.
+
+Diffuse measures have many interesting properties when study semilinear elliptic partial differential equations involving measure. There is some ways to define it. In the work of Boccardo-Gallou\"et-Orsina \cite{BGO}, they show that a measure $\mu$ is diffuse if and only if $\mu\in L^1 + H^{-1}$, which is there exist $f_0 \in L^1(\Omega)$ and $v_0 \in H^1_0(\Omega)$ such that
+\[
+\int_{\Omega}\varphi \,d\mu = \int_{\Omega} f_0\varphi - \int_{\Omega}\nabla v_0 .\nabla \varphi, \quad\forall \varphi \in C_0(\overline{\Omega})\cap H^1_0(\Omega).
+\]
+
+One interesting consequence of the above decomposition is the existence of solutions to our problem when data is a diffuse measure. Indeed, we will show that our problem has a unique solution for every data is a ``distribution'' in $L^1 + H^{-1}$. At first, we need the following lemma:
+
+\begin{lmm}\label{33lmm}
+For every $T\in H^{-1}(\Omega)$, the equation
+\[
+\int_{\Omega}\nabla u.\nabla \varphi + \int_{\Omega} g(u)\varphi = \langle T , \varphi \rangle, \quad \forall \varphi \in H^1_0(\Omega) \cap L^{\infty}(\Omega)
+\]
+has a solution $u\in H^{1}_0(\Omega)$ such that $g(u)\in L^1(\Omega)$.
+\end{lmm}
+
+\begin{proof}
+The proof of this lemma is the same as the proof of Lemma \ref{L2glmm} and Lemma \ref{L2lmm}, with a note that
+\[
+|\langle T,\varphi \rangle| \leq \| T \|_{H^{-1}}\|\nabla\varphi\|_2,\quad\forall \varphi \in C^2_0(\overline{\Omega}).\qedhere
+\]
+\end{proof}
+
+\begin{thm}
+For every $f \in L^1(\Omega)$ and every $T\in H^{-1}(\Omega)$, the equation
+\[
+\int_{\Omega}\nabla u.\nabla \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega} f\varphi + \langle T , \varphi \rangle ,\quad \forall \varphi \in C^2_0(\overline{\Omega})
+\]
+has a unique solution $u\in L^1(\Omega)$ such that $g(u)\in L^1(\Omega)$.
+\end{thm}
+
+\begin{proof}
+\mbox{}
+
+Let $\{f_n\}$ be a sequence in $C^{\infty}_c(\Omega)$ which converges to $f$ in $L^1(\Omega)$. So, for each $n$, $f_n + T$ is in $H^{-1}(\Omega)$.
+
+By Lemma \ref{33lmm}, for each $n$, there exists $u_n\in H^1_0(\Omega)$ with $g(u_n)\in L^1(\Omega)$ such that
+\[
+-\int_{\Omega} u_n\Delta \varphi +\int_{\Omega} g(u_n)\varphi = \int_{\Omega} f_n \varphi + \langle T , \varphi \rangle, \quad\forall \varphi\in C^2_0(\overline{\Omega}).
+\]
+
+So, for each $m,n$, we have
+\[
+-\int_{\Omega} (u_m-u_n)\Delta \varphi = \int_{\Omega} (f_m-f_n-g(u_m)+g(u_n)) \varphi, \quad\forall \varphi\in C^2_0(\overline{\Omega}).
+\]
+
+The remaining proof is the same as in the proof of Theorem \ref{L1thm}.
+\end{proof}
+
+Here is a direct consequence of the above theorem.
+
+\begin{crr}\label{33crr}
+Let $\mu$ be a diffuse measure. Then the problem
+\[
+-\int_{\Omega} u \Delta \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}\varphi\, d\mu, \quad \forall \varphi \in C^2_0(\overline{\Omega})
+\]
+has a unique solution $u\in L^1(\Omega)$ with $g(u)\in L^1(\Omega)$.
+\end{crr}
+
+\section{Kato's Inequality}
+\mbox{}
+
+For every Borel subset $E$ of $\Omega$, we denote by $\mu\lfloor_E$ the measure defined by $\mu\lfloor_E(A) = \mu(A \cap E)$ for every Borel set $A \subset \Omega$.
+
+In this section, we display some versions of Kato's Inequality. The first version is the following theorem, due to Brezis-Ponce \cite[Theorem 1.1]{BP}.
+
+\begin{thm}\label{kato1thm}
+Let $u\in L^1(\Omega)$ be such that $\Delta u \in \mathcal{M}(\Omega)$. Then, for every open set $\omega \subset\subset \Omega$, $\Delta u^+$ is a measure on $\omega$ with $(\Delta u^+)\lfloor_{\omega} \in \mathcal{M}(\omega)$ and the following hold:
+\begin{equation}\label{kato1}
+(\Delta u^+)_d \ge \chi_{[u \ge 0]}(\Delta u)_d \quad\text{in }\omega,
+\end{equation}
+\begin{equation}\label{kato2}
+(-\Delta u^+)_c = (-\Delta u)_c^+ \quad\text{in }\omega.
+\end{equation}
+\end{thm}
+
+Here by $\Delta u \in \mathcal{M}(\Omega)$ we mean that there exists $\mu \in \mathcal{M}(\Omega)$ such that $\Delta u = \mu$ in $[C^2_0(\overline{\Omega})]^*$; more precisely,
+\[
+\int_{\Omega}u\Delta \varphi = \int_{\Omega}\varphi\,d\mu \quad\forall \varphi \in C^2_0(\overline{\Omega}).
+\]
+
+\begin{rmk}
+The results \eqref{kato1} and \eqref{kato2} should be understood in the way that for every Borel subset $E$ of $\omega$,
+\[
+(\Delta u^+)_d (E) \ge (\Delta u)_d(E \cap [u\ge 0]),
+\]
+\[
+(-\Delta u^+)_c (E) = (-\Delta u)_c^+ (E).
+\]
+Equivalently, by Proposition \ref{21prn}, \eqref{kato1} and \eqref{kato2} can be understood in the sense of distributions, which is in $\mathcal{D}'(\omega)$. Since $\omega$ is chosen arbitrarily, we also have
+\[
+(\Delta u^+)_d \ge \chi_{[u \ge 0]}(\Delta u)_d, \quad\text{in }\mathcal{D}'(\Omega),
+\]
+\[
+(-\Delta u^+)_c = (-\Delta u)_c^+, \quad\text{in }\mathcal{D}'(\Omega).
+\]
+Now it may occur that when $u = v$ a.e.\ in $\Omega$, $(\Delta u)_d(E \cap [u\ge 0])$ and $(\Delta v)_d(E \cap [v\ge 0])$ are different. To get over this complication, we systematically replace $u$ by its quasi-continuous representative. Recall that $u$ is quasi-continuous if and only if, given any $\epsilon > 0$, one can find an open set $\omega_{\epsilon} \subset \Omega$ such that $\capa(\omega_{\epsilon}) < \epsilon$ and $u|_{\Omega \setminus \omega_{\epsilon}}$ is continuous. The quasi-continuous representatives always exists when $u\in L^1(\Omega)$ such that $\Delta u \in \mathcal{M}(\Omega)$, see \cite[Lemma 1]{BP2}. Moreover, we also have the uniqueness of quasi-continuous representatives with respect to capacity, which means that if $u_1,u_2$ are two representatives, then $u_1 = u_2$ quasi-everywhere in $\Omega$ (= outside a set of zero capacity). Indeed, let $u_1,u_2$ be two quasi-continuous functions such that $u_1 = u_2$ a.e.\ in $\Omega$. For each $\epsilon > 0$, there exists an open set $\omega_{\epsilon} \subset \Omega$ with $\capa(\omega_{\epsilon}) < \epsilon$ such that $u_1|_{\Omega \setminus \omega_{\epsilon}}$ and $u_2|_{\Omega \setminus \omega_{\epsilon}}$ are continuous. Since $u_1 = u_2$ a.e.\ in $\Omega$, we obtain
+\[
+u_1 = u_2 \quad\text{in }\Omega \setminus \overline{\omega_{\epsilon}},
+\]
+which also implies
+\[
+u_1 = u_2 \quad\text{in }\Omega \setminus \omega_{\epsilon}
+\]
+due to the continuity of $u_1|_{\Omega \setminus \omega_{\epsilon}}$ and $u_2|_{\Omega \setminus \omega_{\epsilon}}$. Set
+\[
+\omega = \bigcap\limits_{n = 1}^{\infty} \omega_{1/n}.
+\]
+Thus, $\capa(\omega) = 0$ and $u = v$ on $\Omega \setminus \omega$. The uniqueness follows. Now, since $(\Delta u)_d \in \mathcal{M}_d(\Omega)$, we have $(\Delta u)_d(E \cap [u\ge 0])$ well-defined. We end this remark with a note that when $u$ is quasi-continuous, the set $[u = \pm \infty]$ has zero capacity. Its proof can be obtained by a similar argument as in proving the uniqueness.
+\end{rmk}
+
+Here is another version of Kato's Inequality. A proof of its which adapts from Theorem \ref{kato1thm} can be found in the main article of this report, see \cite[Proposition B.5]{BMP}.
+
+\begin{thm}\label{kato2thm}
+Let $u\in L^1(\Omega)$ and $f\in L^1(\Omega)$ be such that
+\[
+-\int_{\Omega}u\Delta \varphi \le \int_{\Omega} f \varphi, \quad \forall \varphi \in C^2_0(\overline{\Omega}),\varphi\ge 0.
+\]
+Then
+\[
+-\int_{\Omega}u^+\Delta \varphi \le \int_{[u\ge 0]} f \varphi, \quad \forall \varphi \in C^2_0(\overline{\Omega}),\varphi\ge 0.
+\]
+\end{thm}
+
+We conclude this section with two consequences of Theorem \ref{kato1thm}. The first one is clear due to \eqref{kato2}.
+
+\begin{crr}\label{katocrr1}
+Let $u \in L^1(\Omega)$ be such that $\Delta u \in \mathcal{M}(\Omega)$. If $u\ge 0$ a.e.\ in $\Omega$, then
+\[
+(-\Delta u)_c \ge 0 \quad\text{in }\Omega.
+\]
+\end{crr}
+
+\begin{crr}\label{katocrr2}
+Let $u \in L^1(\Omega)$ be such that $\Delta u \in \mathcal{M}(\Omega)$. Then,
+\[
+\Delta T_k(u) \le \chi_{[u\le k]}(\Delta u)_d + (\Delta u)^+_c \quad \text{in }\mathcal{D}'(\Omega).
+\]
+\end{crr}
+
+Here for every $s\in \mathbb{R}$,
+\[
+T_k(s) = \left\{
+\begin{aligned}
+&s & \text{if }s\leq k,\\
+&k & \text{if }s > k.
+\end{aligned}
+\right.
+\]
+
+\begin{proof}
+\mbox{}
+
+It is clear that $T_k(u) = k - (k - u)^+$.
+
+Applying Theorem \ref{kato1thm} for $k-u$ instead of $u$, we have
+\[
+(\Delta (k-u)^+)_d \ge \chi_{[k-u\ge 0]} (\Delta (k-u))_d = -\chi_{[u\le k]}( (\Delta u)_d \quad\text{in } \mathcal{D}'(\Omega),
+\]
+\[
+(-\Delta (k-u)^+)_c = (-\Delta(k-u))_c^+ = (\Delta u)_c^+ \quad \text{in }\mathcal{D}'(\Omega),
+\]
+which imply that
+\begin{align*}
+\Delta T_k(u) &= (\Delta T_k(u))_d + (\Delta T_k(u))_c\\
+&=(-\Delta (k-u)^+)_d + (-\Delta (k-u)^+)_c \\
+&\le \chi_{[u\le k]}(\Delta u)_d + (\Delta u)_c^+\quad \text{in }\mathcal{D}'(\Omega).\qedhere
+\end{align*}
+\end{proof}
+
+\chapter{Reduced measures}
+
+\section{\texorpdfstring{Constructions of $u^*$ and $\mu^*$}{Constructions of u* and mu*}}
+\mbox{}
+
+Returning to our problem:
+\begin{equation}\label{4main}
+\left\{
+\begin{aligned}
+-\Delta u + g(u) & = \mu && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega.
+\end{aligned}
+\right.
+\end{equation}
+
+We call $u$ a \emph{solution} of \eqref{4main} if
+\begin{equation}\label{4weak}
+\left\{
+\begin{aligned}
+& u \in L^1(\Omega ),\quad g(u) \in L^1(\Omega ) ,\\
+&-\int_{\Omega} u \Delta \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}\varphi\, d\mu, \quad \forall \varphi \in C^2_0(\overline{\Omega}) .
+\end{aligned}
+\right.
+\end{equation}
+
+For convenience, we write
+\[
+-\Delta u +g(u) = \mu \quad\text{in }[C^2_0(\overline{\Omega})]^*,
+\]
+if $u$ satisfies \ref{4weak}.
+
+We call $u$ a \emph{subsolution} of \eqref{4main} if
+\[
+\left\{
+\begin{aligned}
+& u \in L^1(\Omega ),\quad g(u) \in L^1(\Omega ) ,\\
+&-\int_{\Omega} u \Delta \varphi + \int_{\Omega} g(u)\varphi \le \int_{\Omega}\varphi \, d\mu,\quad \forall \varphi \in C^2_0(\overline{\Omega}),\varphi \ge 0 .
+\end{aligned}
+\right.
+\]
+
+Note that a solution $u$ of \eqref{4main} satisfies $u\in L^1(\Omega)$ and $\Delta u \in \mathcal{M}(\Omega)$. So we can apply Kato's Inequality for solutions of $\eqref{4main}$.
+
+We say that $\mu \in \mathcal{M}(\Omega)$ is a \emph{good measure} if \eqref{4main} admits a solution, and denote by $\mathcal{G}$ (depending on $g$) the set of good measures.
+
+In this section, we are going to construct $u^*$ and $\mu ^*$. The first one is the largest subsolution. The second one, which we call \emph{reduced measure}, is the the largest good measure $\le \mu$.
+
+From now, we suppose more that $N \ge 2$ and
+\[
+g(t) = 0,\quad \forall t \le 0.
+\]
+
+We say that a function $h:\mathbb{R} \to \mathbb{R}$ has \emph{subcritical growth} if there exist $C > 0$ and $p \in [1, \frac{N}{N-2})$ such that
+\[
+h(t) \le C(|t|^p + 1) ,\quad \forall t \in \mathbb{R}.
+\]
+
+Let $\{g_n\}$ be a sequence of continuous, non-decreasing and subcritical growth functions such that
+\begin{equation}\label{g1}
+0 \le g_{1}(t) \le g_{2}(t) \le \ldots \le g(t), \quad \forall t \in \mathbb{R},
+\end{equation}
+and
+\begin{equation}\label{g2}
+g_n(t) \to g(t) ,\quad \forall t \in \mathbb{R}.
+\end{equation}
+
+For example, we may take the following sequence $\{ g_n \}$:
+\[
+g_n(t) = \min \{g(t), n\},\quad \forall t \in \mathbb{R},\forall n.
+\]
+
+By Dini's Theorem, the conditions \eqref{g1} and \eqref{g2} imply that $g_n \to g$ uniformly on compact subsets of $\mathbb{R}$.
+
+\begin{lmm}[Dini's Theorem]
+Let $K$ be a compact topological space, and $\{f_n\}$ be a sequence of continuous real-valued functions on $K$ which converges pointwise to a continuous function $f$ and such that
+\[
+f_n(x) \le f_{n+1}(x), \quad \forall x\in K, \forall n.
+\]
+Then $\{f_n\}$ converges to $f$ uniformly.
+\end{lmm}
+
+By Theorem 2.6, for each $n$, there exists $u_n\in L^1(\Omega)$ such that
+\begin{equation}\label{seqsol}
+\left\{
+\begin{aligned}
+-\Delta u_n + g_n(u_n) & = \mu && \text{in } \Omega , \\
+u_n & = 0 && \text{on } \partial \Omega.
+\end{aligned}
+\right.
+\end{equation}
+
+We come to the first result:
+
+\begin{thm}\label{thm41}
+Taking $n \to \infty$ in \eqref{seqsol}, we have $u_n \downarrow u^*$ in $\Omega$, where $u^*$ is the largest subsolution to \eqref{4main}. Moreover, we have
+\begin{equation}\label{411}
+\| g(u^*) \|_1 \le \| \mu \|_{\mathcal{M}},
+\end{equation}
+and
+\begin{equation}\label{412}
+\left| \int_{\Omega} u^* \Delta \varphi \right| \le 2 \|\mu\|_{\mathcal{M}}\|\varphi\|_{\infty},\quad \forall \varphi \in C^2_0(\overline{\Omega}).
+\end{equation}
+\end{thm}
+
+First, we have to show that $\{u_n\}$ is a non-increasing sequence. This is drawn from the following lemma:
+
+\begin{lmm}\label{cmplmm}
+Let $g_1, g_2:\mathbb{R}\to\mathbb{R}$ be two continuous, non-decreasing functions such that $g_1 \le g_2$, and $u_1, u_2 \in L^1(\Omega)$ such that $g_1(u_1), g_2(u_2)\in L^1(\Omega)$. If
+\[
+-\int_{\Omega}(u_2 - u_1)\Delta \varphi + \int_{\Omega}[g_2(u_2)-g_1(u_1)]\varphi \le 0 ,\quad \forall \varphi \in C^2_0(\overline{\Omega}),\varphi\ge 0,
+\]
+then
+\[
+u_1 \ge u_2 \quad \text{a.e.\ in } \Omega.
+\]
+\end{lmm}
+
+\begin{proof}
+\mbox{}
+
+Applying Kato's Inequality (Theorem \ref{kato1thm}) for 
+\[
+u = u_2 - u_1,
+\]
+and
+\[
+f = g_1(u_1) - g_2(u_2),
+\]
+we have
+\begin{equation}\label{kause}
+-\int_{\Omega}(u_2 - u_1)^+\Delta \varphi \le \int_{[u_2\ge u_1]}[g_1(u_1)-g_2(u_2)]\varphi ,\quad \forall \varphi \in C^2_0(\overline{\Omega}),\varphi\ge 0.
+\end{equation}
+
+On the set $[u_2 \ge u_1]$, we have
+\[
+g_2(u_2) \ge g_1(u_2) \ge g_1(u_1),
+\]
+which together with \eqref{kause} implies that
+\[
+-\int_{\Omega}(u_2 - u_1)^+\Delta \varphi \le 0 ,\quad \forall \varphi \in C_0^2(\overline{\Omega}),\varphi \ge 0.
+\]
+
+By Lemma \ref{L1e1lmm}, we obtain
+\[
+(u_2 - u_1)^+ \le 0 \quad \text{a.e.\ in } \Omega,
+\]
+which implies that
+\[
+(u_2 - u_1)^+ = 0 \quad \text{a.e.\ in }\Omega.
+\]
+
+So we have
+\[
+u_1 \ge u_2 \quad \text{a.e.\ in }\Omega.\qedhere
+\]
+\end{proof}
+
+\begin{proof}[Proof of Theorem 1]
+\mbox{}
+
+By \eqref{g1} and the above lemma, $\{u_n\}$ is a non-increasing sequence.
+
+Moreover, by Theorem \ref{apthm}, we get
+\begin{equation}\label{413}
+\| u_n \|_1 \le C \| \mu \|_{\mathcal{M}}, \quad \forall n,
+\end{equation}
+and
+\begin{equation}\label{414}
+\| g_n(u_n) \|_1 \le \| \mu \|_{\mathcal{M}}, \quad \forall n.
+\end{equation}
+
+Applying the monotone convergence theorem for the sequence $\{-u_n\}$, we get a function $u^* \in L^1(\Omega)$ such that
+\[
+u_n \to u^* \quad \text{a.e.\ in } \Omega,
+\]
+and
+\begin{equation}\label{415}
+u_n \to u^* \quad \text{in } L^1(\Omega).
+\end{equation}
+
+Let $x\in \Omega$ be such that $u_n(x)\to u^*(x)$.
+
+By Dini's theorem, for each $\epsilon > 0$, we can choose $M_x$ (depending on $\epsilon$) large enough such that for every $n > M_x$,
+\begin{equation}\label{141}
+|g_n(t) - g(t)| < \epsilon / 2, \quad \forall t \in [u^*(x) - 1, u^*(x) + 1].
+\end{equation}
+
+Since $u_n(x)\to u^*(x)$ and $g$ is continuous, this $M_x$ can be chosen such that for every $n > M_x$,
+\begin{equation}\label{142}
+|u_n(x) - u(x)|  < 1,
+\end{equation}
+and
+\begin{equation}\label{143}
+|g(u_n(x)) - g(u(x))| < \epsilon / 2 .
+\end{equation}
+
+By \eqref{141}, \eqref{142} and \eqref{143}, we obtain that for every $n > M_x$,
+\[
+|g_n(u_n(x)) - g(u^*(x))| \le |g_n(u_n(x)) - g(u_n(x)| +|g(u_n(x)) - g(u^*(x)| \le \epsilon,
+\]
+which implies that
+\begin{equation}\label{417}
+g_n(u_n) \to g(u^*)\quad\text{a.e.\ in }\Omega.
+\end{equation}
+
+By Fatou's Lemma, we have $g(u^*) \in L^1(\Omega)$ and for all $\varphi \in C^2_0(\overline{\Omega})$,
+\begin{align*}
+\int_{\Omega} g(u^*)\varphi &\le \liminf_{n\to \infty} \int_{\Omega} g_n(u_n)\varphi \\
+&= \liminf_{n\to \infty}\left( \int_{\Omega}u_n\Delta \varphi + \int_{\Omega}\varphi \,d\mu \right)\\
+&= \int_{\Omega}u^* \Delta\varphi + \int_{\Omega}\varphi \,d\mu.
+\end{align*}
+
+In other words, $u^*$ is a subsolution to our problem.
+
+To show that $u^*$ is the largest subsolution, let $v$ be any subsolution to our problem, we have to prove that $v \le u^*$ a.e.\ in $\Omega$.
+
+Indeed, for each $n$, for every $\varphi \in C_0^2(\overline{\Omega})$ with $\varphi \ge 0$ in $\Omega$, we have
+\begin{align*}
+-\int_{\Omega}v \Delta \varphi + \int_{\Omega} g_n(v)\varphi &\le -\int_{\Omega}v \Delta \varphi + \int_{\Omega}g(v)\varphi \\
+&\le \int_{\Omega} \varphi \, d\mu \\
+& = -\int_{\Omega}u_n \Delta \varphi + \int_{\Omega} g_n(u_n)\varphi.
+\end{align*}
+
+By Lemma \ref{cmplmm}, for each $n$, we get
+\[
+v \le u_n \quad \text{a.e.\ in }\Omega.
+\]
+
+Let $n \to \infty$, we come to the conclusion that
+\[
+v \le u^* \quad \text{a.e.\ in } \Omega.
+\]
+
+Now, in \eqref{417}, using Fatou's Lemma, we get
+\[
+\int_{\Omega}|g(u^*)| \le \liminf_{n\to \infty} \int_{\Omega}|g_n(u_n)|,
+\]
+which together with \eqref{414} imply the estimate \eqref{411}.
+
+Finally, for all $n$ and $\varphi \in C^2_0(\overline{\Omega})$, we have
+\begin{align*}
+\left|\int_{\Omega}u_n \Delta \varphi\right| &=  \left|\int_{\Omega} \varphi \,d\mu - \int_{\Omega}g_n(u_n)\varphi \right|\\
+&\le (\| \mu \|_{\mathcal{M}} + \| g_n(u_n) \|_{\mathcal{M}})\| \varphi \|_{\infty}\\
+&\le 2\| \mu\|_{\mathcal{M}} \| \varphi \|_{\infty},
+\end{align*}
+
+Taking $n \to \infty$, by \eqref{415}, the estimate \eqref{412} follows.
+\end{proof}
+
+\begin{rmk}
+Because $u^*$ is the largest subsolution to our problem, it is not depend on the way we choose the sequence $\{g_n\}$.
+\end{rmk}
+
+\begin{crr}
+If $\mu$ is a good measure, then $u^*$ coincides with the unique solution $u$.
+\end{crr}
+\begin{proof}
+Suppose $\mu$ is a good measure, we have to prove $u = u^*$ a.e.\ in $\Omega$.
+
+Because $u$ is a solution, it is also a subsolution. So, by Theorem \ref{thm41}, we have
+\begin{equation}\label{leq1}
+u \le u^*\quad \text{a.e.\ in }\Omega.
+\end{equation}
+
+Moreover, by applying Lemma \ref{cmplmm} for the estimate:
+\begin{align*}
+-\int_{\Omega}u^*\Delta\varphi + \int_{\Omega}g(u^*)\varphi &\le \int_{\Omega}\varphi\, d\mu \\
+&= -\int_{\Omega}u\Delta\varphi + \int_{\Omega}g(u)\varphi, \quad\forall \varphi\in C^2_0(\overline{\Omega}),\varphi\ge 0,
+\end{align*}
+we obtain
+\begin{equation}\label{leq2}
+u^* \le u \quad \text{a.e.\ in } \Omega.\qedhere
+\end{equation}
+
+By \eqref{leq1} and \eqref{leq2}, we get the conclusion.
+\end{proof}
+
+Now, we ready to construct the \emph{reduced measure} $\mu^*$ and show that this is the largest good measure $\le \mu$.
+
+\begin{crr}
+There exists a unique measure $\mu^*\in \mathcal{M}(\Omega)$ such that
+\begin{equation}\label{42crr}
+-\int_{\Omega}u^*\Delta\varphi + \int_{\Omega}g(u^*)\varphi = \int_{\Omega} \varphi \,d\mu^*, \quad \forall \varphi \in C_0^2(\overline{\Omega}).
+\end{equation}
+\end{crr}
+
+\begin{proof}
+By \eqref{411} and \eqref{412}, it is clear that the functional
+\[
+T(\varphi) = -\int_{\Omega}u^*\Delta\varphi + \int_{\Omega}g(u^*)\varphi
+\]
+is a continuous linear functional on $C^2_0(\overline{\Omega})$ space (with norm $\| .\|_{\infty}$). Due to the density of $C^2_0(\overline{\Omega})$ space in $C_0(\overline{\Omega})$ space with norm $\| .\|_{\infty}$, there exists a unique extension of $T$ to $[C_0(\overline{\Omega})]^*$. Let $\mu^*$ be this extension. Clearly, $\mu^*$ satisfies \eqref{42crr}.
+\end{proof}
+
+\begin{thm}\label{thm42}
+The reduced measure $\mu^*$ is the largest good measure $\le \mu$.
+\end{thm}
+
+Clearly, $\mu^*$ is a good measure. Moreover, since $u^*$ is a subsolution, we have $\mu^* \le \mu$. To show that this reduced measure is the largest, we use the following lemma:
+
+\begin{lmm}\label{43lmm}
+The reduced measure $\mu^*$ satisfies
+\[
+\mu^* \ge \mu_d - \mu_c^-.
+\]
+\end{lmm}
+
+\begin{proof}
+\mbox{}
+
+Let $\{u_n\}$ be the sequence constructed in \eqref{seqsol}. For each $n$, we have
+\[
+(\Delta u_n)_d = g_n(u_n) - \mu_d \quad\text{and}\quad (\Delta u_n)_c = -\mu_c.
+\]
+
+By Corollary \ref{katocrr2}, we have
+\begin{align*}
+\Delta T_k(u_n) & \le \chi_{[u_n\le k]}(\Delta u_n)_d + (\Delta u_n)_c^+\\
+&= \chi_{[u_n\le k]}( g_n(u_n)-\mu_d ) + (-\mu_c)^+\\
+&\le g_n(T_k(u_n)) - \chi_{[u_n\le k]}\mu_d + \mu_c^-  \quad\text{in } \mathcal{D}'(\Omega),
+\end{align*}
+which implies
+\begin{align*}
+-\Delta T_k(u_n) + g_n(T_k(u_n)) &\ge \chi_{[u_n\le k]}\mu_d - \mu_c^- \\
+&= \chi_{[u_n\le k]}\mu_d^+ - \chi_{[u_n\le k]}\mu_d^- - \mu_c^- \quad \text{in }\mathcal{D}'(\Omega).
+\end{align*}
+
+So, due to $u^* \le u_n \le u_1$ (from Theorem \ref{thm41}), we get
+\begin{equation}\label{42thm1}
+-\Delta T_k(u_n) + g_n(T_k(u_n)) \ge \chi_{[u_1 \le k]}\mu_d^+ - \chi_{[u^*\le k]}\mu_d^- -\mu_c^- \quad \text{in }\mathcal{D}'(\Omega).
+\end{equation}
+
+Moreover, by Dini's Theorem, we have
+\[
+g_n(T_k(u_n)) \to g(T_k(u^*)) \quad\text{a.e.\ in }\Omega,
+\]
+which imply (by the dominated convergence theorem) that as $n \to \infty$,
+\[
+g_n(T_k(u_n)) \to g(T_k(u^*)) \quad\text{in }L^1(\Omega).
+\]
+
+Let $n\to \infty$ in \eqref{42thm1}, we get
+\[
+-\Delta T_k(u^*) + g(T_k(u^*)) \ge \chi_{[u_1 \le k]}\mu_d^+ - \chi_{[u^*\le k]}\mu_d^- -\mu_c^- \quad \text{in }\mathcal{D}'(\Omega).
+\]
+
+Let $k \to \infty$. Since both sets $[u_1 = +\infty]$ and $[u^* = +\infty]$ have zero capacity, we conclude that 
+\[
+\mu^* = -\Delta u^* + g(u^*) \ge \mu_d^+ - \mu_d^- -\mu_c^- = \mu_d - \mu_c^-.\qedhere
+\]
+\end{proof}
+
+The following consequence of the above lemma tells us that $\mu - \mu^*$ is concentrated on some set with zero capacity.
+
+\begin{crr}\label{43crr}
+There exists a Borel set $E \subset \Omega$ with $\capa(E) = 0$ such that
+\[
+(\mu - \mu^*)(\Omega \setminus E) = 0.
+\]
+\end{crr}
+
+\begin{proof}
+By Lemma \ref{43lmm}, we have
+\[
+0 \le \mu -\mu^* \le \mu - \mu_d + \mu_c^- = \mu_c^+,
+\]
+which gives us the conclusion.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm42}]
+Let $\nu$ be a good measure $\le \mu$. We need to show that $\nu \le \mu^*$.
+
+Denote by $v$ the solution of \eqref{4weak} corresponding to $\nu$ instead of $\mu$.
+
+By Corollary \ref{43crr}, $\mu - \mu^*$ is the ``concentrated'' part of itself. So,
+\[
+(\mu - \mu^*)_d = 0,
+\]
+or in other words,
+\[
+(\mu^*)_d = \mu_d.
+\]
+
+Due to $\nu \le \mu$, we have
+\begin{equation}\label{thm411}
+\nu_d \le \mu_d = (\mu^*)_d.
+\end{equation}
+
+Moreover, by Lemma \ref{cmplmm}, we have
+\[
+u^* - v \ge 0 \quad\text{a.e.\ in }\Omega.
+\]
+
+By Corollary \ref{katocrr1}, we get
+\[
+(-\Delta (u^* -v))_c \ge 0,
+\]
+which implies
+\[
+\nu_c = (-\Delta v + g(v))_c = (-\Delta v)_c \le (-\Delta u^*)_c = (\mu^*)_c \quad\text{in }\mathcal{D}'(\Omega),
+\]
+or in other words,
+\begin{equation}\label{thm412}
+\nu_c \le (\mu^*)_c.
+\end{equation}
+
+By \eqref{thm411} and \eqref{thm412}, we get the conclusion.
+\end{proof}
+
+\section{\texorpdfstring{Some properties of $\mathcal{G}$}{Some properties of G}}
+\mbox{}
+
+In this section, we will give some results about good measures. These results are almost all obtained by using the new concept \emph{reduced measures}, which is constructed in the above section.
+
+We start with the following theorem:
+
+\begin{thm}\label{gcmpthm}
+Let $\mu_1, \mu_2 \in \mathcal{M}(\Omega)$. If  $\mu_1\in \mathcal{G}$ and $\mu_2 \le \mu_1$, then $\mu_2 \in \mathcal{G} $.
+\end{thm}
+
+To prove this theorem, we need the following lemma:
+
+\begin{lmm}\label{23lmm}
+If $\mu$ is a good measure with solution $u$, and $u_n$ is given by \eqref{seqsol}, then
+\[
+\quad g_n(u_n) \to g(u) \quad\text{in }L^1(\Omega).
+\]
+\end{lmm}
+
+\begin{proof}
+\mbox{}
+
+For each $n$, we have
+\[
+-\Delta(u_n -u) = g(u) - g_n(u_n) \quad\text{in }[C^2_0(\overline{\Omega})],
+\]
+
+Apply Lemma \ref{L1e3lmm} for the above equation, we have
+\[
+\int_{\Omega} (g(u)-g_n(u_n)).\sgn(u_n-u) \ge 0,
+\]
+which implies
+\[
+\int_{\Omega} (g_n(u_n)-g_n(u)).\sgn(u_n-u) \le \int_{\Omega}(g(u)-g_n(u)).\sgn(u_n -u).
+\]
+
+Hence
+\[
+\| g_n(u_n) - g_n(u) \|_1 \le \| g(u)-g_n(u)\|_1,
+\]
+which implies
+\[
+\| g_n(u_n) - g(u) \|_1 \le 2\| g(u)-g_n(u)\|_1.
+\]
+
+In other words, $g_n(u_n) \to g(u)$ in $L^1(\Omega)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{gcmpthm}]
+Suppose that $\mu_1$ is a good measure with solution $u_1$.
+
+For each $n$, let $u_{i,n}$ be the solution of
+\[
+\left\{
+\begin{aligned}
+-\Delta u_{i,n} + g_n(u_{i,n}) & = \mu_i && \text{in } \Omega , \\
+u_{i,n} & = 0 && \text{on } \partial \Omega,
+\end{aligned}
+\right.
+\]
+for $i = 1,2$.
+
+Since $\mu_2 \leq \mu_1$, using Lemma \ref{cmplmm}, we obtain
+\[
+u_{2,n} \le u_{1,n} \quad\text{a.e.\ in }\Omega,
+\]
+which implies
+\[
+g_n(u_{2,n})\le g_n(u_{1,n})\quad\text{a.e.\ in }\Omega.
+\]
+
+Moveover, by Lemma \ref{23lmm}, we have
+\[
+g_n(u_{1,n}) \to g(u_1)\quad\text{in } L^1(\Omega).
+\]
+
+Therefore,
+\[
+g_n(u_{2,n}) \to g(u_2^*) \quad\text{in }L^1(\Omega),
+\]
+where $u_2^*$ is the largest subsolution of the problem with measure data $\mu_2$.
+
+Adapting the proof of Theorem \ref{thm41}, we conclude that $\mu_2$ is a good measure with the solution $u_2^*$.
+\end{proof}
+
+Here is some consequences of the above theorem.
+
+\begin{crr}
+Let $\mu \in \mathcal{M}(\Omega)$. If $\mu \leq 0$, then $\mu \in \mathcal{G}$.
+\end{crr}
+
+\begin{proof}
+By Theorem \ref{L1thm}, the trivial measure $0$ is a good measure. So the conclusion follows Theorem \ref{gcmpthm}.
+\end{proof}
+
+\begin{crr}\label{crr45}
+If $\mu_1, \mu_2 \in \mathcal{G}$, then $\sup \{ \mu_1, \mu_2 \}\in \mathcal{G}$.
+\end{crr}
+
+\begin{proof}
+Let $\nu = \sup \{ \mu_1, \mu_2 \}$. By Theorem \ref{thm42}, we have $\mu_1 \le \nu^*$ and $\mu_2 \le \nu^*$. So, $\nu \le \nu^*$, which means $\nu =\nu^* \in \mathcal{G}$.
+\end{proof}
+
+\begin{crr}\label{crr46}
+Let $\mu \in \mathcal{M}(\Omega)$. We have
+\[
+\mu \in \mathcal{G} \quad \Leftrightarrow \quad \mu^+ \in \mathcal{G} \quad \Leftrightarrow \quad \mu_c \in \mathcal{G}.
+\]
+\end{crr}
+
+\begin{proof}
+The implications in this corollary can be obtained by the following facts:
+\[
+\mu^+ = \sup\{\mu, 0\},
+\]
+and
+\[
+\mu^+ = \sup\{\mu_d, \mu_c\},
+\]
+with a note that $0$ and $\mu_d$ are good measures.
+\end{proof}
+
+\begin{crr}\label{crr47}
+We have
+\[
+\mathcal{G} + \mathcal{M}_d(\Omega) \subset \mathcal{G}.
+\]
+In particular,
+\[
+\mathcal{G} + L^1(\Omega) \subset \mathcal{G}.
+\]
+\end{crr}
+
+\begin{proof}
+Let $\mu \in \mathcal{G}$ and $\nu \in \mathcal{M}_d(\Omega)$. By Corollary \ref{crr46}, we have $\mu_c \in \mathcal{G}$. Since
+\[
+(\mu+\nu)_c = \mu_c + \nu_c = \mu_c,
+\]
+we obtain $(\mu+\nu)_c \in \mathcal{G}$. The conclusion follows. 
+\end{proof}
+
+\begin{crr}
+The set $\mathcal{G}$ is convex.
+\end{crr}
+
+\begin{proof}
+Let $\mu_1, \mu_2 \in \mathcal{G}$. For any $t \in [0,1]$, we have 
+\[
+t\mu_1 + (1-t)\mu_2 \le \sup \{\mu_1, \mu_2\}.
+\]
+By Theorem \ref{gcmpthm} and Corrollary \ref{crr45}, we get $t\mu_1 + (1-t)\mu_2 \in \mathcal{G}$. The conclusion follows.
+\end{proof}
+
+\begin{thm}
+The set $\mathcal{G}$ is closed with respect to strong convergence in $\mathcal{M}(\Omega)$.
+\end{thm}
+
+\begin{proof}
+Let $\{\mu_n\}$ be a sequence of good measures such that $\mu_n \to \mu$ strongly in $\mathcal{M}(\Omega)$, and for each $n$, let $u_n$ be the solution to the problem:
+\begin{equation}\label{44thm1}
+\left\{
+\begin{aligned}
+-\Delta u_{n} + g(u_{n}) & = \mu_n && \text{in } \Omega , \\
+u_{n} & = 0 && \text{on } \partial \Omega.
+\end{aligned}
+\right.
+\end{equation}
+
+For each $m,n$, by Theorem \ref{apthm}, we have
+\[
+\| g(u_m)-g(u_n)\|_1 \leq \| \mu_m - \mu_n \|_{\mathcal{M}},
+\]
+and
+\[
+\| u_m-u_n\|_1 \leq C\| \mu_m - \mu_n \|_{\mathcal{M}}.
+\]
+
+So both $\{u_n\}$ and $\{g(u_m)\}$ are Cauchy sequences in $L^1(\Omega)$. Thus there exists $u \in L^1(\Omega)$ such that
+\[
+u_n \to u \text{ in }L^1(\Omega) \quad\text{and} \quad g(u_n)\to g(u) \text{ in } L^1(\Omega).
+\]
+
+Let $n \to \infty$ in \eqref{44thm1}, we get the conclusion that $\mu$ is a good measure with solution $u$.
+\end{proof}
+
+\begin{thm}\label{thm45}
+Let $\mu \in \mathcal{M}(\Omega)$. We have $\mu \in \mathcal{G}$ if and only if there exist $f_0 \in L^1(\Omega)$ and $v_0 \in L^1(\Omega)$ such that $g(v_0) \in L^1(\Omega)$ and
+\[
+\mu = f_0 - \Delta v_0 \quad \text{in } \mathcal{D}'(\Omega),
+\]
+which is
+\begin{equation}\label{thm441}
+\int_{\Omega} \varphi \,d\mu = \int_{\Omega}f_0\varphi - \int_{\Omega}v_0\Delta \varphi, \quad \forall \varphi \in C_c^{\infty}(\Omega).
+\end{equation}
+\end{thm}
+
+\begin{proof}
+Put $f_0 = g(v_0)$, the ``only if'' implication is clear. So we just have to prove the ``if'' side.
+
+First, suppose that $v_0$ has compact support $K \subset \Omega$ and let $\varphi \in C^2_0(\overline{\Omega})$. By ``convolution'', we can construct a sequence $\{\varphi_n\}\subset C_c^{\infty}(\Omega)$ such that
+\begin{equation}\label{thm4524}
+\varphi_n \to \varphi \text{ in }L^{\infty}(\Omega) \quad\text{and}\quad \Delta\varphi_n \rightrightarrows \Delta\varphi \text{ uniformly in }K.
+\end{equation}
+
+The last one implies that
+\[
+\int_K v_0 \Delta \varphi_n \to \int_K v_0 \Delta \varphi.
+\]
+
+Since $v_0 = 0$ a.e.\ in $\Omega\setminus K$, we have
+\[
+\int_{\Omega} v_0 \Delta \varphi_n \to \int_{\Omega} v_0 \Delta \varphi.
+\]
+
+By \eqref{thm441}, we have
+\[
+\int_{\Omega} \varphi_n \,d\mu = \int_{\Omega}f_0\varphi_n - \int_{\Omega}v_0\Delta \varphi_n,\quad\forall n.
+\]
+
+Let $n \to \infty$, we obtain
+\[
+\int_{\Omega} \varphi \,d\mu = \int_{\Omega}f_0\varphi - \int_{\Omega}v_0\Delta \varphi .
+\]
+
+Therefore,
+\[
+\int_{\Omega} \varphi \,d\mu + \int_{\Omega}(g(v_0)-f_0)\varphi = -\int_{\Omega}v_0\Delta \varphi + \int_{\Omega}g(v_0)\varphi.
+\]
+
+Because $\varphi$ is chosen arbitrarily in $C_0^2(\overline{\Omega})$, we conclude that $\mu + g(v_0) - f_0$ is a good measure. Thus, by Corollary \ref{crr47}, $\mu$ is a good measure.
+
+Now, for general $v_0$, since
+\[
+\Delta v_0 = \mu - f_0 \quad\text{in }\mathcal{D}'(\Omega),
+\]
+we have $v_0 \in W^{1,1}_{loc}(\Omega)$ (see \cite[Lemma 5.3]{P}).
+
+For each $\psi \in C_c^{\infty}(\Omega$, we have
+\[
+\int_{\Omega}\varphi \psi\,d\mu = \int_{\Omega}f_0 \varphi \psi - \int_{\Omega}v_0 \Delta(\varphi \psi), \quad\forall\varphi \in C_c^{\infty}(\Omega).
+\]
+
+Since $\Delta (\varphi \psi)  = \varphi \Delta \psi + \psi \Delta \varphi + 2\nabla \varphi.\nabla \psi$ and
+\begin{align*}
+\int_{\Omega}v_0 \nabla \varphi. \nabla \psi &= \int_{\Omega} \nabla \varphi. (v_0\nabla \psi)\\
+&= \int_{\Omega} \varphi \dive(v_0\nabla \psi)\\
+&= \int_{\Omega} \varphi (\nabla v_0.\nabla \psi + v_0\Delta \psi),
+\end{align*}
+we have
+\[
+\int_{\Omega}\varphi \psi\,d\mu = \int_{\Omega}(f_0\psi - v_0\Delta \psi - 2\nabla v_0.\nabla\psi)\varphi - \int_{\Omega}\psi v_0 \Delta\varphi, \quad\forall\varphi \in C_c^{\infty}(\Omega),
+\]
+which means that
+\begin{equation}\label{481}
+\psi\mu = (f_0\psi - v_0\Delta\psi - 2\nabla v_0.\nabla\psi) - \Delta(\psi v_0) \quad\text{in } \mathcal{D}'(\Omega),
+\end{equation}
+where $\psi\mu$ denotes the following functional in $[C_0(\overline{\Omega}]^*$:
+\[
+\varphi \mapsto \int_{\Omega}\varphi\psi\,d\mu.
+\]
+
+Let $\{\psi_n\}\subset C_c^{\infty}(\Omega)$ be such that for each $n$, $0\leq \psi_n \leq 1$ in $\Omega$ and $\psi_n(x) = 1$ if $d(x,\partial \Omega)> \frac{1}{n}$. By \eqref{481}, for each $n$, we have
+\[
+\psi_n\mu = (f_0\psi - v_0\Delta\psi_n - 2\nabla v_0.\nabla\psi_n) - \Delta(\psi_n v_0) \quad\text{in } \mathcal{D}'(\Omega).
+\]
+
+Since $f_0\psi - v_0\Delta\psi_n - 2\nabla v_0.\nabla\psi_n \in L^1(\Omega)$ and $\psi_n v_0$ has compact support in $\Omega$, $\psi_n\mu$ is a good measure (with a note that $g(\psi_n v_0) \in L^1(\Omega)$ since $0\leq g(\psi_n v_0)\leq g(v_0)$).
+
+It is not difficult to show that $\psi_n\mu$ converges to $\mu$ strongly in $\mathcal{M}(\Omega)$. Since $\mathcal{G}$ is closed with respect to strong convergence in $\mathcal{M}(\Omega)$, the conclusion that $\mu$ is a good measure follows. 
+\end{proof}
+
+\begin{crr}
+Assume
+\[
+g(2t) \le C(g(t) +1), \quad \forall t\ge 0.
+\]
+Then the set $\mathcal{G}$ is a convex cone.
+\end{crr}
+
+\begin{proof}
+Let $\mu$ be a good measure with solution $u$. Clearly, it suffices to show that $2\mu$ is a good measure. Since
+\[
+\mu = g(u) - \Delta u \quad\text{in }\mathcal{D}'(\Omega),
+\]
+we have
+\[
+2\mu = 2g(u) - \Delta(2u) \quad\text{in }\mathcal{D}'(\Omega).
+\]
+By assumption, we have $g(2u)$ in $L^1(\Omega)$. Now, in Theorem \ref{thm45}, replace $\mu$, $f_0$, and $v_0$ by $2\mu$, $2g(u)$, and $2u$ respectively, we get the conclusion.
+\end{proof}
+
+Now, we come to an interesting result. It tells that every nonnegative measure which is good for every $g$ must be diffuse. For the proof, see the main article of this report \cite[Section 6]{BMP}.
+
+\begin{thm}
+Let $\mu \in \mathcal{M}(\Omega)$. We have
+\[
+\mu \in \mathcal{G}(g) \text{ for every } g \quad \Leftrightarrow \quad \mu^+ \in \mathcal{M}_d(\Omega).
+\]
+\end{thm}
+
+\section{\texorpdfstring{Some properties of $\mu^*$}{Some properties of mu*}}
+\mbox{}
+
+Here we state some properties of reduced measures.
+
+\begin{prn}
+We have
+\[
+0 \le \mu - \mu ^* \le \mu^+.
+\]
+In particular,
+\begin{equation}\label{016}
+|\mu ^*| \le |\mu|,
+\end{equation}
+and
+\[
+\mu \ge 0 \quad \Rightarrow \quad \mu ^* \ge 0.
+\]
+\end{prn}
+
+\begin{proof}
+\mbox{}
+
+Since every nonpositive measure is a good measure, we have
+\[
+-\mu^- \in\mathcal{G},
+\]
+which implies that
+\[
+-\mu^- \leq \mu^*.
+\]
+
+In other words,
+\[
+\mu - \mu^* \leq \mu^+.
+\]
+
+Now, since
+\[
+-|\mu| \leq -\mu^- \leq \mu^* \leq \mu \leq |\mu|,
+\]
+we have
+\[
+|\mu^*|\leq |\mu|.
+\]
+
+Finally, suppose that $\mu \geq 0$. Since $\mu = \mu^+$, we obtain $\mu^* \ge 0$.
+\end{proof}
+
+\begin{prn}
+Let $\mu \in \mathcal{M}(\Omega)$. We have
+\begin{equation}\label{prn50}
+\| \mu - \mu^*\|_{\mathcal{M}} = \min_{\nu \in \mathcal{G}} \| \mu - \nu \|_{\mathcal{M}}.
+\end{equation}
+Moreover, $\mu^*$ is the unique good measure which achieves the minimum.
+\end{prn}
+
+\begin{proof}
+Let $\nu \in\mathcal{G}$.
+
+Since $\inf\{\mu,\nu\} \leq \nu$, we have 
+\[
+\inf\{\mu,\nu\} \in \mathcal{G}.
+\]
+
+So, by $\inf\{\mu,\nu\} \leq \mu$, we have
+\begin{equation}\label{prn501}
+\inf\{\mu,\nu\} \leq \mu^*.
+\end{equation}
+
+Moreover,
+\begin{equation}\label{prn502}
+|\mu - \nu| = (\mu - \nu)^+ + (\mu - \nu)^- \geq (\mu -\nu)^+ = \mu - \inf\{\mu,\nu\}.
+\end{equation}
+
+Combining \eqref{prn501} and \eqref{prn502}, we get
+\[
+|\mu - \nu| \ge \mu - \inf\{\mu,\nu\} \ge \mu -\mu^*  \geq 0,
+\]
+we obtain
+\[
+\| \mu - \mu^*\|_{\mathcal{M}} \le \| \mu - \nu \|_{\mathcal{M}},
+\]
+which implies \eqref{prn50}.
+
+Now, for the uniqueness, let $\nu$ is a good measure which also achieves the minimum. Then, we must have the inequalities in \eqref{prn501} and \eqref{prn502} attained the equal signs. So,
+\[
+\nu = \inf\{\mu,\nu\}\quad\text{and}\quad \inf\{\mu,\nu\} = \mu^*,
+\]
+which imply that $\nu = \mu^*$.
+\end{proof}
+
+\begin{prn}\label{prn43}
+Let $\mu, \nu \in \mathcal{M}(\Omega)$. If $\mu \le \nu$, then $\mu^* \le \nu^*$.
+\end{prn}
+
+\begin{proof}
+This proposition is a consequence of Theorem \ref{gcmpthm} since $\mu^*$ is a good measure and
+\[
+\mu^* \leq \mu \leq \nu.\qedhere
+\]
+\end{proof}
+
+\begin{thm}\label{thm47}
+Let $\mu_1,\mu_2 \in \mathcal{M}(\Omega)$. If $\mu_1,\mu_2$ are mutually singular, then
+\[
+(\mu_1 + \mu_2)^* = (\mu_1)^* + (\mu_2)^*.
+\]
+\end{thm}
+
+\begin{proof}
+\mbox{}
+
+By \eqref{016}, we also have $(\mu_1)^*$ and $(\mu_2)^*$ mutually singular. In particular, we have
+\[
+(\mu_1)^* + (\mu_2)^* \leq [(\mu_1)^* + (\mu_2)^*]^+ = \sup \{(\mu_1)^* , (\mu_2)^*\},
+\]
+which implies that $(\mu_1)^* + (\mu_2)^*$ is a good measure.
+
+Since
+\[
+(\mu_1)^* + (\mu_2)^* \leq \mu_1 + \mu_2,
+\]
+we conclude that
+\[
+(\mu_1)^* + (\mu_2)^* \leq (\mu_1 + \mu_2)^*.
+\]
+
+Now, we prove the reverse inequality. First, let $\nu = (\mu_1 + \mu_2)^*$. By Lebesgue's Decomposition Theorem, we may decompose $\nu$ in terms of two measures:
+\[
+\nu = \nu_0 + \nu',
+\]
+where $\nu_0$ is singular with respect to $|\mu_1| + |\mu_2|$ and $\nu'$ is absolutely continuous with respect to $|\mu_1| + |\mu_2|$.
+
+It is not difficult to show that $\nu' \leq \nu^+$. So we have $\nu'$ is a good measure, which implies that $\nu'^+$ is a good measure.
+
+Moreover, since $\mu_1$ and $\mu_2$ are mutually singular, we may decompose $\nu'$ in terms of two measures:
+\[
+\nu' = \nu_1 + \nu_2,
+\]
+where $\nu_1$ is absolutely continuous with respect to $|\mu_1|$ and $\nu_2$ is absolutely continuous with respect to $|\mu_2|$.
+
+Similarly, we have $\nu_1 \leq \nu'^+$ and $\nu_2 \leq \nu'^+$. Since $\nu'^+$ is a good measure, we have $\nu_1$ and $\nu_2$ are good measures.
+
+By $\nu \leq \mu_1 + \mu_2$, we obtain
+\[
+\nu_0 \leq 0,\quad \nu_1 \leq \mu_1, \quad\text{and}\quad \nu_2 \leq \mu_2.
+\]
+
+Thus we have $\nu_1 \leq (\mu_1)^*$ and $\nu_2 \leq (\mu_2)^*$. The conclusion follows
+\[
+\nu = \nu_0 + \nu_1 + \nu_2 \leq (\mu_1)^* + (\mu_2)^*.\qedhere
+\]
+\end{proof}
+
+\begin{crr}\label{crr410}
+Let $\mu \in \mathcal{M}(\Omega)$. We have
+\[
+(\mu^*)_d = (\mu_d)^* = \mu_d \quad \text{and}\quad (\mu^*)_c = (\mu_c)^*.
+\]
+\end{crr}
+
+\begin{proof}
+By using Theorem \ref{thm47}, we have
+\[
+\mu^* = (\mu_d + \mu_c)^* = (\mu_d)^* + (\mu_c)^*,
+\]
+which gives us the conclusion due to
+\[
+\mu^* = (\mu^*)_d + (\mu^*)_c,
+\]
+and the uniqueness of the decomposition a measure into ``diffuse'' part and ``concentrated'' part.
+\end{proof}
+
+For convenience, we will denote $(\mu^*)_d$ by $\mu^*_d$ and $(\mu^*)_c$ by $\mu^*_c$.
+
+\begin{crr}
+Let $\mu \in \mathcal{M}(\Omega)$. We have
+\[
+(\mu^*)^+ = (\mu^+)^* \quad \text{and} \quad (\mu^*)^- = \mu^-.
+\]
+\end{crr}
+
+\begin{proof}
+Similar to Corollary \ref{crr410}, the conclusion comes from
+\[
+\mu^* = (\mu^+ - \mu^-)^* = (\mu^+)^* + (-\mu^-)^* = (\mu^+)^* - \mu^-,
+\]
+with a note that $-\mu^-$ is a good measure.
+\end{proof}
+
+\begin{crr}
+Let $\mu \in \mathcal{M}(\Omega)$ and $\nu \in \mathcal{M}_d(\Omega)$. We have
+\[
+(\mu + \nu)^* = \mu^* + \nu.
+\]
+\end{crr}
+
+\begin{proof}
+The conclusion follows
+\begin{align*}
+(\mu + \nu)^* &= (\mu_c + \mu_d + \nu)^*\\
+&= \mu_c^* + (\mu_d + \nu)^*\\
+&= \mu_c^* + \mu_d + \nu \\
+&= \mu_c^* + \mu_d^* + \nu \\
+&= \mu^* + \nu.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{crr}\label{crr11}
+Let $\mu \in \mathcal{M}(\Omega)$. For every Borel set $E \subset \Omega$, we have
+\[
+(\mu\lfloor_E)^* = \mu^*\lfloor_E.
+\]
+\end{crr}
+
+\begin{proof}
+The conclusions follows
+\[
+\mu^* = (\mu\lfloor_E + \mu\lfloor_{\Omega\setminus E})^* = (\mu\lfloor_E)^* + (\mu\lfloor_{\Omega\setminus E})^*. \qedhere
+\]
+\end{proof}
+
+\begin{thm}
+Let $\mu, \nu\in\mathcal{M}(\Omega)$. We have
+\begin{equation}\label{infid}
+[\inf\{\mu,\nu \}]^* = \inf\{\mu^*,\nu^*\},
+\end{equation}
+and
+\begin{equation}\label{supid}
+[\sup\{\mu,\nu\}]^* = \sup\{\mu^*,\nu^*\}.
+\end{equation}
+\end{thm}
+
+\begin{proof}
+\mbox{}
+
+Since $\inf \{\mu^*,\nu^*\} \le \mu^*$, we have $\inf \{\mu^*,\nu^*\}$ is a good measure. Moreover, by
+\[
+\inf \{\mu^*,\nu^*\} \leq \mu^* \leq \mu,
+\]
+and
+\[
+\inf \{\mu^*,\nu^*\} \leq \nu^* \leq \nu,
+\]
+we get
+\[
+\inf \{\mu^*,\nu^*\} \leq \inf \{\mu,\nu\}.
+\]
+
+Therefore,
+\[
+\inf \{\mu^*,\nu^*\} \le [\inf \{\mu,\nu\}]^*.
+\]
+
+Reversely, by Proposition \ref{prn43}, we have
+\[
+[\inf\{\mu,\nu\}]^* \leq \mu^*,
+\]
+and
+\[
+[\inf\{\mu,\nu\}]^* \leq \nu^*,
+\]
+which imply that
+\[
+[\inf \{\mu,\nu\}]^* \le \inf \{\mu^*,\nu^*\} .
+\]
+
+So we have \eqref{infid}.
+
+For the identity \eqref{supid}, applying Hahn Decomposition Theorem to $\mu - \nu$, we may write $\Omega$ in terms of two disjoint Borel sets $E_1,E_2\subset\Omega$, $\Omega = E_1 \cup E_2$, such that
+\[
+\mu \geq \nu \text{ in }E_1\quad\text{and}\quad \nu \geq \mu \text{ in }E_2.
+\]
+
+Then, we have
+\begin{equation}\label{sup1}
+\sup\{\mu,\nu\} = \mu + (\nu-\mu)^+ = \mu + (\nu-\mu)\lfloor_{E_2} = \mu\lfloor_{E_1} + \nu\lfloor_{E_2},
+\end{equation}
+
+By Corollary \ref{crr11}, we have
+\[
+\mu^*\lfloor_{E_1} = (\mu\lfloor_{E_1})^* \geq (\nu\lfloor_{E_1})^* = \nu^*\lfloor_{E_1}.
+\]
+
+Similarly, we also have
+\[
+\nu^*\lfloor_{E_2} \geq \mu^*\lfloor_{E_2} .
+\]
+
+With the same argument as in \eqref{sup1}, we obtain
+\begin{equation}\label{sup2}
+\sup\{\mu^*,\nu^*\} = \mu^*\lfloor_{E_1} + \nu^*\lfloor_{E_2}.
+\end{equation}
+
+On the other hand, by Theorem \ref{thm47}, we have
+\begin{align*}
+(\mu\lfloor_{E_1} + \nu\lfloor_{E_2})^*& = (\mu\lfloor_{E_1})^* + (\nu\lfloor_{E_2})^* \\
+&= \mu^*\lfloor_{E_1} + \nu^*\lfloor_{E_2},
+\end{align*}
+which together with \eqref{sup1} and \eqref{sup2} imply that
+\[
+\sup\{\mu^*,\nu^*\} = [\sup\{\mu,\nu\}]^*.\qedhere
+\]
+\end{proof}
+
+\begin{thm}
+Let $\mu, \nu \in\mathcal{M}(\Omega)$. We have
+\[
+(\mu^* - \nu^*)^+ \le (\mu -\nu)^+.
+\]
+In particular,
+\[
+|\mu^* - \nu^*| \le |\mu - \nu|.
+\]
+\end{thm}
+
+\begin{proof}
+\mbox{}
+
+First, we suppose that $\nu \leq \mu$.
+
+For each $n$, let $v_n$ be the solution of \eqref{seqsol} corresponding to the measure $\nu$.
+
+Since $\nu \leq \mu$, by Lemma \ref{cmplmm}, we have
+\[
+v_n \leq u_n \quad\text{a.e.\ in }\Omega.
+\]
+
+Thus,
+\begin{equation}\label{ddfe}
+g_n(v_n) \leq g_n(u_n)\quad\text{a.e.\ in }\Omega.
+\end{equation}
+
+Moreover, we have
+\[
+\int_{\Omega}(g_n(u_n)-g(u^*))\varphi = \int_{\Omega} (u_n-u^*) \Delta\varphi + \int_{\Omega}\varphi \,d(\mu - \mu^*),\quad\forall \varphi \in C^2_0(\overline{\Omega}),
+\]
+and
+\[
+\int_{\Omega}(g_n(v_n)-g(u^*))\varphi = \int_{\Omega} (v_n-v^*) \Delta\varphi + \int_{\Omega}\varphi \,d(\nu - \nu^*),\quad\forall \varphi \in C^2_0(\overline{\Omega}),
+\]
+which imply that
+\[
+\lim\limits_{n\to\infty} \int_{\Omega}(g_n(u_n)-g(u^*))\varphi = \int_{\Omega}\varphi \,d(\mu - \mu^*),\quad\forall \varphi \in C^2_0(\overline{\Omega}),
+\]
+and
+\[
+\lim\limits_{n\to\infty} \int_{\Omega}(g_n(v_n)-g(v^*))\varphi = \int_{\Omega}\varphi \,d(\nu - \nu^*),\quad\forall \varphi \in C^2_0(\overline{\Omega}),
+\]
+
+By \eqref{ddfe}, for each $n$, we have
+\[
+ \int_{\Omega}(g_n(v_n)-g(v^*))\varphi \leq  \int_{\Omega}(g_n(u_n)-g(u^*))\varphi, \quad \forall \varphi \in C^2_0(\overline{\Omega}),\varphi\geq 0.
+\]
+
+Taking $n \to \infty$, we obtain
+\[
+\int_{\Omega}\varphi \,d(\nu - \nu^*) \leq \int_{\Omega}\varphi \,d(\mu - \mu^*), \quad\forall \varphi \in C^2_0(\overline{\Omega}),\varphi\geq 0.
+\]
+
+So we have
+\[
+\nu - \nu^* \leq \mu - \mu^*,
+\]
+or in other words,
+\[
+\mu^* - \nu^* \leq \mu - \nu.
+\]
+
+We get the implication that
+\[
+\nu\leq \mu \quad\Rightarrow\quad \mu^* - \nu^* \leq \mu - \nu.
+\]
+
+Now, we remove the assumption $\nu \leq \mu$. By $\nu \leq \sup\{\mu,\nu\}$, applying the above result, we have
+\[
+[\sup\{\mu,\nu\}]^* - \nu^* \leq \sup\{\mu,\nu\} - \nu,
+\]
+
+Since
+\[
+[\sup\{\mu,\nu\}]^*=\sup\{\mu^*,\nu^*\},
+\]
+we obtain
+\[
+\sup\{\mu^*,\nu^*\} - \nu^* \leq \sup\{\mu,\nu\} - \nu.
+\]
+
+In other words,
+\begin{equation}\label{fi5}
+(\mu^* - \nu^*)^+ \leq (\mu - \nu)^+.
+\end{equation}
+
+Exchange the role of $\mu$ and $\nu$ in the above inequality, we get
+\[
+(\nu^* - \mu^*)^+ \leq (\nu - \mu)^+.
+\]
+
+In other words,
+\begin{equation}\label{fi6}
+(\mu^* - \nu^*)^- \leq (\mu - \nu)^-.
+\end{equation}
+
+By \eqref{fi5} and \eqref{fi6}, we obtain
+\[
+|\mu^* - \nu^*| \le |\mu - \nu|.\qedhere
+\]
+\end{proof}
+
+\newpage
+\begin{thebibliography}{99}
+\bibitem{BMP} H. Brezis, M. Marcus and A.C. Ponce, \textit{Nonlinear elliptic equations with measures revisited}, Annals of Math. Studies 163, Princeton University Press, NJ, 2007, pp. 55--110.
+\bibitem{P} A.C. Ponce, \textit{Selected problems on elliptic equations involving measures}, manuscript submitted to the concours annuel 2012 of the Acad\'emie royale de Belgique, \href{http://arxiv.org/abs/1204.0668v1}{arXiv:1204.0668v1} \textbf{[math.AP]}.
+\bibitem{BS} H. Brezis and W.A. Strauss, \textit{Semilinear second-order elliptic equation in $L^1$}, J. Math. Soc. Japan \textbf{25} (1973), 565--590.
+\bibitem{S} G. Stampacchia, \textit{\'Equations elliptiques du second ordre \`a coefficients discontinus}, Les Presses de l'Universit\'e de Montr\'eal, Montr\'eal, 1966.
+\bibitem{BGO} L. Boccardo, T. Gallou\"et and L. Orsina, \textit{Existence and uniqueness of entropy solutions for nonlinear elliptic equations with measure data}, Ann. Inst. H. Poincar\'e Anal. Non Lin\'eaire \textbf{13} (1996), 539--551.
+\bibitem{BP} H. Brezis and A.C. Ponce, \textit{Kato's inequality when $\Delta u$ is a measure}, C. R. Acad. Sci. Paris, Ser. I \textbf{338} (2004), 599--604.
+\bibitem{BP2} H. Brezis and A.C. Ponce, \textit{Remarks on the strong maximum principle}, Diff. Int. Eq. \textbf{16} (2003), 1--12.
+\end{thebibliography}
+
+\end{document}

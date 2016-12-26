@@ -1,0 +1,277 @@
+\documentclass[serif,professionalfont,tree,usepdftitle=false, slidestop]{beamer}
+\usepackage[accumulated]{beamerseminar}
+\usepackage{beamertexpower}
+\usepackage{beamerthemeshadow}
+\usepackage{xcolor}
+%\usepackage{pxfonts}
+%\usepackage{eulervm}
+\usepackage{mathpazo}
+%\newfont{\BSS}{cmss20 scaled\magstep5}
+\renewcommand {\rmdefault }{ibh}
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{tables}[numbered]
+\setbeamertemplate{figures}[numbered]
+\mode<presentation>
+\usefonttheme{professionalfonts}
+\setbeamercovered{invisible}
+\usecolortheme{default}
+%\usetheme{JuanLesPins}
+%dolphin
+\useoutertheme{smoothbars}
+\pagenumbering{arabic}
+%\setbeamertemplate{background}[grid][step=3cm]
+%\setbeamertemplate{my template}{Hello world!}
+%\beamersetaveragebackground{cyan!35!white}
+\beamertemplateshadingbackground{cyan!5!white}{green!17!white}
+%\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{background canvas}{\includegraphics
+%[width=\paperwidth,height=\paperheight]{hung.jpg}}
+\usepackage[utf8]{inputenc} 
+\usepackage[vietnam]{babel}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{amscd,amsmath,amstext,amsfonts,amsbsy,amssymb,amsthm,eufrak,ragged2e}
+\usepackage{exscale,relsize}
+\usepackage{makeidx}
+\usepackage{hyperref}
+
+% Định nghĩa khoảng cách, các bạn có thể xóa bỏ phần n� y
+
+%\newcommand{\hh}{\hspace*{.48in}}
+%\newcommand{\hz}{\hspace*{.24in}}
+%\newcommand{\hhh}{\hspace*{.72in}}
+%\newcommand{\nh}{\hspace*{-.12in}}
+%\newcommand{\nhh}{\hspace*{-.24in}}
+
+% Định nghĩa các tiêu đề
+
+\renewcommand{\chaptername}{Chương}
+%\renewcommand{\appendixname}{PHỤ LỤC}
+\newtheorem{dn}{\vang{\large \bf Definition}}[section]
+\newtheorem{dl}{\vang{\large \bf Theorem}}[section]
+%\newtheorem{gs}{\duong{\large \bf Giả sử}}[section]
+%\newtheorem{chy}{\duong{\large \bf Chú ý}}[section]
+\newtheorem{lem}{\vang{\large \bf Lemma}}[section]
+%\newtheorem{md}{\duong{\large \bf Mệnh đề}}[section]
+\newtheorem{hq}{\vang{\large \bf Corollary}}[section]
+\newtheorem{cy}{\vang{\large \bf Remark}}[section]
+%\newtheorem*{vd}{\duong{\large \bf Ví dụ}}[section]
+%\newtheorem*{thm}{\vang{\large \bf Proposition}}[section]
+%\newtheorem*{thm}{Tính chất}[section]
+%\newtheorem*{lem}[thm]{Lemma}
+%\newtheorem*{eg}[thm]{Example}
+%\newtheorem*{prop}[thm]{Proposition}
+%\newtheorem*{cor}[thm]{Corollary}
+%\newtheorem*{defi}{\vang{\large \bf Định nghĩa}}[section]
+%\newtheorem*{defi}[thm]{Định nghĩa}
+%\newtheorem*{rem}[thm]{Remark}
+%\newtheorem*{ntn}[thm]{Notation}
+%\newenvironment{prf}{{\noindent \textbf{Proof:}\ }}{\hfill $\Box$\\ \smallskip}
+\numberwithin{equation}{section}
+
+
+
+%Định nghĩa m� u cho chữ viết, các bạn không nên  xóa bỏ phần n� y
+\newcommand{\den}[1]{\textcolor{black}{#1}}
+\newcommand{\doo}[1]{\textcolor{red}{#1}}
+\newcommand{\xanh}[1]{\textcolor{green}{#1}}
+\newcommand{\duong}[1]{\textcolor{blue}{#1}}
+\newcommand{\bich}[1]{\textcolor{cyan}{#1}}
+\newcommand{\hong}[1]{\textcolor{magenta}{#1}}
+\newcommand{\vang}[1]{\textcolor{yellow}{#1}}
+\newcommand{\lau}[1]{\textcolor{brown!70!black}{#1}}
+\newcommand{\tim}[1]{\textcolor{violet!80!black}{#1}}
+\newcommand{\cam}[1]{\textcolor{orange}{#1}}
+\newcommand{\dotia}[1]{\textcolor{purple}{#1}}
+\newcommand{\maumoi}[1]{\textcolor{red!70!blue}{#1}}
+
+\newcommand{\dool}[1]{\colorbox{red}{#1}}
+\newcommand{\xanhl}[1]{\colorbox{green}{#1}}
+\newcommand{\duongl}[1]{\colorbox{blue}{#1}}
+\newcommand{\bichl}[1]{\colorboxr{cyan}{#1}}
+\newcommand{\hongl}[1]{\colorbox{magenta}{#1}}
+\newcommand{\vangl}[1]{\colorbox{yellow}{#1}}
+
+
+\title{{\bf  Random walks in cones}}
+\author{\bf 
+\hong{Advisors: Professors  Marc Peigné and Kilian Raschel \\Student:  Oanh Nguyen}}
+\institute{\duong{LABORATOIRE DE MATHEMATIQUES et  \\PHYSIQUE THEORIQUE\\
+UNIVERSITE FRAN\c{C}OIS RABELAIS, TOURS--FRANCE}}
+\date{June, 25th, 2012}
+\begin{document}
+
+\begin{frame}[default]
+\transglitter[direction=90]
+  \titlepage %Show trang tiêu đề
+\end{frame}
+
+\begin{frame}
+\transglitter[direction=90]
+% frame n� y l�  danh sách của các tựa của  các \section có trong b� i thuyết trình
+ \frametitle{ \bf  Outline}
+ \tableofcontents
+\end{frame}
+\section{Random walks}
+\begin{frame}
+\begin{itemize}
+\item Definition\\
+\duong{Let $X_1, X_2, \ldots$ be i.i.d.\ random variables on $(\Omega, \mathcal F, \mathbb P)$. Let $S_0 = 0$, $S_n = \sum_{i=1}^n X_i$. $(S_n)_n$ is a random walk. \\
+Fix a point $x$, $(x+S_n)_n$ is a random walk starting at $x$.}
+\item The cone\\
+\duong{Consider $\mathcal C = (0, \infty)$.}
+\item Exit time\\
+\duong{Let $\mathcal F_n = \sigma(X_1, X_2, \ldots, X_n)$ and let $\tau$ be a mapping from $\Omega$ to $\mathbb N$. $\tau$ is a stopping time if the event $\tau\le n$ is in $\mathcal F_n$.\\
+For $x\in \mathcal C$, we study the stopping time $\tau_x = \inf\{n\ge 1: x + S_n\notin \mathcal C\}$.}
+\end{itemize}
+\end{frame}
+
+\section{Brownian motions}
+\begin{frame}
+\begin{itemize}
+\item Definition\\
+\duong{ Let $(B_t)_{t\ge 0}$ be mappings on $(\Omega, \mathcal F, \mathbb P)$ such that 
+\begin{itemize}
+\item \hong{(Independent increments) If $0\le t_0<t_1<\ldots<t_n$ then $B_{t_0}, B_{t_1}-B_{t_0}, \ldots, B_{t_n}-B_{t_{n-1}}$ are independent. }
+\item\hong{(Normally distributed) For all $s, t\ge 0$, $\mathbb P(B(s + t)-B(s)\in A) = \int_A \frac{1}{\sqrt {2\pi t}}e^{-x^2/2t}\text{d}x$.}
+\item\hong{(Continuous path) With probability 1, the mapping $t\to B_t$ is continuous.}
+\end{itemize}}
+\duong{One can also view a Brownian motion as a mapping from $(\Omega, \mathcal F, \mathbb P)$ to $C(0, \infty)$-the space of continuous functions on $(0, \infty)$.}
+\item Exit time\\
+\duong{The corresponding exit time is 
+\[
+\tau_x^{bm} = \inf\{t\ge 0: x + B_t\notin \mathcal C\}.
+\]}
+\item The Donsker's theorem
+\end{itemize}
+\end{frame}
+\begin{frame}
+\newtheorem*{thm}{\vang{\large \bf The Donsker's theorem}}
+\begin{thm}
+Let $(\xi_i)_i$ be i.i.d.\ random variables from a probability space $(\Omega, \mathbb{F}, \mathbb P)$ to $\mathbb{R}$ whose mean is $0$ and variance $\sigma^2 < \infty$. Set $S_0 = 0$ and
+\begin{equation} \label{e2}
+\forall n \ge 1, \quad S_n = \sum\limits_{i=1}^{n} \xi_i.\nonumber
+\end{equation}
+For any $n \ge 1$, we denote by $X^n$ the random variable with values in $(C, \mathcal{C})$ defined by
+\begin{equation} \label{e3}
+\forall \omega \in \Omega, \forall t \in [0, 1], \quad X^n(\omega)(t) = \frac{S_{\lfloor nt \rfloor}}{\sigma\sqrt{n}} + \left(nt - \lfloor nt \rfloor \right)\frac{\xi_{\lfloor nt \rfloor + 1}}{\sigma\sqrt{n}},\nonumber
+\end{equation}
+where $\lfloor a\rfloor := \max\{n\in \mathbb N: n\leq a\}$. Then the law of $\mathcal{L}(X^n)$ converges weakly to that of a Brownian motion having $B_0 = 0$ a.e.
+\end{thm}
+\end{frame}
+\section{The approaches}
+\begin{frame}
+\begin{itemize}
+\item Previous approach\\
+\duong{The Wiener Hopf factorization approach }
+\item New approach\\
+\duong{Constructing a harmonic function for random walk and coupling with Brownian motion}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{The approach for Brownian motion} 
+\begin{itemize}
+\item Consider harmonic function $u$ on $\mathcal C$, vanishing on the boundary
+\duong{
+$$u(x) = x.$$
+}
+\item Results
+\newtheorem*{thm1}{\vang{\large \bf Proposition}}
+\begin{thm1}
+There exists a constant $C$ such that for every $ y\in \mathcal C$ and $n\ge 1$,
+\begin{eqnarray}
+\mathbb P(\tau_{y}^{bm} > n)\le C\frac{u(y)}{\sqrt{n}}.\nonumber
+\end{eqnarray}
+\end{thm1}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{The approach for Brownian motion} 
+\begin{itemize}
+\item Results
+\begin{thm1}
+There exists a constant $\varkappa$ such that for every sequence $(\theta_n)_n$ converging to 0, 
+\begin{eqnarray}\label{dw24}
+\lim_{n\to\infty}\sup_{0<y\le \theta_n\sqrt{n}} \left|\frac{\mathbb P(\tau_{y}^{bm} > n)}{\textstyle \frac{2}{\sqrt {2\pi}}\frac{y}{\sqrt n}}-1\right| = 0.\nonumber
+\end{eqnarray}
+\end{thm1}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{The approach for random walk} 
+\begin{itemize}
+\item Construct a harmonic function $V$ for the random walk
+\item Coupling with Brownian motions
+\end{itemize}
+\end{frame}
+
+\section{Construction of a harmonic function}
+\frametitle{Construction} 
+\begin{frame}
+A function $V$ defined on $\mathcal C$ is \textit{harmonic before $\tau_x$} for the random walk $(S_n)_n$ if for every $x$ in $\mathcal C$, one has
+\duong{\begin{equation}\label {dw3}
+\mathbb E\left(V(x + X_1), \tau_x > 1\right) = V(x).\nonumber
+\end{equation}
+}Define
+\duong{ \begin{displaymath}
+v = \left\{
+\begin{array}{ll}
+x & \textrm {if $x\ge -1$,}\\
+|x|^{1-a} & \textrm{otherwise.}
+\end{array}
+\right.
+\end{displaymath}
+ \begin{equation} \label {dw1}
+f(x) = \mathbb Ev(x+X) - v(x), \qquad x \in \mathbb R.\nonumber
+\end{equation} }
+\duong{\begin{equation} \label {dw2}
+V(x) = v(x) - \mathbb Ev(x + S_{\tau_x}) + \mathbb E\sum_{k=1}^{\tau_x - 1} f(x + S_k), \qquad \forall x \in \mathcal C.\nonumber
+\end{equation}
+}\end{frame}
+
+\begin{frame}
+\frametitle{Properties} 
+There exists an $a_0>0$ such that for every $0<a\leq a_0$, the function $V$ is well defined, finite, strictly positive inside the cone $\mathcal C$ and harmonic for the random walk $(S_n)_n$ and
+\duong{\begin{equation}\label {dw17}
+V(x) = \lim_{n\to\infty} \mathbb E\left(u(x+S_n), \tau_x>n\right),\qquad \forall x\in \mathcal C.\nonumber
+\end{equation}}
+\end{frame}
+
+\section{Coupling with Brownian motion}
+\begin{frame}
+\newtheorem*{thm2}{\vang{\large \bf The Sakhanenko's theorem}}
+\begin{thm2}
+Assume that there exists an $\alpha = 2+\delta > 2$ such that $\mathbb E(|X|^\alpha) < \infty$. Let $\gamma = \frac{\delta}{4(2+\delta)}$.
+There exists a Brownian motion $(B_u)_{u\ge 0}$ such that
+\begin{eqnarray}\label{dw22}
+\mathbb P\left(\sup_{u\le n} \left|S_{\lfloor u\rfloor}-B_u\right| \ge n^{1/2-\gamma}\right)\le Cn^{-r}, \qquad \forall n\ge 1,\nonumber
+\end{eqnarray}
+where $r =\delta/2 -2\gamma - \gamma\delta = \frac{\delta}{4}>\gamma> 0$.
+\end{thm2}
+This provides a good control for the convergence in the invariant principle.
+\end{frame}
+
+\section{Main results}
+\begin{frame}
+\frametitle{Asymptotics for exit time} 
+\begin{thm1}\label{asym} For all $x\in \mathcal C$
+\begin{eqnarray}
+\mathbb P\left(\tau_x> n\right) =  \frac{2}{\sqrt {2\pi}} \frac{V(x)}{\sqrt n}(1 + o(1)).\nonumber
+\end{eqnarray}
+\end{thm1}
+\end{frame}
+\begin{frame}
+\frametitle{Integral limit theorem} 
+\begin{thm1}\label{dwlm22}
+For any $x\in \mathcal C$, the distribution  $A\to \mathbb P\left(\frac{x+S_n}{\sqrt n}\in A\big|\tau_x>n\right)$ for $A\in \mathcal B(\mathbb R)$ weakly converges  to the distribution with the density $\textbf 1_{y>0}e^{-y^2/2}y$.
+\end{thm1}
+\end{frame}
+\begin{frame}
+\vspace{76pt}
+\begin{center}
+Thank you for your attention
+\end{center}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,87 @@
+\begin{center}
+\textbf{2.6. CÁC ĐỊNH LÝ HỘI TỤ}
+\end{center}
+
+Ở định lý 2.1, một hàm điều hòa thì có tính chất giá trị trung bình. Định lý sau đây sẽ chỉ ra rằng không những thế, tính chất giá trị trung bình còn là đặc trưng cho hàm điều hòa.\\
+\textbf{\underline{Định lý 2.7:}}
+
+\textit{Một hàm số $u\in C^0(\Omega)$ điều hòa khi và chỉ khi trên mọi quả cầu $B=B_R(y)\subset\subset\Omega$, $u$ thỏa tính chất giá trị trung bình, tức là:
+\[u(y)=\frac{1}{n\omega_n R^{n-1}}\int\limits_{\partial B}u\,ds.\]}
+\textbf{Chứng minh:}
+
+Chiều thuận đã được chứng minh ở định lý 2.1, giờ ta chứng minh chiều đảo.
+
+Với mỗi $y\in\Omega$, chọn $R>0$ sao cho quả cầu $B=B_R(y)\subset\subset\Omega$. Do $u$ liên tục trên $\Omega$ nên $u$ liên tục trên $\overline{B}$.
+
+Nhận xét rằng định lý 2.6 có thể áp dụng cho quả cầu với tâm bất kì. Ta suy ra tồn tại hàm $h\in C^2(B)\cap C^0(\overline{B})$ điều hòa trong $B$ và $h=u$ trên $\partial B$.
+
+Xét hàm $w=u-h$. Ta có $w$ liên tục trên $\overline{B}$, hơn nữa $w$ có tính chất giá trị trung bình trên mọi quả cầu $B_r(z)\subset\subset B$:
+\[w(z)=u(z)-h(z)=\frac{1}{n\omega_n r^{n-1}}\int\limits_{\partial B_r(z)}u\,ds-\frac{1}{n\omega_n r^{n-1}}\int\limits_{\partial B_r(z)}h\,ds\]
+\[=\frac{1}{n\omega_n r^{n-1}}\int\limits_{\partial B_r(z)}(u-h)\,ds=\frac{1}{n\omega_n r^{n-1}}\int\limits_{\partial B_r(z)}w\,ds.\]
+
+Nhận xét rằng việc chứng minh các kết quả trong phần nguyên lý cực đại và cực tiểu không nhất thiết sử dụng tính chất điều hòa của hàm số (và do đó hàm số không bắt buộc phải thuộc lớp $C^2(\Omega)$) mà chỉ sử dụng tính chất giá trị trung bình của nó.
+
+Do $u=h$ trên $\partial B$ nên $w=0$ trên $\partial B$. Áp dụng định lý 2.3 cho hàm $w\in C^{0}(\overline{B})$ ta được $w=0$ trong $B$, tức $u = h$ trong $B$. Mà $h$ điều hòa trong $B$ nên $\Delta u(y)=\Delta h(y)=0$.
+
+Vậy với mọi $y\in\Omega$ ta có $\Delta u(y)=0$, hàm số $u$ điều hòa trong $\Omega$. $\blacksquare$
+\\
+
+Như là hệ quả của định lý trên, ta có:\\
+\textbf{\underline{Định lý 2.8:}}
+
+\textit{Cho $\{u_n\}$ là dãy các hàm điều hòa. Giả sử $u_n$ hội tụ đều về $u$ trên $\Omega$. Khi đó $u$ điều hòa.}
+\\
+\textbf{Chứng minh:}
+
+Do $u_n$ liên tục trên $\Omega$ với mọi $n$ và dãy $\{u_n\}$ hội tụ đều về $u$ nên $u$ cũng liên tục trên $\Omega$.
+
+Xét một quả cầu $B=B_R(y)\subset\subset\Omega$.
+
+Cho $\epsilon>0$, tồn tại N đủ lớn sao cho $\forall n>N:\ |u_{n}(x)-u(x)|<\epsilon$.
+
+Khi đó
+\[|\int\limits_{\partial B}u_{n}\,ds-\int\limits_{\partial B}u\,ds|\leq\int\limits_{\partial B}|u_n-u|\,ds\leq\int\limits_{\partial B}\epsilon\,ds=M\epsilon.\]
+
+Vậy dãy $\{\int\limits_{\partial B}u_n\,ds\}$ hội tụ về $\int\limits_{\partial B}u\,ds$.
+
+Do $u_n$ điều hòa trong $B$ nên $u_n(y)=\int\limits_{\partial B}u_n\,ds$ với mọi $n$. Hơn nữa ta có dãy $\{u_n(y)\}$ hội tụ về $u(y)$ nên
+\[u(y)=\lim_{n\to\infty}u_n(y)=\lim_{n\to\infty}\frac{1}{n\omega_n R^{n-1}}\int\limits_{\partial B}u_n\,ds=\frac{1}{n\omega_n R^{n-1}}\int\limits_{\partial B}u\,ds.\]
+
+Áp dụng định lý 2.7 ta được điều phải chứng minh. $\blacksquare$
+\\
+\\
+\textit{\underline{Nhận xét}
+\\
+Ở định lý trên yêu cầu của bài toán là dãy hàm $\{u_n\}$ hội tụ đều trên $\Omega$. Bằng cách sử dụng định lý 2.3, ta có thể sửa lại điều kiện của bài toán thành hội tụ đều trên biên, tức là:
+\\
+Cho $\Omega$ liên thông, bị chặn, dãy hàm $\{u_n\}\subset C^2(\Omega)\cap C^0(\overline{\Omega})$ điều hòa trong $\Omega$. Nếu $\{u_n\}$ hội tụ đều trên $\partial\Omega$ thì $\{u_n\}$ hội tụ đều trên $\overline\Omega$ tới một hàm điều hòa trong $\Omega$.}
+\\
+
+Sử dụng định lý trên cùng với bất đẳng thức Harnack ta được \textbf{định lý hội tụ Harnack}:\\
+\textbf{\underline{Định lý 2.9:}}
+
+\textit{Cho $\Omega$ liên thông và $\{u_n\}$ là một dãy những hàm điều hòa trong $\Omega$. Giả sử rằng dãy $\{u_n\}$ đơn điệu tăng và tồn tại $y\in\Omega$ sao cho dãy $\{u_n\}(y)$ bị chặn. Khi đó tồn tại một hàm $u$ điều hòa trong $\Omega$ sao cho trên mọi tập con liên thông, bị chặn $\Omega'\subset\subset\Omega$, dãy $\{u_n\}$ hội tụ đều về u.}
+\\
+\textbf{Chứng minh:}
+
+Cho $\epsilon>0$.
+
+Dãy $\{u_n(y)\}$ đơn điệu tăng, bị chặn nên 
+\[\exists N,\ \forall n>m>N:\ |u_n(y)-u_m(y)|<\epsilon.\]
+
+Với $n>m>N$, áp dụng bất đẳng thức Harnack trên miền $\Omega'\cup\Gamma$ trong đó $\Gamma$ là một đường trong $\Omega$ nối $y$ với một điểm nào đó trong $\Omega'$, ta được:
+\[\sup_{\Omega '\cup \Gamma}(u_{n}-u_{m})\leq C\inf_{\Omega '\cup \Gamma}(u_{n}-u_{m})\leq C(u_{n}(y)-u_{m}(y))< C\epsilon \]
+
+Do đó \[\forall z\in \Omega':\ 0\leq (u_n(z)-u_m(z))< C\epsilon.\quad (*)\]
+
+Với mỗi $x\in\Omega$, nếu ta lấy $\Omega' = \{x\}$ thì từ (*) ta được $\{u_n(x)\}$ là dãy Cauchy, nên nó hội tụ. Lấy $u$ là hàm trên $\Omega$ được xác định bởi 
+\[u(x)=\lim_{n\to\infty}u_n(x).\]
+
+Ở (*), cho $n \to \infty $ ta được: 
+\[|u(z)-u_m(z)|\leq C\epsilon \ \forall z \in \Omega'.\]
+
+Vậy dãy $\{u_n\}$ hội tụ đều về $u$ trong $\Omega'$.
+
+Với mỗi $x\in\Omega$, chọn $R>0$ sao cho quả cầu $B=B_R(x)\subset\subset\Omega$. Ta có dãy $\{u_n\}$ hội tụ đều về $u$ trong $B$. Áp dụng định lý 2.8 ta được $u$ là một hàm điều hòa trong $B$, suy ra $\Delta u(x)=0$.
+
+Vậy $u$ là hàm điều hòa trong $\Omega$. $\blacksquare$

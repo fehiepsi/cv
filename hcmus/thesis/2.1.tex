@@ -1,0 +1,70 @@
+\begin{center}
+\textbf{2.1. CÁC BẤT ĐẲNG THỨC GIÁ TRỊ TRUNG BÌNH}
+\end{center}
+
+Các kết quả của định lý sau đây (cũng được gọi là các \textbf{định lý giá trị trung bình}) là những tính chất nổi tiếng của các hàm điều hòa, subharmonic và superharmonic.\\
+\textbf{\underline{Định lý 2.1:}}
+\\
+\textit{Cho u là hàm số thuộc lớp  $C^2 (\Omega )$ thỏa mãn $\Delta u = 0( \ge 0,\le 0)$ trong $\Omega$. Khi đó với mọi quả cầu $ B(y,R) \subset  \subset \Omega $ 
+ta có \[
+u(y) = ( \le , \ge )\frac{1}{{n\omega _n R^{n - 1} }}\int\limits_{\partial B} u ds
+\]
+ \[
+u(y) = ( \le , \ge )\frac{1}{{\omega _n R^{n } }}\int\limits_{B} u dx .
+\]}
+\textbf{Chứng minh:}
+
+Với mọi $\rho\in$(0, R), đặt \[
+ \phi (\rho) = \rho ^{1 - n} \int\limits_{\partial B(y,\rho )} {uds} .
+\]
+
+Ta chứng minh $
+\phi '(\rho ) = (\ge , \le)0
+$ với mọi $\rho \in (0, R)$.
+
+Áp dụng định lý Green cho quả cầu B(y, $\rho$), ta có \[
+\int\limits_{\partial B(y,\rho )} {\frac{{\partial u}}{{\partial \upsilon }}ds}  = \int\limits_{B(y,\rho )} {\Delta udx = ( \ge , \le )0} .
+\]
+
+Ta có với mọi x thuộc $\partial B(y, \rho)$ thì $x = y + \rho \omega$ với $|\omega | = 1$.
+
+Ta có \[
+\frac{{\partial u}}{{\partial \upsilon }}(x) = \frac{{\partial u}}{{\partial \upsilon }}(y + \rho \omega ) = Du(y + \rho \omega ).\upsilon  = Du(y + \rho \omega ).\omega  = \frac{{\partial u}}{{\partial \rho }}(y + \rho \omega ).
+\]
+
+Do đó
+\[\int\limits_{\partial B(y,\rho )} {\frac{{\partial u}}{{\partial \upsilon }}} (x)ds_x = \int\limits_{\partial B(y,\rho )} {\frac{{\partial u}}{{\partial \rho }}} (y + \rho \omega )ds_x = \rho ^{n - 1} \int\limits_{\partial B(0,1)} {\frac{{\partial u}}{{\partial \rho }}} (y + \rho \omega )ds_\omega =\]
+\[= \rho ^{n - 1} \frac{\partial }{{\partial \rho }}\int\limits_{\partial B(0,1)} u (y + \rho \omega )ds_\omega
+= \rho ^{n - 1} \frac{\partial }{{\partial \rho }}\left[ {\rho ^{1 - n} \int\limits_{\partial B(y,\rho )} u (x)ds_x } \right] 
+= \rho ^{n - 1} \phi '(\rho ).\]
+
+Vậy 
+\begin{equation}
+\phi '(\rho ) = (\ge , \le)0
+\end{equation}
+với mọi $\rho \in (0, R)$.
+
+Mặt khác, do hàm u liên tục trong $\Omega$ nên
+\begin{equation}
+{\rm{u(y) = }}\mathop {{\rm{lim}}}\limits_{\rho  \to {\rm{0}}} \frac{{\rm{1}}}{{{\rm{n}}\omega _{\rm{n}} \rho ^{n - 1} }}\int\limits_{\partial B_\rho  } {{\rm{uds}}}  = \mathop {{\rm{lim}}}\limits_{\rho  \to {\rm{0}}} \frac{{\rm{1}}}{{{\rm{n}}\omega _{\rm{n}} }}\phi (\rho ).
+\end{equation}
+
+Từ (1) và (2) suy ra
+\begin{equation}
+{\rm{u(y) = }}( \ge , \le )\frac{{\rm{1}}}{{{\rm{n}}\omega _{\rm{n}} }}\phi (\rho ) = \frac{{\rm{1}}}{{{\rm{n}}\omega _{\rm{n}} \rho ^{n - 1} }}\int\limits_{\partial B\rho } {{\rm{uds}}}
+\end{equation}
+với mọi $\rho \in (0, R)$.
+
+Thay $\rho$ bởi R ta sẽ có công thức cần chứng minh thứ nhất (thay được bởi vì luôn tồn tại $R' > R$ thỏa $ B(y,R') \subset  \subset \Omega $, kết quả (3) đúng với mọi $\rho \in (0, R')$).
+
+Viết lại đẳng thức (3) ta được 
+\[
+{\rm{n}}\omega _{\rm{n}} \rho ^{n - 1} {\rm{u(y)}} = ( \ge , \le )\int\limits_{\partial B\rho } {{\rm{uds}}} .
+\]
+
+Lấy tích phân hai vế từ 0 đến R theo $\rho$ ta được 
+\[
+\int\limits_{\rm{0}}^{\rm{R}} {{\rm{n}}\omega _{\rm{n}} \rho ^{n - 1} {\rm{u(y)d}}\rho }  = ( \ge , \le )\int\limits_0^R {\int\limits_{\partial B\rho } {{\rm{uds}}} }. 
+\]
+
+Vậy ta có đẳng thức thứ hai.$\blacksquare$

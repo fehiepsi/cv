@@ -1,0 +1,512 @@
+\begin{center}
+\textbf{2.4. BIỂU DIỄN GREEN}
+\end{center}
+
+\noindent\textbf{\underline{Một số công thức:}}
+\\
+\textit{Cho miền mở,liên thông,bị chặn $\Omega_{0}$ sao cho $\partial{\Omega _{0}} \in C^{1}$.Ký hiệu
+$\nu$ là véc tơ pháp tuyến đơn vị của $\partial{\Omega_{0}}$ hướng ra ngoài.Khi này với mọi trường véc tơ $w$ trong $ C^1(\overline {\Omega _0 })$
+thì ta có được điều sau:}
+\[
+\int\limits_{\Omega _0 } {div(w)dx}  = \int\limits_{\partial \Omega _0 } {w.} \nu ds\]
+\textit{trong đó $ds$ biểu thị vùng diện tích $(n-1)$ chiều của $\partial{\Omega_{0}}$}
+\\
+\\
+\textbf{I) \underline{Bây giờ chúng ta sẽ đi vào nghiên cứu những công thức của Green:}}
+
+Ta quy định miền $\Omega$ như miền $\Omega_{0}$ trong định lý phía trên,khi này ta xét $u,v$ là hai hàm $C^2 (\overline \Omega  )$. Chúng ta thế $w=vDu$ vào định lý trên chúng ta sẽ thu được điều sau:
+\begin{center}
+\textbf{$\int\limits_\Omega  {v\Delta udx + \int\limits_\Omega  {Du.Dvdx = \int\limits_{\partial \Omega } {v.\frac{{\partial u}}
+{{\partial \nu }}} } } ds$       (2.4.1)}
+\end{center}
+
+Biểu thức (2.4.1) được gọi là \textbf{công thức Green thứ nhất}.
+\\
+\textbf{Chứng minh công thức:}
+
+Thật vậy:
+
+Khi thế $w=vDu$ vào định lý trên thì chúng ta thu được:
+\[
+\int\limits_\Omega  {div(vDu)dx}  = \int\limits_{\partial \Omega } {(vDu).} \nu ds
+\]
+
+Ta có thể thấy ngay từ định nghĩa divergence rằng:
+\[div(vDu) = Dv.Du + v.\Delta u\]
+
+Nên: 
+\[
+\int\limits_\Omega  {div(vDu)dx}  = \int\limits_\Omega  {v\Delta udx + \int\limits_\Omega  {Du.Dvdx} } 
+\]
+
+Đồng thời, do $
+Du.\nu  = \frac{{\partial u}}
+{{\partial \nu }}
+$ nên ta có $
+\int\limits_{\partial \Omega } {(vDu).\nu ds}  = \int\limits_{\partial \Omega } {v.\frac{{\partial u}}
+{{\partial \nu }}} ds.
+$
+
+Từ đây ta thu được công thức trên.
+
+Bây giờ,ta cũng xét cùng những điều kiện như công thức Green thứ nhất.Khi này ta có công thức sau:
+\begin{center}
+\textbf{$
+\int\limits_\Omega  {(v\Delta u - u\Delta v)dx = \int\limits_{\partial \Omega } {(v} } \frac{{\partial u}}
+{{\partial \nu }} - u\frac{{\partial v}}
+{{\partial \nu }})ds
+$ (2.4.2)}
+\end{center}
+
+Công thức (2.4.2) được gọi là \textbf{công thức Green thứ hai}.
+
+Lời giải cho công thức trên khá đơn giản vì ta chỉ cần hoán đổi vai trò của $u,v$ trong công thức Green thứ nhất(bởi vì vai trò của $u,v$ ở đây là như nhau).Rõ ràng lúc này toán hạng $
+{\int\limits_\Omega  {Du.Dvdx} }$ không thay đổi nên khi ta đem trừ hai đẳng thức sau khi đã hoán đổi vai trò $u,v$ thì ta thu được ngay công thức Green thứ hai.
+\\
+\\
+\textbf{II) \underline{Một số tính chất của nghiệm cơ bản phương trình Laplace:}}\\
+Đầu tiên ta nhắc lại định nghĩa của nghiệm cơ bản phương trình Laplace:
+\[
+\Gamma (x - y) = \Gamma (|x - y|) = \left\{ {\begin{array}{*{20}c}
+   {\frac{1}
+{{n(2 - n)\omega _n }}|x - y|^{(2 - n)} \quad n > 2}  \\
+   {\frac{1}
+{{2\pi }}\ln |x - y|\quad \quad \quad \quad \quad n = 2}  \\
+
+ \end{array} } \right.\quad 
+\]  
+\textbf{Ký hiệu đẳng thức trên là (2.4.3)} và ở đây ta cố định $y \in \Omega$, $\omega_{n}$ là thể tích quả cầu đơn vị $n$ chiều.
+\\
+\textbf{\underline{Tính chất 1:}}
+\\
+Nghiệm cơ bản của phương trình Laplace là hàm điều hòa.\\
+\textbf{Chứng minh:}
+\\
+\textbf{\underline{Xét đạo hàm bậc nhất:}}
+
+	Xét 2 trường hợp:\\
+		+Khi $n=2$:
+\[
+D_i \Gamma (x - y) = \frac{\partial }
+{{\partial x_i }}(\frac{1}
+{{2\pi }}\ln |x - y|) = \frac{1}
+{{2\pi }}.\frac{{\frac{\partial }
+{{\partial x_i }}(|x - y|)}}
+{{|x - y|}}\quad 
+\]
+
+Rõ ràng: $
+\frac{\partial }
+{{\partial x_i }}(|x - y|) = (x_i  - y_i ).|x - y|^{ - 1} 
+$ nên:
+\[
+D_i \Gamma (x - y) = \frac{1}
+{{2\pi }}.(x_i  - y_i )|x - y|^{ - 2} 
+\]
+
+Khi $n=2$ thì thể tích của quả cầu đơn vị khi này là $\pi$ nên từ đây:
+\[
+D_i \Gamma (x - y) = \frac{1}
+{{2\omega _2 }}.(x_i  - y_i )|x - y|^{ - 2} 
+\]
++Khi $n>2$. Lúc này:
+\[
+D_i \Gamma (x - y) = \frac{1}
+{{n(2 - n)\omega _n }}\frac{\partial }
+{{\partial x_i }}(|x - y|^{(2 - n)} )
+\]
+
+Bằng lập luận tương tự như trường hợp $n=2$ chúng ta thu được:
+\[
+\frac{\partial }
+{{\partial x_i }}(|x - y|^{(2 - n)} ) = (2 - n)(x_i  - y_i )|x - y|^{ - n} 
+\]
+
+Do đó:
+\[
+D_i \Gamma (x - y) = \frac{1}
+{{n\omega _n }}(x_i  - y_i )|x - y|^{ - n} 
+\]
+
+Chung lại,sau 2 trường hợp ta thu được:
+\[D_i \Gamma (x - y) = \frac{1}
+{{n\omega _n }}(x_i  - y_i )|x - y|^{ - n} \quad (\forall n  \geqslant 2
+)\]
+\textbf{\underline{Xét đạo hàm cấp 2:}}
+
+ Làm tương tự như trường hợp đạo hàn cấp 1,chúng ta thu được công thức cho đạo hàm cấp 2 như sau:
+\[D_{ij} \Gamma (x - y) = \frac{1}
+{{n\omega _n }}(|x - y|^2 \delta _{ij}  - n(x_i  - y_i )(x_j  - y_j ))|x - y|^{ - n - 2} 
+\]
+trong đó $\delta _{ij}$ là ký hiệu Kronecker.\\
+\textbf{\underline{Chứng minh $\Gamma$ là hàm điều hòa:}}
+
+Bằng cách áp dụng công thức đạo hàm bậc 2,khi $x \ne y$ thì:
+ \[
+\begin{gathered}
+  \Delta \Gamma (x - y) = \sum\limits_{i = 1}^n {D_{ii} } \Gamma (x - y) \hfill \\
+  \quad \quad \quad \quad  = \sum\limits_{i = 1}^n {\frac{1}
+{{n\omega _n }}[|x - y|^2  - n(x_i  - y_i )^2 ]|x - y|^{ - n - 2} }  \hfill \\
+  \quad \quad \quad \quad  = \frac{1}
+{{n\omega _n }}|x - y|^{ - n - 2} \sum\limits_{i = 1}^n {|x - y|^2  - n(x_i  - y_i )^2  = 0}  \hfill \\
+\end{gathered} 
+\]
+
+Vậy $\Gamma$ là hàm điều hòa
+\\
+\\
+\textbf{\underline{Tính chất 2:}}
+\[
+D^\beta  \Gamma (x - y) \le C|x - y|^{2 - n - |\beta |} 
+\]
+trong đó $C = C(n,|\beta |)$ và \textbf{ký hiệu bất đẳng thức này là (2.4.4)}\\
+hay một cách tổng quát hơn
+\[
+|D^k u(x)| \leqslant \frac{{C_k }}
+{{r^{n + k} }}\int_{B(x,r)} {|u|dy} 
+\]
+với $u$ là hàm điều hòa trong $ \overline { \Omega } $, với mọi quả cầu $B(x,r) \subset \overline { \Omega }$, $
+C_0  = \frac{1}{{\omega _n }}
+$,
+$
+C_k  = \frac{(2^{n + 1} nk)^k }
+{\omega _n }$  $(k > 0)$. 
+
+\textbf{Ký hiệu bất đẳng thức này là (2.4.5)}
+
+Chúng ta thử giải bất đẳng thức (2.4.4) trong trường hợp đạo hàm bậc 1,2( tức là $\beta  = 1,2$ bằng cách bình thường để thấy ý nghĩa của nó.
+\\
+\textbf{Đối với đạo hàm bậc nhất}:
+
+Áp dụng đẳng thức đạo hàm bậc nhất của $\Gamma$,ta có:
+\[
+\left| {D_i \Gamma (x - y)} \right| \le \frac{1}{{n\omega _n }}|x - y|^{(1 - n)} 
+\]
+
+Do công thức đạo hàm bậc nhất là $
+D_i \Gamma (x - y) = \frac{1}
+{{n\omega _n }}(x_i  - y_i )|x - y|^{ - n} \quad (\forall n  \geqslant 2
+)
+$ và $
+(x_i  - y_i ) \le |x - y|
+$
+\\
+\textbf{Đối với đạo hàm bậc hai}:
+
+Áp dụng đẳng thức đạo hàm bậc hai của $\Gamma$,ta có:
+\[
+D_{ij} \Gamma (x - y) = \frac{1}{{n\omega _n }}[|x - y|^2 \delta _{ij}  - n(x_i  - y_i )(x_j  - y_j )]|x - y|^{ - n - 2} 
+\]
+
+Ta đi chứng minh rằng:
+\[
+\frac{1}{n}\left| {|x - y|^2 \delta _{ij}  - n(x_i  - y_i )(x_j  - y_j )} \right| \le |x - y|^2 \quad \quad \quad (*)
+\]
+
+Thật vậy (*) tương đương cần chứng minh:
+\[
+ - n|x - y|^2  \le n(x_i  - y_i )(x_j  - y_j ) - |x - y|^2 \delta _{ij}  \le n|x - y|^2 
+\]
+\[
+\Leftrightarrow
+ - (n + \delta _{ij} )|x - y|^2  \le n(x_i  - y_i )(x_j  - y_j ) \le (n + \delta _{ij} )|x - y|^2 
+\]
+\\
+$\bullet$ Khi $i=j$ thì bất đẳng thức trên trở thành:
+\[
+ - (n + 1)|x - y|^2  \le n(x_i  - y_j )^2  \le (n + 1)|x - y|^2 
+\]
+
+Bất đẳng thức trên là đúng do $
+(x_i  - y_i )^2  \le |x - y|^2 
+$.\\
+$\bullet$ Khi $i \neq j$. Lúc này bất đẳng thức trở thành:
+\[
+ - n|x - y|^2  \le n|(x_i  - y_i )(x_j  - y_j )| \le n|x - y|^2 
+\]
+
+Bất đẳng thức vế trái hiển nhiên đúng vì VP $\geq$ 0 còn VT $\leq$ 0.
+
+Xét bất đẳng thức vế phải:
+\[
+n|(x_i  - y_i )(x_j  - y_j )| \le n|x - y|^2 
+\;\Leftrightarrow
+|(x_i  - y_i )(x_j  - y_j )| \le |x - y|^2 
+\]
+
+Điều trên là đúng vì:
+\[
+|x - y|^2  = \sum\limits_{i = 1}^n {(x_i }  - y_i )^2  \ge (x_i  - y_i )^2  + (x_j  - y_j )^2  \ge 2|(x_i  - y_i )(x_j  - y_j )| \ge |(x_i  - y_i )(x_j  - y_j )|
+\]
+
+Do đó bất đẳng thức (*) được chứng minh.
+
+Áp dụng bất đẳng thức (*) vào đẳng thức đạo hàm cấp 2 của $\Gamma$ ta thu được:
+\[|D_{ij} \Gamma (x - y)| \leqslant \frac{1}
+{{\omega _n }}|x - y|^{ - n}\]
+\textbf{Bây giờ thay vì chứng minh tính chất 2 thì ta chứng minh bất đẳng thức (2.4.5) vì bất đẳng thức (2.4.4) là trường hợp nhỏ của bất đẳng thức (2.4.5)}
+
+Đầu tiên ta nhắc lại công thức trung bình đối với hàm điều hòa $u$ trong miền $\Omega$ như sau:
+\[
+u(x) = \frac{1}{{r^n \omega _n }}\int\limits_{B(x,r)} {udy} 
+\]	
+với mọi quả cầu $B(x,r) \subset \Omega $.
+
+Bây giờ ta đi chứng minh bất đẳng thức (2.4.5) bằng phương pháp quy nạp theo $k$.\\
+$\bullet$ Khi $k=0$ thì bất đẳng thức (2.4.5) trở thành:
+\[
+|u(x)| \le \frac{1}{{r^n \omega _n }}\int\limits_{B(x,r)} {|u|dy} 
+\]
+
+Thật vậy, do $u$ là hàm điều hòa nên:
+\[
+|u(x)| = |\frac{1}{{r^n \omega _n }}\int\limits_{B(x,r)} {udy} | \le \frac{1}{{r^n \omega _n }}\int\limits_{B(x,r)} {|u|dy} 
+\]
+
+$\bullet$ Khi $k=1$. Vì u là hàm điều hòa trong $\Omega$ nên các đạo hàm thành phần $D_i u$ cũng là các hàm điều hòa trong $\Omega$.
+
+Khi này bằng cách áp dụng công thức giá trị trung bình cho hàm điều hòa, ta được:
+\[
+|D_i u| = |\frac{{2^n }}{{r^n \omega _n }}\int\limits_{B(x,\frac{r}{2})} {D_i udy} | = |\frac{{2^n }}{{r^n \omega _n }}\int\limits_{\partial B(x,\frac{r}{2})} {u\nu _i ds} |
+\]
+
+Nếu xét $x_0  \in \partial B(x,\frac{r}{2})$ thì $
+B(x_0 ,\frac{r}{2}) \subset B(x,r) \subset U
+$. Lúc này, bằng việc áp dụng mệnh đề quy nạp khi $k=0$:
+\[
+|u(x_0 )| \le \frac{{2^n }}{{r^n \omega _n }}\int\limits_{B(x_0 ,\frac{r}{2})} {|u|dy}  = \frac{{2^n }}{{r^n \omega _n }}||u||_{L^1 (B(x_0 ,\frac{r}{2}))}  \le \frac{{2^n }}{{r^n \omega _n }}||u||_{L^1 (B(x,r))} 
+\]
+
+Từ đây:
+\[
+|D_i u| = |\frac{{2^n }}{{r^n \omega _n }}\int\limits_{\partial B(x,\frac{r}{2})} {u\nu _i ds} | \le \frac{{2^n }}{{r^n \omega _n }}\frac{{2^n }}{{r^n \omega _n }}||u||_{L^1 (B(x,r))} \int\limits_{\partial B(x,\frac{r}{2})} ds \]
+\[= \frac{{2^n }}{{r^n \omega _n }}\frac{{2^n }}{{r^n \omega _n }}||u||_{L^1 (B(x,r))} n\frac{{r^{n - 1} }}{{2^{n - 1} }} \omega _n  = \frac{{2^{n + 1} n}}{{r^{n + 1} \omega _n }}||u||_{L^1 (B(x,r))}  = \frac{{C_1 }}{{r^{n + 1} }}||u||_{L^1 (B(x,r))} .
+\]
+
+Do đó mệnh đề quy nạp được chứng minh cho trường hợp $k=1$.\\
+$\bullet$ Khi $k \geq 2$.Giả sử khi này bất đẳng thức chúng ta chứng minh đã đúng cho $(k-1)$.
+
+Xét $\alpha$ là đa chỉ số có bậc là $k$. Khi này $
+D_\alpha  u = (D_\beta  u)_{x_i } $ với $i=(1,2,3,...,n)$,$|\beta|=k-1$. Đồng thời, các $D_\alpha u$ cũng là các hàm điều hòa trong $\Omega$ nên ta có thể áp dụng công thức giá trị trung bình:
+\[
+|D_\alpha  u(x)| = |\frac{{k^n }}{{r^n \omega _n }}\int\limits_{B(x,\frac{r}{k})} {D_\alpha  udy} | = |\frac{{k^n }}{{r^n \omega _n }}\int\limits_{\partial B(x,\frac{r}{k})} {D_\beta  u\nu ds} |
+\]
+
+Nếu $x_0  \in \partial B(x,\frac{r}{k})$ thì $B(x_0 ,\frac{{r(k - 1)}}{k}) \subset B(x,r) \subset U$. Áp dụng giả thuyết quy nạp cho $(k-1)$, ta được:
+\[
+|D_\beta  u(x_0 )| \le \frac{{(2^{n + 1} n(k - 1))^{(k - 1)} }}{{\omega _n (\frac{{k - 1}}{k}r)^{n + k - 1} }}||u||_{L^1 (B(x_0 ,\frac{{k - 1}}{k}r))}  \le \frac{{(2^{n + 1} n(k - 1))^{(k - 1)} }}{{\omega _n (\frac{{k - 1}}{k}r)^{n + k - 1} }}||u||_{L^1 (B(x,r))} 
+\]
+
+Từ đây:
+\[
+|D_\alpha  u(x)| = |\frac{{k^n }}{{r^n \omega _n }}\int\limits_{\partial B(x,\frac{r}{k})} {D_\beta  u\nu ds} | \le \frac{{k^n }}{{r^n \omega _n }}\frac{{(2^{n + 1} n(k - 1))^{(k - 1)} }}{{\omega _n (\frac{{k - 1}}{k}r)^{n + k - 1} }}||u||_{L^1 (B(x ,r))} \int\limits_{\partial B(x,\frac{r}{k})} {ds}= 
+\]
+\[
+ = \frac{{k^n }}{{r^n \omega _n }}\frac{{(2^{n + 1} n(k - 1))^{(k - 1)} }}{{\omega _n (\frac{{k - 1}}{k}r)^{n + k - 1} }}n\omega _n \left( {\frac{r}{k}} \right)^{n - 1} ||u||_{L^1 (B(x,r))}  = \frac{{(2^{n + 1} nk)^k }}{{\omega _n r^{n + k} }}||u||_{L^1 (B(x,r))}  = \frac{{C_k }}{{r^{n + k} }}||u||_{L^1 (B(x,r))} 
+ \]
+
+Nên mệnh đề quy nạp được chứng minh cho $k \geq 2$.
+
+Vậy bất đẳng thức (2.4.5) được chứng minh hoàn toàn.
+\\
+\\
+\textbf{III) \underline{Công thức biểu diễn Green và một số tính chất:}}
+
+Ta thấy rằng $\Gamma$ kỳ dị tại $x=y$ nên ta sẽ tìm cách tránh điều trên bằng cách xét $\Omega \backslash B(y,r)$
+
+Khi này bằng việc áp dụng công thức GREEN thứ nhất ta được:\\
+$
+\begin{gathered}
+  \int\limits_{\Omega \backslash B(y,r)} {\Gamma \Delta udx = \int\limits_{\partial \Omega } {(\Gamma \frac{{\partial u}}
+{{\partial \nu }}} }  - u\frac{{\partial \Gamma }}
+{{\partial \nu }})ds + \int\limits_{\partial B(y,r)} {(\Gamma \frac{{\partial u}}
+{{\partial \nu }}}  - u\frac{{\partial \Gamma }}
+{{\partial \nu }})ds \hfill \\
+  \quad \quad \quad \quad \;\quad  = \int\limits_{\partial \Omega } {(\Gamma \frac{{\partial u}}
+{{\partial \nu }} - u\frac{{\partial \Gamma }}
+{{\partial \nu }})ds + } I_1  - I_2 
+ \hfill \\ 
+\end{gathered} 
+\quad \quad \quad  (2.4.6)$
+
+\textbf{Xét $I_1$:}\\
+\[
+\int\limits_{\partial B(y,r)} {\Gamma \frac{{\partial u}}
+{{\partial \nu }}ds = \Gamma (r)\int\limits_{\partial B(y,r)} {\frac{{\partial u}}
+{{\partial \nu }}ds \leqslant n\omega _n r^{n - 1} \Gamma (r)\mathop {\sup }\limits_{B(y,r)} } } |Du|
+\]
+
+Thật vậy:
+\[
+|\int\limits_{\partial B(y,r)} {\frac{{\partial u}}{{\partial \nu }}} ds| = |\int\limits_{\partial B(y,r)} {Du.\nu } ds| \le \int\limits_{\partial B(y,r)} {|Du.\nu |ds \le \int\limits_{\partial B(y,r)} {|Du|.|\nu |ds} } 
+\]
+
+ Mà:
+\[
+\int\limits_{\partial B(y,r)} {|Du|.|\nu |ds}  = \int\limits_{\partial B(y,r)} {|Du|ds}  \le \mathop {\sup }\limits_{B(y,r)} |Du|\int\limits_{\partial B(y,r)} {ds}  = 
+\]
+ 
+\[
+ = n\omega _n r^{n - 1} \mathop {\sup }\limits_{B^{'}(y,r)} |Du|
+\]
+
+Theo định nghĩa hàm $\Gamma$ có:
+$
+\Gamma (r) = \frac{{r^{2 - n} }}{{n(2 - n)\omega _n }}
+$
+
+Do đó:
+$
+n\omega _n r^{n - 1} \Gamma (r) = \frac{r}{{2 - n}}
+$
+
+Từ đẳng thức trên, ta có:
+\[
+{\mathop {\lim }\limits_{r \to 0} n\omega _n r^{n - 1} \Gamma (r)}{\mathop {\sup }\limits_{B^{'}(y,r)} }|Du| = 0
+\]
+
+Chung lại:
+\[
+n\omega _n r^{n - 1} \Gamma (r).\mathop {\sup }\limits_{B^{'}(y,r)} |Du| = \frac{r}{{2 - n}}\mathop {\sup }\limits_{B^{'}(y,r)} |Du| \to 0
+\]
+
+Hay:
+\[
+\mathop {\lim }\limits_{r \to 0} \int\limits_{\partial B(y,r)} {\Gamma \frac{{\partial u}}
+{{\partial \nu }}} ds = 0
+\]
+\textbf{Xét $I_2$:}
+\[
+\int\limits_{\partial B(y,r)} {u(x)\frac{{\partial \Gamma }}
+{{\partial \nu }}(x - y)ds} (x) = \int\limits_{\partial B(0,r)} {u(y + z)\frac{{\partial \Gamma }}
+{{\partial \nu }}(z)ds} (z)
+\]
+
+Và ta chứng minh được rằng:
+\[
+\frac{{\partial \Gamma }}
+{{\partial \nu }}(z) = D\Gamma (z)\nu  = \frac{{ - z}}
+{{n\omega _n |z|^n }}.\frac{z}
+{{|z|}} = \frac{{ - 1}}
+{{n\omega _n |z|^{n - 1} }} = \frac{{ - 1}}
+{{n\omega _n r^{n - 1} }}
+\]
+
+Nên:
+\[
+\int\limits_{\partial B(y,r)} {u(x)\frac{{\partial \Gamma }}
+{{\partial \nu }}(x - y)ds} (x) = \frac{{ - 1}}
+{{n\omega _n r^{n - 1} }}\int\limits_{\partial B(0,r)} {u(y + z)ds(z)} 
+\]
+
+Từ đẳng thức trên:
+\[
+\begin{gathered}
+  \mathop {\lim }\limits_{r \to 0} \int\limits_{\partial B(y,r)} {u(x)\frac{{\partial \Gamma }}
+{{\partial \nu }}(x - y)ds} (x) = \mathop {\lim }\limits_{r \to 0}  - \int\limits_{\partial B(0,r)}^ -  {u(y + z)ds(z)}  \hfill \\
+  \quad \quad \quad \quad \quad  = \mathop {\lim }\limits_{r \to 0}  - \int\limits_{\partial B(y,r)}^ -  {u(x)ds(x)}  =  - u(y) \hfill \\ 
+\end{gathered} 
+\]
+
+Từ đây nếu cho $r \to 0$ thì ở đẳng thức (2.4.6) ta thu được điều sau:
+\[
+\mathop {\lim }\limits_{r \to 0} \int\limits_{\Omega \backslash B(y,r)} {\Gamma \Delta udx = \int\limits_{\partial \Omega } {(\Gamma \frac{{\partial u}}{{\partial \nu }}} }  - u\frac{{\partial \Gamma }}{{\partial \nu }})ds - u(y)
+\]
+
+Ta đi chứng minh: 
+\[
+\mathop {\lim }\limits_{r \to 0} \int\limits_{\Omega \backslash B(y,r)} {\Gamma \Delta udx = \int\limits_\Omega  {\Gamma \Delta udx} } 
+\]
+
+Điều cần chứng minh phía trên tương đương với chứng minh:
+\[
+\mathop {\lim }\limits_{r \to 0} \int\limits_{B(y,r)} {\Gamma \Delta udx}  = 0
+\]
+
+Áp dụng biến đổi tọa độ cực:
+\[
+\int\limits_{B(y,r)} {\Gamma \Delta udx}  = \int\limits_0^r {(\int\limits_{\partial B(y,t)} {\Gamma \Delta ud} } s)dt
+\]
+
+Có:
+\[
+\int\limits_{\partial B(y,t)} {\Gamma \Delta ud} s = \frac{1}{{n(2 - n)\omega _n }}t^{2 - n} \int\limits_{\partial B(y,t)} {\Delta uds} 
+\]
+
+Nên:
+\[
+\int\limits_{B(y,r)} {\Gamma \Delta udx}  = \int\limits_0^r {(\int\limits_{\partial B(y,t)} {\Gamma \Delta ud} } s)dt = \frac{1}{{n(2 - n)\omega _n }}\int\limits_0^r {(t^{2 - n} \int\limits_{\partial B(y,t)} {\Delta uds} )dt} 
+\quad \quad \quad  (2.4.7)
+\]
+
+Đồng thời,ta có:
+\[
+\int\limits_{\partial B(y,t)} {\Delta uds}  \le M\int\limits_{\partial B(y,t)} {ds}  = Mt^{n - 1} n\omega _n 
+\quad \quad \quad  (2.4.8)
+\]
+
+Kết hợp (2.4.7) và (2.4.8):
+\[
+\int\limits_{B(y,r)} {\Gamma \Delta udx}  \le \frac{M}{{(2 - n)}}\int\limits_0^r {tdt = \frac{{Mr^2 }}{{2(2 - n)}} \to 0} 
+\]
+
+Do đó:
+\[
+\mathop {\lim }\limits_{r \to 0} \int\limits_{\Omega \backslash B(y,r)} {\Gamma \Delta udx = \int\limits_\Omega  {\Gamma \Delta udx} } 
+\]
+
+Từ:$\;\mathop {\lim }\limits_{r \to 0} \int\limits_{\Omega \backslash B(y,r)} {\Gamma \Delta udx = \int\limits_{\partial \Omega } {(\Gamma \frac{{\partial u}}{{\partial \nu }}} }  - u\frac{{\partial \Gamma }}{{\partial \nu }})ds - u(y)$ và $\;$ $\mathop {\lim }\limits_{r \to 0} \int\limits_{\Omega \backslash B(y,r)} {\Gamma \Delta udx = \int\limits_\Omega  {\Gamma \Delta udx} } $ nên khi cho $r \to 0$ ta thu được:
+\[
+u(y) = \int\limits_{\partial \Omega } {(u\frac{{\partial \Gamma }}
+{{\partial \nu }}}  - \Gamma \frac{{\partial u}}
+{{\partial \nu }})ds + \int\limits_\Omega  {\Gamma \Delta udx}
+\]
+
+Hay viết dưới dạng cụ thể hơn:
+\[u(y) = \int\limits_{\partial \Omega } {(u\frac{{\partial \Gamma }}{{\partial \nu }}} (x - y) - \Gamma (x - y)\frac{{\partial u}}{{\partial \nu }})ds + \int\limits_\Omega  {\Gamma (x - y)\Delta udx} \quad \quad \quad \quad (2.4.9)\]
+\textbf{Đẳng thức (2.4.9) được gọi là công thức biểu diễn Green}
+\\
+\textit{\underline{Một vài lưu ý liên quan đến công thức biểu diễn Green:}}
+\\
+$\quad \quad \quad$ $\bullet$ Nếu hàm $f$ khi này khả tích thì tích phân $\int\limits_\Omega  {\Gamma (x - y)\Delta udx} $ được gọi là "Newton potential" với mật độ là $\Delta u$.\\
+$\bullet$ Nếu hàm $u$ có giá compact trên $R^{n}$ thì công thức (2.4.9) cho ta đẳng thức sau:
+\[u(y) = \int\limits_{R^n } {\Gamma (x - y)\Delta u(x)dx} \]
+$\bullet$ Nếu hàm $u$ là hàm điều hòa trong $\Omega$ thì khi này công thức (2.4.9) cho ta công thức sau:
+\[
+u(y) = \int\limits_{\partial \Omega } {(u\frac{{\partial \Gamma }}{{\partial \nu }}} (x - y) - \Gamma (x - y)\frac{{\partial u}}{{\partial \nu }})ds
+\]
+\\
+\textbf{IV) \underline{Hàm Green:}}
+
+Xét hàm  $h \in C^1 (\overline \Omega  ) \cap C^2 (\Omega )$ và $h$ là hàm điều hòa trong $\Omega$. Khi này bằng cách áp dụng công thức Green thứ hai(tức (2.4.2)) ta được:
+\[
+\int\limits_\Omega  {h\Delta u} dx = \int\limits_{\partial \Omega } {(h\frac{{\partial u}}
+{{\partial \nu }}}  - u\frac{{\partial h}}
+{{\partial \nu }})ds
+\]
+
+Đặt:$\;$ $G = \Gamma  + h$ thì khi này $G$ là hàm điều hòa trên $\Omega$ (vì hàm $\Gamma$ và $h$ điều hòa trên $\Omega$).Áp dụng công thức biểu diễn Green ở (2.4.9):\\
+\[
+u(y) = \int\limits_{\partial \Omega } {(u\frac{{\partial G}}{{\partial \nu }}}  - G\frac{{\partial u}}{{\partial \nu }})ds + \int\limits_\Omega  {G\Delta udx} 
+\]
+
+Thêm vào đó, nếu $G=0$ trên $\partial \Omega $ , nghĩa là khi này hàm $h$ có dạng như sau:
+\[
+\left\{ {\begin{array}{*{20}c}
+   {\Delta h = 0\quad trong\,\Omega }  \\
+   {h(x) =  - \Gamma (x - y)\quad tren \,\partial \Omega }  \\
+\end{array}} \right.
+\]
+thì khi này công thức trên trở thành:
+\[
+u(y) = \int\limits_{\partial \Omega } {u\frac{{\partial G}}{{\partial \nu }}} ds + \int\limits_\Omega  {G\Delta udx} 
+\]
+	
+Hàm $G=G(x,y)$ xác định như trên được gọi là hàm Green cho miền mở,liên thông,bị chặn $\Omega$. Hàm $G$ đôi khi còn được gọi là \textbf{Hàm Green loại 1 của miền $\Omega$}.
+
+Nhắc lại định lý về tồn tại duy nhất của hàm điều hòa cho bài toán Dirichlet như sau:
+
+\textit{Cho $u,v \in C^2 (\Omega ) \cap C^0 (\overline \Omega  )$ thỏa mãn $
+\Delta u = \Delta v$ trong $\Omega$ và $u=v$ trên $\partial \Omega$. Lúc này $u=v$ trong $\Omega$.}
+
+Bằng cách áp dụng định lý trên, do điều kiện $G=0$ trên $\partial \Omega $ nên hàm Green khi này là xác định duy nhất.

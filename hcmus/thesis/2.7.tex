@@ -1,0 +1,163 @@
+\begin{center}
+\textbf{2.7. ƯỚC LƯỢNG ĐẠO HÀM}
+\end{center}
+
+Trong phần này, bằng cách sử dụng định lý giá trị trung bình, ta sẽ ước lượng đạo hàm của những hàm điều hòa.
+
+Cho $u$ là một hàm điều hòa trong $\Omega$ và một quả cầu $B=B_R(y)\subset\subset\Omega$. Chú ý rằng những hàm điều hòa trong $\Omega$ thì khả vi vô hạn lần trong $\Omega$ (xem phụ lục).
+
+Vì 
+\[\Delta D_1 u=\sum_{i=1}^{n}D_{ii}(D_1 u)= \sum_{i=1}^{n}D_1(D_{ii}u)=D_1(\sum_{i=1}^{n}D_{ii}u)=D_1(\Delta u)=0\]
+nên $\Delta D_1 u $ cũng là hàm điều hòa.
+
+Áp dụng định lý giá trị trung bình cho hàm $D_1 u$ với quả cầu $B$, ta có:
+\[ D_1 u(y)=\frac{1}{\omega_n R^n}\int_{B}D_1 u \,ds=\frac{1}{\omega_n R^n}\int_{\partial B}u\nu_1 \,ds\]
+ở đây $\nu_1$ là thành phần thứ nhất của vectơ (đơn vị) pháp tuyến ngoài $\boldsymbol{\nu}=(\nu_1,\ldots,\nu_n)$ dọc theo $\partial B$.
+
+Tương tự, với mọi $i=\overline{2..n}$, ta cũng có:
+\[ D_i u(y)=\frac{1}{\omega_n R^n}\int_{\partial B}u\nu_i \,ds.\]
+
+Từ đó ta có:
+\[ |Du(y)|^2=\sum_{i=1}^{n}(D_i u(y))^2=\sum_{i=1}^{n}D_i u(y)\frac{1}{\omega_n R^n}\int_{\partial B}u\nu_i \,ds = \frac{1}{\omega_n R^n}\sum_{i=1}^{n}\int_{\partial B}u\nu_i D_i u(y) \,ds.\]
+
+Đồng thời do
+\begin{align*}\sum_{i=1}^{n}\int_{\partial B}u\nu_i D_i u(y) \,ds &= \int_{\partial B}\sum_{i=1}^{n}u\nu_i D_i u(y) \,ds \\
+&\leq 
+\int_{\partial B}\sum_{i=1}^{n}|u\nu_i D_i u(y)| \,ds \\
+&= \int_{\partial B}|u|\sum_{i=1}^{n}|\nu_i D_i u(y)| \,ds \\
+&\leq \int_{\partial B}|u||Du(y)|\,ds  \\
+&\leq n\omega_n R^{n-1}|Du(y)|\sup_{\partial B} |u|\end{align*}
+nên \[|Du(y)|\leq \frac{n}{R}\sup\limits_{\partial B} |u|\leq \frac{n}{R}\sup\limits_{\Omega}|u|.\quad (*)\]
+
+Đặt $d_y=\mbox{dist}(y,\partial\Omega)$.
+
+Tồn tại $x\in \mathbb{R}^n \setminus \Omega$ thỏa $|x-y|=\mbox{dist}(y,\mathbb{R}^n \setminus \Omega)>0$. Nếu $x\in\mathbb{R}^n \setminus \overline{\Omega}$ thì tồn tại $r>0$ sao cho $B_r(x)\subset\subset\mathbb{R}^n \setminus \overline{\Omega}$. Khi đó mặt cầu $\partial B_r(x)$ cắt đoạn thẳng nối 2 điểm $x,\ y$ tại một điểm $z$. Ta có $|y-z|<|x-z|=\mbox{dist}(y,\mathbb{R}^n \setminus \Omega)$ (vô lý).
+
+Vậy $x\in\partial\Omega$, tức là $\mbox{dist}(y,\mathbb{R}^n\setminus \Omega)=|x-y|\leq \mbox{dist}(y,\partial\Omega)$.
+
+Hơn nữa, do $\partial\Omega \subset \mathbb{R}^n\setminus\Omega$ nên $\mbox{dist}(y,\partial\Omega) \leq \mbox{dist}(y,\mathbb{R}^n\setminus \Omega)$.
+
+Tóm lại, ta đã chứng minh $d_y=\mbox{dist}(y,\partial\Omega)= \mbox{dist}(y,\mathbb{R}^n\setminus \Omega)$.
+
+Lúc này rõ ràng nếu $0< R < d_y$ thì do $B_r(y)\subset\Omega$ với mọi $R<r<d_y$ nên $B_R(y)\subset\subset\Omega$.
+
+Kết hợp với (*), ta được với mọi $0< R < d_y$ thì $|Du(y)|\leq \frac{n}{R}\sup\limits_{\Omega}|u|$.
+
+Vậy \[|Du(y)|\leq \frac{n}{d_y}\sup\limits_{\Omega}|u|\] trong đó $d_y=\mbox{dist}(y,\partial\Omega)$.
+\\
+
+Tổng quát hơn, ta có thể ước lượng được đạo hàm của hàm điều hòa với chỉ số bậc cao hơn. Cụ thể ta có định lý sau đây:\\
+\textbf{\underline{Định lý 2.10:}}
+\\
+\textit{Cho $u$ là hàm điều hòa trong $ \Omega $ và $ \Omega ' $ là tập con compact của $ \Omega $. Khi đó với mọi chỉ số bậc $ \alpha $ ta có:
+\[ \sup\limits_{\Omega '}|D^{\alpha}u|\leq(\frac{n|\alpha|}{d})^{|\alpha|}\sup\limits_{\Omega}|u| \]
+trong đó $ d = dist(\Omega ',\partial\Omega) $.}
+\\
+\textbf{Chứng minh:}
+
+Ta chứng minh quy nạp theo $|\alpha |$ khẳng định rằng với $B=B_{R}(y)\subset\subset \Omega$ thì
+\[ |D^{\alpha}u(y)|\leq(\frac{n|\alpha|}{R})^{|\alpha|}\sup\limits_{B}|u| \]
+
+Trường hợp $|\alpha |=1$ dễ dàng suy ra được từ (*).
+
+Giả sử với $|\alpha |=k$ khẳng định đúng. Ta sẽ chứng minh khẳng định vẫn còn đúng với $|\alpha |=k+1$.
+
+Không mất tính tổng quát, ta có thể giả sử $D^{\alpha}=D^{\beta}D_{1}$ trong đó $|\beta |=k$.
+
+Áp dụng giả thiết quy nạp với hàm $D_{1}u$, chỉ số bậc $\beta$ và quả cầu $B_1=B_{\frac{k}{k+1}R}(y)$, ta có
+\[ |D^{\beta}D_{1}u(y)|\leq(\frac{n|\beta|}{\frac{k}{k+1}R})^{|\beta|}\sup\limits_{B_1}|D_{1}u| \]
+
+Với mọi $z$ nằm trong $B_1$, xét quả cầu $B_2=B_{\frac{1}{k+1}R}(z)$, ta có $B_2\subset B$ và
+\[ |D_{1}u(z)|\leq \frac{n}{\frac{1}{k+1}R} \sup\limits_{B_2}|u|\leq \frac{1}{k+1}R \sup\limits_{B}|u|.\]
+
+Kết hợp 2 kết quả trên ta được (chú ý rằng $k+1=|\alpha |=|\beta |+1$)
+\[ |D^{\alpha}u(y)|\leq(\frac{n|\alpha|}{R})^{|\alpha|}\sup\limits_{B}|u|.\]
+
+Vậy với mọi chỉ số bậc $\alpha$, ta đều có với $B=B_{R}(y)\subset\subset \Omega$ thì
+\[ |D^{\alpha}u(y)|\leq(\frac{n|\alpha|}{R})^{|\alpha|}\sup\limits_{B}|u|.\]
+
+Do đó với $d_y=\mbox{dist}(y,\partial\Omega)$ thì
+\[ |D^{\alpha}u(y)|\leq(\frac{n|\alpha|}{d_y})^{|\alpha|}\sup\limits_{B}|u|\leq (\frac{n|\alpha|}{d_y})^{|\alpha|}\sup\limits_{\Omega}|u|.\]
+
+Đặt $d=\mbox{dist}(\Omega',\partial\Omega)$. Với mọi $y\in\Omega'$, do $d\leq d_y$ nên
+\[ |D^{\alpha}u(y)|\leq (\frac{n|\alpha|}{d})^{|\alpha|}\sup\limits_{\Omega}|u|.\]
+
+Vậy \[ \sup\limits_{\Omega '}|D^{\alpha}u|\leq(\frac{n|\alpha|}{d})^{|\alpha|}\sup\limits_{\Omega}|u|.\  \blacksquare\]
+\\
+\\
+\textbf{\underline{Ta bổ sung một số khái niệm sau:}}
+\\
+\textit{Cho $F$ là một họ những hàm số từ $X$ vào $Y$, với $X,\ Y$ là 2 không gian metric. Khi đó ta nói $F$ \textbf{liên tục đồng bậc tại $x_0$} nếu như:
+\[\forall \epsilon > 0,\ \exists \delta_{x_{0},\epsilon} >0,\ \forall x\in X : \ |x-x_{0}|<\delta_{x_{0},\epsilon} \Rightarrow |f(x)-f(x_{0})|<\epsilon \ \forall f\in F.\]
+Họ $F$ được gọi là \textbf{liên tục đồng bậc} nếu nó liên tục đồng bậc tại mọi $x$.
+\\
+Họ $F$ được gọi là \textbf{liên tục đồng bậc đều} nếu như:
+\[ \forall \epsilon > 0, \exists \delta_{\epsilon} >0, \forall x,y\in X : |y-x|<\delta_{\epsilon} \Rightarrow |f(y)-f(x)|<\epsilon \ \forall f\in F.\]
+Cho $F$ là một họ những hàm số từ $X$ vào $Y$, với $X,\ Y$ là 2 không gian metric, $X$ đầy đủ. Khi đó $F$ được gọi là \textbf{họ chuẩn tắc} nếu như mọi dãy hàm trong $F$ đều chứa một dãy con $\{f_n\}$, sao cho có tồn tại một hàm liên tục $f$ từ $X$ vào $Y$ và trên những tập con compact của $X$, $\{f_n\}$ hội tụ đều về $f$.}
+\\
+
+Bây giờ ta sẽ khảo sát tính đồng liên tục của đạo hàm của những hàm điều hòa.
+Cho $\Omega'$ là một tập con compact, liên thông của $\Omega$ và $F$ là một họ những hàm điều hòa trong $\Omega$. Giả sử $F$ bị chặn đều, tức là
+\[\exists C>0,\ \forall f\in F: |f(x)|<C \ \forall x\in\Omega.\]
+
+Lấy $u\in F$, đặt $d = \mbox{dist}(\Omega',\partial\Omega)$ và $K=\{x|\mbox{dist}(x,\Omega')\leq \frac{d}{2}\}$.
+
+Dễ thấy $K$ compact và $K\subset\Omega$.
+
+Với mọi $x\in\Omega'$, xét quả cầu $B=B_{\frac{d}{2}}(x)$. Với mọi $y\in B$, từ định lý giá trị trung gian cho hàm nhiều biến ta có
+\[|u(y)-u(x)|\leq (\sup_{B} |Du|)|y-x|.\]
+
+Với mọi $z\in K$, ta có
+\[|Du(z)|\leq \frac{n}{\mbox{dist}(z,\partial\Omega)} \sup_{\Omega}|u|\leq \frac{n}{\frac{d}{2}} \sup_{\Omega}|u|\leq \frac{2n}{d} C.\]
+
+Từ hai kết quả trên ta có
+\[\forall y\in B:\ |u(y)-u(x)|\leq \frac{2nC}{d}|y-x|\]
+
+Bất đẳng thức này chứng tỏ rằng \textit{$F$ liên tục đồng bậc trên $\Omega'$}.
+
+Cho $\alpha$ là một chỉ số bậc, đặt $D^{\alpha}F=\{D^{\alpha}f|f\in F\}$. Lập luận tương tự như trên, ta cũng có được \textit{$D^{\alpha}F$ liên tục đồng bậc trên $\Omega'$}.
+
+Không những thế, định lý 2.11 sau đây còn cho ta $F$ là họ chuẩn tắc. Kết quả này sử dụng định lý sau đây (chứng minh có thể tham khảo định lý 14.1 cuốn \textit{Topological Vector Spaces, Distributions and Kernels của Francois Treves}):
+\\
+\textbf{\underline{Định lý Arzela-Ascoli:}}
+\\
+\textit{Cho $ X $ là tập con compact của $ \mathbb{R}^{N} $ và $ \{ f_{n} \}$ là dãy các hàm từ $X$ vào $\mathbb{R}$. Khi đó, nếu $ \{ f_{n} \}$ bị chặn đều và liên tục đồng bậc thì nó có một dãy con hội tụ đều trên $X$.}
+\\
+\\
+\textbf{\underline{Định lý 2.11:}}
+\\
+\textit{Cho $\Omega$ liên thông và $ \{ u_{n}\} $ là dãy hàm điều hòa trong $\Omega$, $ \{ u_{n}\} $ bị chặn đều.
+\\
+Khi đó tồn tại một dãy con của $ \{ u_{n}\} $ và một hàm điều hòa $u$ thỏa: trên mọi tập con compact, liên thông của $\Omega$ dãy con đó hội tụ đều tới $u$.}
+\\
+\textbf{Chứng minh:}
+
+Ta sẽ chứng minh kết quả mạnh hơn rằng: tồn tại một dãy con của $ \{ u_{n}\} $ và một hàm điều hòa $u$ thỏa: trên mọi tập con compact của $\Omega$ dãy con đó hội tụ đều tới $u$.
+
+Lấy $ K $ là một tập con compact của $ \Omega $.
+
+Kết quả đã chứng tỏ ở phần trước cho ta $\lbrace u_{n}\rbrace $ liên tục đồng bậc đều trên K.
+
+Áp dụng định lý Arzela-Ascoli, ta có kết quả: với mọi tập con compact $K$ của $\Omega$, tồn tại một dãy con của $ \{ u_{n}\} $ hội tụ đều trên K. (*)
+
+Với mọi $i\in \mathbb{N}$, đặt $G_i={x\in\Omega :\ \mbox{dist}(x,\partial\Omega)<\frac{1}{i}}$. Ta có $G_i$ là các tập đóng, lúc này đặt $K_i=\overline{B_i}(0)\cap G_i$. Dễ thấy $K_{1} \subset K_{2} \subset ...\subset \Omega$.
+
+Với mọi $x\in\Omega$, ta có $x\in G_k$ với $k$ đủ lớn và $x\in \overline{B_t}(0)$ với $t$ đủ lớn, nên $x\in K_m$ với $m$ đủ lớn. Do đó $\cup K_{i} = \Omega$.
+
+Vậy 
+\[K_{1} \subset K_{2} \subset ...\subset \Omega \text{ và }  \cup K_{i} = \Omega .\]
+Áp dụng (*) lần lượt, ta được:
+
+Có một dãy con $ \{ u_{1n}\} $ của $ \{ u_{n}\} $ hội tụ đều trên $K_{1}$.
+
+Có một dãy con $ \{ u_{2n}\} $ của $ \{ u_{1n}\} $ hội tụ đều trên $K_{2}$.
+
+...
+
+Xét dãy con $ \{ u_{kk}\}$ của $ \{ u_{n}\} $. Với mọi $i$, ta có dãy $\{u_{kk}\}_{k\geq i}$ là dãy con của dãy $\{u_{in}\}$ nên nó hội tụ đều trên $K_i$. Do đó dãy $\{u_{kk}\}$ hội tụ đều trên $K_i$ với moi $i$.
+
+Cho $K \subset \Omega$, $K$ compact. Đặt $d=\mbox{dist}(K,\partial\Omega)$. Do $K$ compact nên $d>0$, và tồn tại $M$ đủ lớn để $ \frac{1}{M}<d$. Khi đó $K\subset K_M$.
+
+Vì $ \{ u_{kk}\} $ hội tụ đều trên $K_{M}$ nên nó hội tụ đều trên $K$.
+
+Định lý 2.8 chỉ ra sự tồn tại của hàm $u$. Ta có đpcm. $\blacksquare$

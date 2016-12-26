@@ -1,0 +1,168 @@
+\begin{center}
+\textbf{2.9. CAPACITY}
+\end{center}
+
+\noindent\textbf{\underline{Định lý 2.15:}}
+\\
+\textit{Lấy $\Omega$ là một tập mở, bị chặn, liên thông có biên trơn trong $R^N$ ( $ N \ge 3$). Khi đó tồn tại duy nhất một hàm điều hòa u trên $R^N \backslash \overline{\Omega} $ sao cho u bằng 1 trên biên của $\Omega$ và tiến về 0 khi $ x \to \infty$.}
+\\
+\textbf{Chứng minh:}
+
+Trước tiên ta chứng minh sự tồn tại của hàm u.
+
+Không mất tính tổng quát ta giả sử $ 0 \in \Omega$ và $\Omega  \subset  \subset B(0,R)$.
+
+Với mọi $n \geq R$ theo định lý 2.14 tồn tại một hàm điều hòa $u_n$ trên $ \Omega _ n = B(0,n) \backslash \overline{ \Omega}$ sao cho u = 1 trên $\partial \Omega$ và u = 0 trên $ \partial B(0,n)$.
+
+Đặt $a =  - \Gamma (R)$ thì với mọi x thuộc $ \partial \Omega$ ta có
+\[
+u_n (x) = 1 = - \frac{1}{a}\Gamma (R) < - \frac{1}{a}\Gamma (x)
+\]
+và với mọi x thuộc $ \partial B(0,n)$
+\[
+u_n (x) = 0 <  - \frac{1}{a}\Gamma (x)
+\]
+
+Do đó theo nguyên lý cực đại, $u_n <  - \frac{1}{a}\Gamma$ trên $\Omega _ n$.
+
+Ngoài ra cũng do nguyên lý cực đại, $ 0 \le u_n \le 1$ với mọi n.
+
+Với mỗi n đủ lớn, ta xét dãy bị chặn $
+\left( {u_m \chi _{\Omega _n } } \right)_{m = n}^\infty  
+$, theo định lý 2.11 tồn tại một dãy con $
+\left( {u_{n_k } \chi _{\Omega _k } } \right)_{k = 1}^\infty  
+$ hội tụ đều trên mọi tập con compact mạnh của $ \Omega_n$ về hàm điều hòa u xác định trên $ \Omega_n$.
+
+Bằng kĩ thuật trích dãy con liên tục và lấy dãy đường chéo, ta xây dựng được một dãy con đặt là $
+\left( {u_{0_k } } \right)_{k = 1}^\infty  
+$
+của dãy $u_n$ hội tụ điểm về hàm điều hòa u trên $R^N \backslash \overline{\Omega} $.
+
+Theo trên ta có $ u  \le  - \frac{1}{a}\Gamma$ trên $R^N \backslash \Omega$.
+
+Do đó$
+\mathop {\lim }\limits_{\left| x \right| \to \infty } u(x) = 0
+$
+
+Đặt u bằng 1 trên $\partial \Omega$.
+
+Ta còn phải chứng minh u thuộc $
+C(\overline {R^n \backslash \Omega } )
+$.
+
+Quan sát giá trị trên biên $\Omega_n$ của $u_n$ và $u_m$ với n < m ta suy ra $u_n < u_m$ trên $ \Omega_n$ .
+
+Với mọi x thuộc $\partial \Omega$ vì $u_{0_1}$ thuộc $
+C(\overline {\Omega_n } )
+$ nên với mọi $\epsilon > 0$, tồn tại $\delta > 0$ sao cho với mọi y thuộc $
+y \in B(x,\delta ) \cap \Omega _n 
+$ ta có \[
+\left| {u_{0_1 } (y) - u_{0_1 } (x)} \right| < \varepsilon 
+\] 
+hay 
+$
+1 - \varepsilon  < u_{0_1 } (y) \le 1
+$
+
+Do dãy $
+\left( {u_{0_k } } \right)_{k = 1}^\infty  
+$ là dãy tăng, ta có \[
+1 - \varepsilon  < u_{0_1 } (y) \le u(y)
+\] và do $u_{0_k } (y) \le 1$ với mọi k nên \[
+u (y) \le 1 .
+\]
+
+ Vậy ta có với mọi y thuộc $
+y \in B(x,\delta ) \cap \Omega _n 
+$ thì 
+$
+\left| {u (y) - 1} \right| < \varepsilon 
+$. 
+
+Vậy ta đã chứng minh được sự tồn tại của hàm u.
+
+Ta chứng minh rằng với giả thiết như trên, tồn tại duy nhất hàm u thỏa điều kiện.
+
+Thật vậy giả sử tồn tại hai hàm u, $ \overline{u}$ cùng điều hòa trên $R^N \backslash \overline{\Omega} $ sao cho u, $ \overline{u}$ bằng 1 trên biên của $\Omega$ và u, $ \overline{u}$tiến về 0 khi $ x \to \infty$.
+
+Đặt g = u - $ \overline{u}$, khi đó ta có g = 0 trên $\partial \Omega$ và tiến về 0 khi $ x \to \infty$.
+
+Với mọi $ \epsilon > 0$ tồn tại n sao cho với mọi x nằm ngoài B(0, R), thì 
+\[
+\left| {g(x)} \right| < \varepsilon 
+\]
+
+Do đó, với mọi x thuộc $ \partial \Omega_m$ với mọi m > n thì 
+\[
+\left| {g(x)} \right| < \varepsilon 
+\]
+
+Vậy $\left| {g} \right| < \varepsilon $ trên $ \Omega_m $.
+
+Vậy $\left| {g} \right| < \varepsilon $ trên $R^n \backslash \Omega $  với mọi $ \epsilon$ nên g = 0.
+
+Ta có điều cần chứng minh.$\blacksquare$
+\\
+
+Ta định nghĩa capacity của $ \Omega$ như sau \[
+cap\Omega  =  - \int\limits_{\partial \Omega } {\frac{{\partial u}}{{\partial \upsilon }}} ds = \int\limits_{R^n \backslash \Omega } {|Du|^2 dx} 
+\]
+
+Ta chứng minh đẳng thức thứ hai là đúng, tức là 
+\[
+ - \int\limits_{\partial \Omega } {\frac{{\partial u}}{{\partial \upsilon }}} ds = \int\limits_{R^n \backslash \Omega } {|Du|^2 dx} 
+\]
+
+Đầu tiên, ta công nhận rằng nếu biên của $\Omega$ là trơn thì hàm u xác định như trên thuộc $C^2 ( \overline{R^n \backslash \Omega}  )$.
+
+Khi đó với mọi n đủ lớn áp dụng định lý Green cho miền $ \Omega_n = B(0,n) \backslash \overline{\Omega }$ ta được 
+\[
+\begin{array}{l}
+ \int\limits_{\partial \Omega _n } {u\frac{{\partial u}}{{\partial \upsilon }}ds}  = \int\limits_{\Omega _n } {div(Du.u)dx}  = \int\limits_{\Omega _n } {\sum\limits_{i = 1}^n {\frac{\partial }{{\partial x_i }}\left( {\frac{{\partial u}}{{\partial x_i }}u} \right)} dx}  \\ 
+  = \int\limits_{\Omega _n } {\left( {\Delta u.u + \left| {Du} \right|^2 } \right)dx}  = \int\limits_{\Omega _n } {\left| {Du} \right|^2 dx}  \\ 
+ \end{array}
+\] 
+
+Hay \[
+\int\limits_{\partial B_n } {u\frac{{\partial u}}{{\partial \upsilon }}ds}  - \int\limits_{\partial \Omega } {u\frac{{\partial u}}{{\partial \upsilon }}ds}  = \int\limits_{\Omega _n } {\left| {Du} \right|^2 dx} 
+\] 
+
+Mặt khác ta có \[
+\int\limits_{\Omega _n } {\left| {Du} \right|^2 dx}  \to \int\limits_{R^N \backslash \Omega } {\left| {Du} \right|^2 dx} 
+\]
+khi n tiến ra vô cùng theo định lý hội tụ đơn điệu.
+
+Do đó nếu ta chứng minh được
+\[
+\int\limits_{\partial B_n } {u\frac{{\partial u}}{{\partial \upsilon }}ds}  \to 0
+\]
+khi n tiến ra vô cùng thì ta sẽ có đẳng thức cần chứng minh hay \[
+ - \int\limits_{\partial \Omega } {\frac{{\partial u}}{{\partial \upsilon }}} ds = \int\limits_{R^n \backslash \Omega } {|Du|^2 dx} 
+\] 
+
+Thật vậy, ta có \[
+\left| {\int\limits_{\partial B_n } {u\frac{{\partial u}}{{\partial \upsilon }}ds} } \right| \le N\alpha (N)n^{N - 1} \mathop {\sup }\limits_{\partial B_n } \left| {Du.u} \right| = I
+\]
+
+Nhắc lại rằng ta đã có $0 \le u(x) \le c\Gamma (x) = C|x|^{2 - N} $ với mọi $ x \in \Omega^c$.
+
+ Do vậy áp dụng định lý 2.10 với n đủ lớn sao cho n > 2R ($ \Omega \in B(0, R) $) ta thấy u là hàm điều hòa trên $A_n = B_{3n/2} \backslash B_{n/2}$, nên với mọi x thuộc $ \partial B_n$, ta có 
+\[
+|u(x)|\left| {Du(x)} \right| \le |u(x)|\frac{{2N}}{n}\mathop {\sup }\limits_{A_n } \left| u \right| \le \frac{{2N}}{n}\frac{C}{{\left| x \right|^{N - 2} }}\frac{C}{{(n/2)^{N - 2} }} = \frac{{2^{N - 1} NC^2 }}{{n^{N - 1} n^{N - 2} }}
+\]
+
+Do đó
+\[
+I \le \frac{{2^{N - 1} N^2 C^2 \alpha (N)}}{{n^{N - 2} }}\mathop  \to \limits^{n \to \infty } 0
+\]
+
+Ta đã chứng minh xong.$\blacksquare$
+\\
+\\
+\textit{Nhận xét là với mọi $ \Sigma $ là mặt trơn đóng bao phủ $ \Omega$ thì áp dụng định lý Green cho miền D bao phủ bởi $ \Sigma$ và $\Omega$ ta có 
+\[
+\int\limits_D {\frac{{\partial u}}{{\partial \upsilon }}ds}  = \int\limits_\Sigma  {\frac{{\partial u}}{{\partial \upsilon }}ds}  - \int\limits_{\partial \Omega } {\frac{{\partial u}}{{\partial \upsilon }}ds}  = \int\limits_{\Omega _n } {\Delta udx}  = 0
+\] 
+Vậy ta cũng có 
+\[
+ - \int\limits_\Sigma  {\frac{{\partial u}}{{\partial \upsilon }}ds}  = \int\limits_{R^N \backslash \Omega } {\left| {Du} \right|^2 dx} .\] }

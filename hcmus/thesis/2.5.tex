@@ -1,0 +1,1119 @@
+\begin{center}
+\textbf{2.5. TÍCH PHÂN POISSON}
+\end{center}
+
+\noindent\textbf{I. Một số định nghĩa và kết quả cần thiết:}
+\\ \textit{\underline{1. Nghiệm cơ bản của phương trình Laplace:} }
+\\
+Khi miền $
+\Omega  \subset \mathbb{R}^n 
+$ là một miền mở, liên thông, bị chận ta có:
+\\
+Ta cố định một điểm $
+y \in \Omega 
+$ và ta có 
+{\it nghiệm cơ bản} 
+của phương trình Laplace như sau:
+\[
+\Gamma \left( {x - y} \right) = \Gamma \left( {\left| {x - y} \right|} \right) = \left\{ \begin{gathered}
+  \frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left| {x - y} \right|^{2 - n} \quad \quad ;n > 2 \hfill \\
+  \frac{1}
+{{2\pi }}\log \left| {x - y} \right|\quad \quad \quad \quad \quad ;n = 2 \hfill \\ 
+\end{gathered}  \right.\quad \quad \left( {1.1.1} \right)
+\]
+Trong đó ta xét $
+x \in \Omega \backslash \left\{ y \right\}
+$ và $
+{\omega _n }
+$ là thể tích của quả cầu đơn vị trong không gian $
+\mathbb{R}^n 
+$ với $
+\omega _n  = \frac{{2\pi ^{{n \mathord{\left/
+ {\vphantom {n 2}} \right.
+ \kern-\nulldelimiterspace} 2}} }}
+{{n\Gamma \left( {{n \mathord{\left/
+ {\vphantom {n 2}} \right.
+ \kern-\nulldelimiterspace} 2}} \right)}}
+$.\\
+Rõ ràng ta thấy hàm $Gamma$ là một hàm đối xứng.$\blacklozenge$\\
+\\ \textit{\underline{2. Các định lý Green:} }\\
+Với miền $
+\Omega 
+$ ở trên, cho hai hàm số $
+u,v \in C^2 \left( \Omega  \right)
+$ thì ta có các {\it Định lý Green} như sau:
+\[
+\int\limits_\Omega  {v\Delta udx}  + \int\limits_\Omega  {Dv.Dudx}  = \int\limits_{\partial \Omega } {v\frac{{\partial u}}
+{{\partial \nu }}ds} \quad \quad \quad \left( {1.2.1} \right)
+\]
+\[
+\int\limits_\Omega  {\left( {v\Delta u - u\Delta v} \right)dx}  = \int\limits_{\partial \Omega } {\left( {v\frac{{\partial u}}
+{{\partial \nu }} - u\frac{{\partial v}}
+{{\partial \nu }}} \right)ds} \quad \quad \left( {1.2.2} \right)
+\]
+Trong đó $
+Du = \left( {D_1 u,...,D_n u} \right)
+$ là vector Gradient của $u$, và $
+\nu 
+$ là vector pháp tuyến đơn vị định hướng ngoài của biên $
+\partial \Omega 
+$.$\blacklozenge$\\
+\\ \textit{\underline{3. Công thức biểu diễn Green:} }\\
+Cho $\Omega  \subset \mathbb{R}^n 
+$ là một miền mở, liên thông, bị chận. Cho hàm số $
+u \in C^2 \left( \Omega  \right)
+$ thì ta có {\it Công thức biểu diễn Green} cho hàm số $u$ như sau:
+\[
+u\left( y \right) = \int\limits_{\partial \Omega } {\left( {u\frac{{\partial \Gamma }}
+{{\partial \nu }}\left( {x - y} \right) - \Gamma \left( {x - y} \right)\frac{{\partial u}}
+{{\partial \nu }}} \right)ds}  + \int\limits_\Omega  {\Gamma \left( {x - y} \right)\Delta udx} \quad \quad \left( {1.3.1} \right)
+\]
+Trong đó $
+y \in \Omega 
+$ cho trước.\\
+Nếu $u$ là hàm điều hòa trong $\Omega$, nghĩa là $
+\Delta u = 0
+$ trong $\Omega$ thì ta có thể suy ra công thức sau từ công thức $
+\left( {1.3.1} \right)
+$ ở trên
+\[
+u\left( y \right) = \int\limits_{\partial \Omega } {\left( {u\frac{{\partial \Gamma }}
+{{\partial \nu }}\left( {x - y} \right) - \Gamma \left( {x - y} \right)\frac{{\partial u}}
+{{\partial \nu }}} \right)ds} \quad \quad \left( {1.3.2} \right)
+\]
+Trong đó $
+y \in \Omega 
+$ cho trước.$\blacklozenge$\\
+\\ \textit{\underline{4. Hàm Green cho miền bất kỳ:} }\\
+Xét miền $
+\Omega  \subset \mathbb{R}^n 
+$ là một miền mở, liên thông, bị chận. Cho hàm số $
+u \in C^2 \left( \Omega  \right)
+$ và một hàm số $
+h \in C^1 \left( {\overline \Omega  } \right) \cap C^2 \left( \Omega  \right)
+$ thỏa $
+\Delta h = 0
+$ trong $\Omega$. Sử dụng công thức $
+\left( {1.2.2} \right)
+$ ở trên cho hai hàm số $u$ và $h$ ta nhận được công thức sau:
+\[
+ - \int\limits_{\partial \Omega } {\left( {u.\frac{{\partial h}}
+{{\partial \nu }} - h.\frac{{\partial u}}
+{{\partial \nu }}} \right)ds}  = \int\limits_\Omega  {\left( {h\Delta u} \right)dx} \quad \quad \left( {1.4.1} \right)
+\]
+Viết $
+G = \Gamma  + h
+$ .Do $G$ là hàm điều hòa trong $\Omega$, sử dụng công thức $
+\left( {1.3.1} \right)
+$ ở trên, bằng cách thay thế lời giải cơ bản $
+\Gamma 
+$ bằng hàm $G$ ta nhận được {\it công thức biểu diễn Green tổng quát} cho hàm số $u$:
+\[
+u\left( y \right) = \int\limits_{\partial \Omega } {\left( {u\frac{{\partial G}}
+{{\partial \nu }} - G\frac{{\partial u}}
+{{\partial \nu }}} \right)ds}  + \int\limits_\Omega  {G\Delta udx} \quad \quad \left( {1.4.2} \right)
+\]
+Nếu thêm điều kiện $G=0$ trên $
+\partial \Omega 
+$ thì ta được:
+\[
+u\left( y \right) = \int\limits_{\partial \Omega } {u\frac{{\partial G}}
+{{\partial \nu }}ds}  + \int\limits_\Omega  {G\Delta udx} \quad \quad \left( {1.4.3} \right)
+\]
+và khi đó hàm $
+G = G\left( {x,y} \right)
+$ được gọi là Hàm Green cho miền $\Omega$.$\blacklozenge$\\
+\\ \textit{\underline{5. Hàm Green cho quả cầu:} }\\
+\\ Khi miền $\Omega$ của chúng ta là một quả cầu thì hàm Green có thể được xác định một cách rõ ràng và dẫn tới Sư biểu diễn nổi tiếng bằng Tích phân Poisson cho những hàm điều hòa trong 1 quả cầu.\\
+Đầu tiên, ta xét $
+B_R  = B_R \left( 0 \right)
+$, và với mỗi $
+x \in B_R ,{\kern 1pt} \,\;x \ne 0
+$ ta đặt:
+\[
+\overline x  = \frac{{R^2 }}
+{{\left| x \right|^2 }}x\quad \quad \left( {1.5.1} \right)
+\]
+để chỉ nghịch điểm của điểm $
+x \in B_R $; nếu $x=0$, ta lấy $
+\overline x  = \infty 
+$. Và từ đó ta có {\it Hàm Green cho quả cầu} $B_R$:
+\begin{eqnarray}
+G &=& \left\{ \begin{gathered}
+  \Gamma \left( {\left| {x - y} \right|} \right) - \Gamma \left( {\frac{{\left| y \right|}}
+{R}\left| {x - \overline y } \right|} \right)\quad \quad ;y \ne 0 \hfill \\
+  \Gamma \left( {\left| x \right|} \right) - \Gamma \left( R \right)\quad \quad \quad \quad \quad \quad \quad ;y = 0 \hfill \\ 
+\end{gathered}  \right.\nonumber \\
+ &=& \Gamma \left( {\sqrt {\left| x \right|^2  + \left| y \right|^2  - 2xy} } \right) - \Gamma \left( {\sqrt {\left( {\frac{{\left| x \right|\left| y \right|}}
+{R}} \right)^2  + R^2  - 2xy} } \right)\quad ;\;\forall x,y \in B_R ,\;x \ne y\quad \left( {1.5.2} \right)\nonumber
+\end{eqnarray}
+\\ \\Ta có thể thấy:\\
+$\bullet$ Hàm $G$ điều hòa theo biến $x$, nghĩa là $
+\Delta _x G\left( {x,y} \right) = 0
+$.
+\\Thật vậy, cho $y$ cố định trong $\Omega$ (ở đây $\Omega$ của ta là quả cầu $B_R$). Do tính điều hòa của hàm $\Gamma$ (Hàm $\Gamma$ cho bởi công thức $
+\left( {1.1.1} \right)
+$) ta có $
+\Delta _x \Gamma \left( {\left| {x - y} \right|} \right) = 0
+$:\\
+Với 
+\begin{eqnarray}
+\Gamma \left( {\frac{{\left| y \right|}}
+{R}\left| {x - \overline y } \right|} \right)&=& \left\{ \begin{gathered}
+  \left( {\frac{{\left| y \right|}}
+{R}} \right)^{2 - n} \frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left| {x - \overline y } \right|^{2 - n} \quad \quad ,n > 2 \hfill \\
+  \frac{1}
+{{2\pi }}\left( {\log \left| {x - \overline y } \right| + \log \frac{{\left| y \right|}}
+{R}} \right)\quad \quad \quad ,n = 2 \hfill \\ 
+\end{gathered}  \right.\nonumber\\
+ &= &\left\{ \begin{gathered}
+  \left( {\frac{{\left| y \right|}}
+{R}} \right)^{2 - n} \left| {\frac{{R^2 }}
+{{\left| y \right|^2 }}} \right|^{2 - n} \frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left| {\frac{{\left| y \right|^2 }}
+{{R^2 }}x - y} \right|^{2 - n} \quad \quad ,n > 2 \hfill \\
+  \frac{1}
+{{2\pi }}\left( {\log \left| {\frac{{\left| y \right|^2 }}
+{{R^2 }}x - y} \right| + \log \left| {\frac{{R^2 }}
+{{\left| y \right|^2 }}} \right| + \log \frac{{\left| y \right|}}
+{R}} \right)\quad \quad \quad ,n = 2 \hfill \\ 
+\end{gathered}  \right.\nonumber
+\end{eqnarray}
+ta được:
+\begin{eqnarray}
+\Delta _x \Gamma \left( {\frac{{\left| y \right|}}
+{R}\left| {x - \overline y } \right|} \right) &=& \left\{ \begin{gathered}
+  \left( {\frac{{\left| y \right|}}
+{R}} \right)^{2 - n} \left| {\frac{{R^2 }}
+{{\left| y \right|^2 }}} \right|^{2 - n} \Delta _x \left( {\frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left| {\frac{{\left| y \right|^2 }}
+{{R^2 }}x - y} \right|^{2 - n} } \right)\quad \quad ,n > 2 \hfill \\
+  \Delta _x \left( {\frac{1}
+{{2\pi }}\log \left| {\frac{{\left| y \right|^2 }}
+{{R^2 }}x - y} \right|} \right) + \Delta _x \left( {\log \left| {\frac{{R^2 }}
+{{\left| y \right|^2 }}} \right| + \log \frac{{\left| y \right|}}
+{R}} \right)\quad \quad \quad ,n = 2 \hfill \\ 
+\end{gathered}  \right.\nonumber\\
+& =& \left\{ \begin{gathered}
+  \left( {\frac{{\left| y \right|}}
+{R}} \right)^{2 - n} \left| {\frac{{R^2 }}
+{{\left| y \right|^2 }}} \right|^{2 - n} \Delta _x \Gamma \left( {\frac{{\left| y \right|^2 }}
+{{R^2 }}x - y} \right)\quad \quad ,n > 2 \hfill \\
+  \Delta _x \Gamma \left( {\frac{{\left| y \right|^2 }}
+{{R^2 }}x - y} \right)\quad \quad \quad \quad \quad \quad \quad ,n = 2 \hfill \\ 
+\end{gathered}  \right.\nonumber\\
+& = &0 \nonumber
+\end{eqnarray}
+\\ \\$\bullet$ Hàm $G$ triệt tiêu trên biên, nghĩa là với $
+y \in B_R 
+$ cố định cho trước, với mọi $
+x \in \partial B_R 
+$ thì $
+G\left( {x,y} \right) = 0
+$.\\
+Chứng minh điều này đơn giản như sau:
+\begin{eqnarray}
+G\left( {x,y} \right) &=& \Gamma \left( {\sqrt {\left| x \right|^2  + \left| y \right|^2  - 2x.y} } \right) - \Gamma \left( {\sqrt {\frac{{\left| x \right|^2 \left| y \right|^2 }}
+{{R^2 }} + R^2  - 2x.y} } \right)\nonumber\\
+& = &\Gamma \left( {\sqrt {R^2  + \left| y \right|^2  - 2x.y} } \right) - \Gamma \left( {\sqrt {\frac{{R^2 \left| y \right|^2 }}
+{{R^2 }} + \left| x \right|^2  - 2x.y} } \right)\nonumber\\
+ &= &\Gamma \left( {\sqrt {R^2  + \left| y \right|^2  - 2x.y} } \right) - \Gamma \left( {\sqrt {\left| y \right|^2  + R^2  - 2x.y} } \right) = 0\nonumber
+\end{eqnarray}
+\\ Phần tiếp theo ta sẽ xét các tính chất của hàm $G$.$\blacklozenge$\\
+\\
+\textbf{II. Các tính chất của Hàm Green cho quả cầu:} \\
+\\Hàm $G$ cho bởi công thức $
+\left( {1.5.2} \right)
+$ có các tính chất sau:\\
+$
+\forall x,y \in B_R ,\;x \ne y
+$ thì:
+\begin{flushleft}
+$\begin{gathered}
+  \left( i \right)\quad G\left( {x,y} \right) = G\left( {y,x} \right) \hfill \\
+  \left( {ii} \right)\quad G\left( {x,y} \right) \leqslant 0 \hfill \\ 
+\end{gathered} 
+$\\\end{flushleft}
+$
+\left( {iii} \right)$
+Đạo hàm theo hướng pháp tuyến ngoài tại $
+x \in \partial B_R $ được cho bởi:
+\[
+\frac{{\partial G}}
+{{\partial \nu }}\left( {x,y} \right) = \frac{{R^2  - \left| {y^2 } \right|}}
+{{n\omega _n R}}\left| {x - y} \right|^{ - n}  \geqslant 0
+\]
+{\it Chứng minh:}\\
+$
+\forall x,y \in B_R ,\;x \ne y
+$ thì:\\
+Từ công thức hàm $G$ trong $
+\left( {1.5.2} \right)
+$ và do tính đối xứng của hàm $\Gamma$, ta được:
+\begin{eqnarray}
+G\left( {x,y} \right) &=& \Gamma \left( {\sqrt {\left| x \right|^2  + \left| y \right|^2  - 2xy} } \right) - \Gamma \left( {\sqrt {\left( {\frac{{\left| x \right|\left| y \right|}}
+{R}} \right)^2  + R^2  - 2xy} } \right)\nonumber\\
+ &=& \Gamma \left( {\sqrt {\left| y \right|^2  + \left| x \right|^2  - 2yx} } \right) - \Gamma \left( {\sqrt {\left( {\frac{{\left| y \right|\left| x \right|}}
+{R}} \right)^2  + R^2  - 2yx} } \right) = G\left( {y,x} \right)\nonumber
+\end{eqnarray}
+Vạy ta có $
+\left( i \right)
+$.\\
+Tiếp theo, ta có:
+\begin{eqnarray}
+G &=& \left\{ \begin{gathered}
+  \Gamma \left( {\left| {x - y} \right|} \right) - \Gamma \left( {\frac{{\left| y \right|}}
+{R}\left| {x - \overline y } \right|} \right)\quad \quad ;y \ne 0 \hfill \\
+  \Gamma \left( {\left| x \right|} \right) - \Gamma \left( R \right)\quad \quad \quad \quad \quad \quad \quad \quad ;y = 0 \hfill \\ 
+\end{gathered}  \right.\nonumber\\
+ &=& \left\{ \begin{gathered}
+  \Gamma \left( {\left| {x - y} \right|} \right) - \Gamma \left( {\frac{{\left| y \right|}}
+{R}\left| {x - \frac{{R^2 }}
+{{\left| y \right|^2 }}y} \right|} \right)\quad \quad ;y \ne 0 \hfill \\
+  \Gamma \left( {\left| x \right|} \right) - \Gamma \left( R \right)\quad \quad \quad \quad \quad \quad \quad \quad \quad ;y = 0 \hfill \\ 
+\end{gathered}  \right.\nonumber\\
+& = &\left\{ \begin{gathered}
+  \Gamma \left( {\left| {x - y} \right|} \right) - \Gamma \left( {\left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|} \right)\quad \quad ;y \ne 0 \hfill \\
+  \Gamma \left( {\left| x \right|} \right) - \Gamma \left( R \right)\quad \quad \quad \quad \quad \quad \quad ;y = 0 \hfill \\ 
+\end{gathered}  \right.\quad \quad \left( * \right) \nonumber
+\end{eqnarray}
+Xét công thức Hàm $\Gamma$ trong phần $
+\left( {1.1.1} \right)$, ta sẽ chứng minh Hàm $\Gamma$ là Hàm đồng biến trong miền $\Omega$ (Ở đây $\Omega$ là quả cầu $B_R$, ta để $\Omega$ để thấy tính tổng quát).\\
+Cho $y$ cố định trong $\Omega$, với mọi $
+x \in \Omega ,\;x \ne y
+$ , ta ký hiệu $
+x \equiv x - y
+$ thì với $
+x_1 ,x_2 
+$ trong $\Omega$ và $
+\left| {x_1 } \right| \leqslant \left| {x_2 } \right|
+$ thì:
+\begin{eqnarray}
+\Gamma \left( {x_1 } \right) = \Gamma \left( {\left| {x_1 } \right|} \right) &= &\left\{ \begin{gathered}
+  \frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left| {x_1 } \right|^{2 - n} \quad \quad ;n > 2 \hfill \\
+  \frac{1}
+{{2\pi }}\log \left| {x_1 } \right|\quad \quad \quad \quad \quad ;n = 2 \hfill \\ 
+\end{gathered}  \right.\nonumber\\
+& \leqslant &\left\{ \begin{gathered}
+  \frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left| {x_2 } \right|^{2 - n} \quad \quad ;n > 2 \hfill \\
+  \frac{1}
+{{2\pi }}\log \left| {x_2 } \right|\quad \quad \quad \quad \quad ;n = 2 \hfill \\ 
+\end{gathered}  \right. = \Gamma \left( {\left| {x_2 } \right|} \right) = \Gamma \left( {x_2 } \right)\nonumber
+\end{eqnarray}\\
+Để chứng minh $
+\left( {ii} \right)
+$, ta chứng minh $
+\forall x,y \in B_R ,\;x \ne y
+$ thì $
+\left| {x - y} \right| \leqslant \left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|
+$ để áp dụng tính đồng biến của $\Gamma$ cho $
+\left( {*} \right)
+$. Thật vậy,
+\begin{center}
+$
+\left| {x - y} \right| \leqslant \left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|
+$\\
+$
+ \Leftrightarrow \left| x \right|^2  + \left| y \right|^2  - 2xy \leqslant \left( {\frac{{\left| x \right|\left| y \right|}}
+{R}} \right)^2  + R^2  - 2xy
+$\\
+$
+ \Leftrightarrow R^2 \left| x \right|^2  + R^2 \left| y \right|^2  \leqslant \left( {\left| x \right|\left| y \right|} \right)^2  + R^4 
+$\\
+$
+ \Leftrightarrow R^2 \left( {R^2  - \left| x \right|^2 } \right) - \left| y \right|^2 \left( {R^2  - \left| x \right|^2 } \right) \geqslant 0
+$\\
+$
+ \Leftrightarrow \left( {R^2  - \left| y \right|^2 } \right)\left( {R^2  - \left| x \right|^2 } \right) \geqslant 0
+$\\
+\end{center}
+Áp dụng vào $\Gamma$ cho $
+\left( {*} \right)
+$ ta có được hàm $G\left( {x,y} \right) \leqslant 0$, $
+\forall x,y \in B_R ,\;x \ne y
+$. Như vậy ta đã chứng minh xong $\left( {ii} \right)$.\\
+Ta chứng minh phần $\left( {iii} \right)$.\\
+Trước hết, ta cần một bổ đề:\\
+{\it Xét quả cầu $B_R$ trong $
+\mathbb{R}^n 
+$, với $
+x \in \partial B_R ,\quad y \in B_R 
+$ thì ta có\[
+\left| {x - y} \right|^{ 2}  = \left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|^{ 2} 
+\]
+}\\
+Bổ đề này được chứng minh đơn giản:
+\\Với $
+y = \left( {y_1 ,...,y_n } \right)
+$ cho trước trong $B_R$, thì với mọi $
+x = \left( {x_1 ,...,x_n } \right) \in \partial B_R $, ta có $
+\left| x \right| = R
+$ và
+\begin{eqnarray}
+\left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|^2 & = &\sum\limits_{i = 1}^n {\left( {\frac{{\left| y \right|^2 }}
+{{R^2 }}x_i^2  - 2x_i y_i  + \frac{{R^2 }}
+{{\left| y \right|^2 }}y_i^2 } \right)}  = \left| y \right|^2  + R^2  - 2x.y \nonumber\\
+& = &\sum\limits_{i = 1}^n {\left( {y_i^2  + x_i^2  - 2x_i y_i } \right)}  = \left| {x - y} \right|^2 \nonumber
+\end{eqnarray}
+Bổ đề được chứng minh.\\
+Bây giờ, ta sẽ chứng minh phần $
+\left( {iii} \right)
+$.\\
+Xét các trường hợp sau:\\
+$\bullet$ Nếu $n=2$:\\
+$\triangleright$ Khi $
+y \ne 0
+$ thì:
+\begin{eqnarray}
+G\left( {x,y} \right) &= &\Gamma \left( {\left| {x - y} \right|} \right) - \Gamma \left( {\frac{{\left| y \right|}}
+{R}\left| {x - \overline y } \right|} \right) = \Gamma \left( {\left| {x - y} \right|} \right) - \Gamma \left( {\left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|} \right)\nonumber\\
+ &=& \frac{1}
+{{2\pi }}\left[ {\log \left( {\left| {x - y} \right|} \right) - \log \left( {\left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|} \right)} \right] \nonumber
+\end{eqnarray}
+Áp dụng bổ đề vừa chứng minh:\\
+\[
+\frac{{\partial G}}
+{{\partial x_i }}\left( {x,y} \right) = \frac{1}
+{{2\pi }}\left[ {\frac{{x_i  - y_i }}
+{{\left| {x - y} \right|^2 }} - \frac{{\frac{{\left| y \right|^2 }}
+{{R^2 }}x_i  - y_i }}
+{{\left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|^2 }}} \right] = \frac{{x_i \left( {R^2  - \left| y \right|^2 } \right)}}
+{{2\pi R^2 \left| {x - y} \right|^2 }}
+\]
+Khi $
+x \in \partial B_R 
+$, suy ra
+\begin{eqnarray}
+\frac{{\partial G}}
+{{\partial \nu }}\left( {x,y} \right)& = &\Delta G\left( {x,y} \right).\nu  = \Delta G\left( {x,y} \right).\frac{{x_i }}
+{{\left| x \right|}} = \sum\limits_{i = 1}^n {\frac{{\partial G}}
+{{\partial x_i }}.} \frac{{x_i }}
+{{\left| x \right|}}\nonumber\\
+& = &\sum\limits_{i = 1}^n {\frac{{x_i \left( {R^2  - \left| y \right|^2 } \right)}}
+{{2\pi R^2 \left| {x - y} \right|^2 }}.} \frac{{x_i }}
+{{\left| x \right|}} = \sum\limits_{i = 1}^n {\frac{{x_i^2 \left( {R^2  - \left| y \right|^2 } \right)}}
+{{2\pi R^2 \left| x \right|\left| {x - y} \right|^2 }}}  = \frac{{R^2 \left( {R^2  - \left| y \right|^2 } \right)}}
+{{2\pi R^2 R\left| {x - y} \right|^2 }} = \frac{{R^2  - \left| y \right|^2 }}
+{{2\pi R\left| {x - y} \right|^2 }}\nonumber
+\end{eqnarray}
+$\triangleright$ Khi $
+y = 0
+$ thì:
+\[
+G\left( {x,y} \right) = \Gamma \left( {\left| x \right|} \right) - \Gamma \left( R \right) = \frac{1}
+{{2\pi }}\left( {\log \left| x \right| - \log R} \right)
+\]
+Suy ra
+\[
+\frac{{\partial G}}
+{{\partial x_i }}\left( {x,y} \right) = \frac{1}
+{{2\pi }}.\frac{{x_i }}
+{{\left| x \right|^2 }}
+\]
+Vậy với $
+x \in \partial B_R 
+$ thì ta được:
+\begin{eqnarray}
+\frac{{\partial G}}
+{{\partial \nu }}\left( {x,y} \right)& = &\Delta G\left( {x,y} \right).\nu  = \Delta G\left( {x,y} \right).\frac{{x_i }}
+{{\left| x \right|}} = \sum\limits_{i = 1}^n {\frac{{\partial G}}
+{{\partial x_i }}.} \frac{{x_i }}
+{{\left| x \right|}} \nonumber\\
+ &=& \sum\limits_{i = 1}^n {\frac{1}
+{{2\pi }}.\frac{{x_i }}
+{{\left| x \right|^2 }}.} \frac{{x_i }}
+{{\left| x \right|}} = \frac{1}
+{{2\pi \left| x \right|}} = \frac{1}
+{{2\pi R}}\nonumber
+\end{eqnarray}
+$\bullet$ Nếu $n > 2$:\\
+$\triangleright$ Khi $
+y \ne 0
+$ thì:
+\begin{eqnarray}
+G\left( {x,y} \right)& = &\Gamma \left( {\left| {x - y} \right|} \right) - \Gamma \left( {\frac{{\left| y \right|}}
+{R}\left| {x - \overline y } \right|} \right) = \Gamma \left( {\left| {x - y} \right|} \right) - \Gamma \left( {\left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|} \right)\nonumber\\
+& = &\frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left[ {\left| {x - y} \right|^{2 - n}  - \left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|^{2 - n} } \right]\nonumber
+\end{eqnarray}
+Từ đó, ta tính được:
+\begin{eqnarray}
+\frac{{\partial G}}
+{{\partial x_i }}\left( {x,y} \right)& =& \frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\frac{{\partial G}}
+{{\partial x_i }}\left[ {\left| {x - y} \right|^{2 - n}  - \left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|^{2 - n} } \right]\nonumber\\
+& = &\frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left[ {\left( {2 - n} \right)\left( {x_i  - y_i } \right)\left| {x - y} \right|^{ - n}  - \left( {2 - n} \right)\frac{{\left| y \right|}}
+{R}\left( {\frac{{\left| y \right|}}
+{R}x_i  - \frac{R}
+{{\left| y \right|}}y_i } \right)\left| {\frac{{\left| y \right|}}
+{R}x - \frac{R}
+{{\left| y \right|}}y} \right|^{ - n} } \right]\nonumber\\
+& = &\frac{1}
+{{n\omega _n }}\left[ {\left( {x_i  - y_i } \right)\left| {x - y} \right|^{ - n}  - \left( {\frac{{\left| y \right|^2 }}
+{{R^2 }}x_i  - y_i } \right)\left| {x - y} \right|^{ - n} } \right]\nonumber\\
+& = &\frac{1}
+{{n\omega _n }}\left[ {\left( {\frac{{R^2  - \left| y \right|^2 }}
+{{R^2 }}} \right)x_i } \right]\left| {x - y} \right|^{ - n} \nonumber
+\end{eqnarray}
+Với $
+x \in \partial B_R 
+$, ta được
+\begin{eqnarray}
+\frac{{\partial G}}
+{{\partial \nu }}\left( {x,y} \right)& = &\Delta G\left( {x,y} \right).\nu  = \Delta G\left( {x,y} \right).\frac{{x_i }}
+{{\left| x \right|}} = \sum\limits_{i = 1}^n {\frac{{\partial G}}
+{{\partial x_i }}.} \frac{{x_i }}
+{{\left| x \right|}}\nonumber\\
+ &= &\sum\limits_{i = 1}^n {\frac{1}
+{{n\omega _n }}\left[ {\left( {\frac{{R^2  - \left| y \right|^2 }}
+{{R^2 }}} \right)x_i } \right]\left| {x - y} \right|^{ - n} .} \frac{{x_i }}
+{{\left| x \right|}} = \frac{1}
+{{n\omega _n }}\left( {\frac{{R^2  - \left| y \right|^2 }}
+{{R^2 }}} \right)\frac{{\left| {x - y} \right|^{ - n} }}
+{R}\sum\limits_{i = 1}^n {x_i^2 } \nonumber\\
+& = &\frac{1}
+{{n\omega _n }}\left( {\frac{{R^2  - \left| y \right|^2 }}
+{{R^2 }}} \right)\frac{{\left| {x - y} \right|^{ - n} }}
+{R}R^2  = \frac{{R^2  - \left| y \right|^2 }}
+{{n\omega _n R}}\left| {x - y} \right|^{ - n} \nonumber
+\end{eqnarray}
+\\Ta xét trường hợp đơn giản còn lại.\\
+$\triangleright$ Khi $
+y = 0
+$ thì:
+\[
+G\left( {x,y} \right) = \Gamma \left( {\left| x \right|} \right) - \Gamma \left( R \right) = \frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left[ {\left| x \right|^{2 - n}  - \left| R \right|^{2 - n} } \right]
+\]
+Từ đó, ta có:
+\begin{eqnarray}
+\frac{{\partial G}}
+{{\partial x_i }}\left( {x,y} \right)& =& \frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\frac{{\partial G}}
+{{\partial x_i }}\left[ {\left| x \right|^{2 - n}  - \left| R \right|^{2 - n} } \right]\nonumber\\
+& = &\frac{1}
+{{n\left( {2 - n} \right)\omega _n }}\left[ {\left( {2 - n} \right)x_i \left| x \right|^{ - n} } \right] = \frac{1}
+{{n\omega _n }}\left[ {x_i \left| x \right|^{ - n} } \right]\nonumber
+\end{eqnarray}
+Suy ra khi $
+x \in \partial B_R 
+$ thì
+\begin{eqnarray}
+\frac{{\partial G}}
+{{\partial \nu }}\left( {x,y} \right)& = &\Delta G\left( {x,y} \right).\nu  = \Delta G\left( {x,y} \right).\frac{{x_i }}
+{{\left| x \right|}} = \sum\limits_{i = 1}^n {\frac{{\partial G}}
+{{\partial x_i }}.} \frac{{x_i }}
+{{\left| x \right|}}\nonumber\\
+ &= &\sum\limits_{i = 1}^n {\frac{1}
+{{n\omega _n }}\left[ {x_i \left| x \right|^{ - n} } \right].} \frac{{x_i }}
+{{\left| x \right|}} = \frac{{\left| x \right|^{ - n} }}
+{{n\omega _n \left| x \right|}}\sum\limits_{i = 1}^n {x_i^2 }  = \frac{{R^{ - n} }}
+{{n\omega _n R}}R^2  = \frac{1}
+{{n\omega _n R^{n - 1} }}\nonumber
+\end{eqnarray}
+\\Trong tất cả các trường hợp đã xét thì ta đều kiểm được $
+\left( {iii} \right)
+$ đúng.
+\\Vậy ta chứng minh xong các tính chất của Hàm $G$.$\blacklozenge$\\ \\
+\textbf{III. Tích phân Poisson:}
+\\ \textit{\underline{Công thức tích phân Poisson:} }
+\\Cho $
+u \in C^2 \left( {B_R } \right) \cap C^1 \left( {\overline {B_R } } \right)
+$ là một hàm điều hòa. Áp dụng công thức $
+\left( {1.4.3} \right)
+$, ta được {\it Công thức Tích phân Poisson} cho hàm $u$ như sau:
+\[
+u\left( y \right) = \frac{{R^2  - \left| y \right|^2 }}
+{{n\omega _n R}}\int\limits_{\partial B_R } {\frac{{uds_x }}
+{{\left| {x - y} \right|^n }}} \quad \quad \left( {3.1.1} \right)
+\]
+Tích phân bên phải được gọi là {\it Tích phân Poisson} của hàm $u$.\\
+Sau đây, ta sẽ chứng minh rằng công thức $
+\left( {3.1.1} \right)
+$ vẫn còn đúng nếu ta chỉ có $
+u \in C^2 \left( {B_R } \right) \cap C^0 \left( {\overline {B_R } } \right)
+$.\\
+Ta sẽ chứng minh cụ thể cho trường hợp $n=2$ và $n=3$, sau đó sẽ suy ra trường hợp $n$ bất kỳ.\\
+$\bullet$ Với $n=2$:\\
+Xét quả cầu \[
+B_{r_n }  = B_{r_n } \left( 0 \right)
+\] bán kính $r_n$ với $
+r_n  = R - \frac{1}
+{n}
+$ và $
+n \geqslant N_0 
+$ sao cho $
+\left( {R - \frac{1}
+{{N_0 }}} \right) > 0
+$
+thì khi đó ta có $
+u \in C^2 \left( {B_{r_n}} \right) \cap C^1 \left( {\overline {B_{r_n} } } \right)
+$.\\
+Vậy ta có thể áp dụng công thức $
+\left( {3.1.1} \right)
+$ cho $u$ trong quả cầu $B_{r_n}$ như sau:
+\[
+u\left( y \right) = \frac{{r_n ^2  - \left| y \right|^2 }}
+{{n\omega _n r_n }}\int\limits_{\partial B_{r_n } } {\frac{{uds_x }}
+{{\left| {x - y} \right|^n }}} 
+\]
+Bằng cách viết
+\[
+x\left( n \right) \in \partial \overline {B_{r_n } }  \Leftrightarrow x\left( n \right) = x\left( {n,\theta } \right) = r_n \cos \theta \overrightarrow i  + r_n \sin \theta \overrightarrow j \quad ,0 \leqslant \theta  \leqslant 2\pi 
+\]
+ta có:
+\[
+\int\limits_{\partial B_{r_n } } {\frac{{uds_x }}
+{{\left| {x - y} \right|^n }}}  = \int\limits_0^{2\pi } {\frac{{u\left( {x\left( {n,\theta } \right)} \right)}}
+{{\left( {\sqrt {\left( {r_n \cos \theta  - y_1 } \right)^2  + \left( {r_n \sin \theta  - y_2 } \right)^2 } } \right)^n }}r_n d\theta } 
+\]
+Đặt
+\[
+g_n \left( {x\left( \theta  \right)} \right) = \frac{{u\left( {x\left( {n,\theta } \right)} \right)}}
+{{\left( {\sqrt {\left( {r_n \cos \theta  - y_1 } \right)^2  + \left( {r_n \sin \theta  - y_2 } \right)^2 } } \right)^n }}r_n 
+\]
+Do $u$ liên tục trên $
+\overline {B_{r_n} } 
+$, nên ta có với mọi $
+n \geqslant N_0 
+$:
+\[
+\left| {g_n \left( {x\left( \theta  \right)} \right)} \right| \leqslant \left| {\frac{{\mathop {\max u}\limits_{B_R } }}
+{{\mathop {\min }\limits_{\partial B_{R - \frac{1}
+{{N_0 }}} } \left| {x - y} \right|}}R} \right| \equiv g\left( {x\left( \theta  \right)} \right)
+\]
+Thêm với các điều kiện:\\
+$\triangleright$ $g$ khả tích trên $
+\left[ {0,2\pi } \right]
+$ theo biến $\theta$.
+\[
+\int\limits_0^{2\pi } {g\left( {x\left( \theta  \right)} \right)d\theta }  = \int\limits_0^{2\pi } {\left| {\frac{{\mathop {\max u}\limits_{B_R } }}
+{{\mathop {\min }\limits_{\partial B_{R - \frac{1}
+{{N_0 }}} } \left| {x - y} \right|}}R} \right|d\theta }  = \left| {\frac{{\mathop {\max u}\limits_{B_R } }}
+{{\mathop {\min }\limits_{\partial B_{R - \frac{1}
+{{N_0 }}} } \left| {x - y} \right|}}R} \right|2\pi  < \infty 
+\]
+$\triangleright$ Cho $
+\theta  \in \left[ {0,2\pi } \right]
+$, khi $
+n \to \infty 
+$ ta có:
+\[
+x\left( {n,\theta } \right) = r_n \cos \theta \overrightarrow i  + r_n \sin \theta \overrightarrow j  \to x_R \left( \theta  \right) = R\cos \theta \overrightarrow i  + R\sin \theta \overrightarrow j 
+\]
+Do tính liên tục của $u$ trên $B_R$, ta có:
+\[
+g_n \left( {x\left( \theta  \right)} \right) = \frac{{u\left( {x\left( {n,\theta } \right)} \right)}}
+{{\left( {\sqrt {\left( {r_n \cos \theta  - y_1 } \right)^2  + \left( {r_n \sin \theta  - y_2 } \right)^2 } } \right)^n }}r_n  \to \frac{{u\left( {x_R \left( \theta  \right)} \right)}}
+{{\left( {\sqrt {\left( {R\cos \theta  - y_1 } \right)^2  + \left( {R\sin \theta  - y_2 } \right)^2 } } \right)^n }}R
+\]
+với mọi $
+\theta  \in \left[ {0,2\pi } \right]
+$.\\
+Từ đó, áp dụng Định lý hội tụ bị chận ta có:
+\[
+\int\limits_0^{2\pi } {g_n \left( {x\left( \theta  \right)} \right)d\theta }  \to \int\limits_0^{2\pi } {\frac{{u\left( {x_R \left( \theta  \right)} \right)}}
+{{\left( {\sqrt {\left( {R\cos \theta  - y_1 } \right)^2  + \left( {R\sin \theta  - y_2 } \right)^2 } } \right)^n }}Rd\theta }  = \int\limits_{\partial B_R } {\frac{{uds_x }}
+{{\left| {x - y} \right|^n }}} 
+\]
+Thêm với $
+\frac{{r_n ^2  - \left| y \right|^2 }}
+{{n\omega _n r_n }} \to \frac{{R^2  - \left| y \right|^2 }}
+{{n\omega _n R}}
+$ khi $
+n \to \infty 
+$.\\
+Do đó ta có
+\[
+u\left( y \right) = \frac{{R^2  - \left| y \right|^2 }}
+{{n\omega _n R}}\int\limits_{\partial B_R } {\frac{{uds_x }}
+{{\left| {x - y} \right|^n }}} 
+\]
+Vậy ta có {\it Công thức tích phân Poisson} cho những hàm $
+u \in C^2 \left( {B_R } \right) \cap C^0 \left( {\overline {B_R } } \right)
+$ với $n=2$.\\ \\
+$\bullet$ Với $n=3$:\\
+Xét quả cầu \[
+B_{r_n }  = B_{r_n } \left( 0 \right)
+\] bán kính $r_n$ với $
+r_n  = R - \frac{1}
+{n}
+$ và $
+n \geqslant N_0 
+$ sao cho $
+\left( {R - \frac{1}
+{{N_0 }}} \right) > 0
+$
+thì khi đó ta có $
+u \in C^2 \left( {B_{r_n}} \right) \cap C^1 \left( {\overline {B_{r_n} } } \right)
+$.\\
+Vậy ta có thể áp dụng công thức $
+\left( {3.1.1} \right)
+$ cho $u$ trong quả cầu $B_{r_n}$ như sau:
+\[
+u\left( y \right) = \frac{{r_n ^2  - \left| y \right|^2 }}
+{{n\omega _n r_n }}\int\limits_{\partial B_{r_n } } {\frac{{uds_x }}
+{{\left| {x - y} \right|^n }}} 
+\]
+Bằng cách viết
+\[
+x\left( n \right) \in \partial \overline {B_{r_n } }  \Leftrightarrow x\left( n \right) = x\left( {n,\theta ,\varphi } \right) = r_n \sin \varphi \cos \theta \overrightarrow i  + r_n \sin \varphi \sin \theta \overrightarrow j  + r_n \cos \varphi \overrightarrow k 
+\]
+với $
+0 \leqslant \varphi  \leqslant \pi ,0 \leqslant \theta  \leqslant 2\pi 
+$.\\
+Ta có:
+\begin{eqnarray}
+u\left( y \right)& = &\frac{{r_n ^2  - \left| y \right|^2 }}
+{{n\omega _n r_n }}\int\limits_{\partial B_{r_n } } {\frac{{uds_x }}
+{{\left| {x - y} \right|^n }}}\nonumber\\
+& = &\frac{{r_n ^2  - \left| y \right|^2 }}
+{{n\omega _n r_n }}\int\limits_0^\pi  {\int\limits_0^{2\pi } {\frac{{u\left( {x\left( {n,\theta ,\varphi } \right)} \right).r_n^2 \sin \varphi }}
+{{\left( {\sqrt {\left( {r_n \sin \varphi \cos \theta  - y_1 } \right)^2  + \left( {r_n \sin \varphi \sin \theta  - y_2 } \right)^2  + \left( {\left( {r_n \sin \theta  - y_3 } \right)^2 } \right)} } \right)^n }}d\theta d\varphi } }  \nonumber
+\end{eqnarray}
+\\ Với mọi $
+n \geqslant N_0 
+$, đặt
+\[
+g_n \left( {x\left( {\theta ,\varphi } \right)} \right) = \frac{{u\left( {x\left( {n,\theta ,\varphi } \right)} \right).r_n^2 \sin \varphi }}
+{{\left( {\sqrt {\left( {r_n \sin \varphi \cos \theta  - y_1 } \right)^2  + \left( {r_n \sin \varphi \sin \theta  - y_2 } \right)^2  + \left( {\left( {r_n \sin \theta  - y_3 } \right)^2 } \right)} } \right)^n }}
+\]
+Do $u$ liên tục trên $
+\overline {B_{r_n} } 
+$, nên ta có với mọi $
+n \geqslant N_0 
+$:
+\begin{eqnarray}
+\left| {g_n \left( {x\left( {\theta ,\varphi } \right)} \right)} \right| & =& \left| {\frac{{u\left( {x\left( {n,\theta ,\varphi } \right)} \right).r_n^2 \sin \varphi }}
+{{\left( {\sqrt {\left( {r_n \sin \varphi \cos \theta  - y_1 } \right)^2  + \left( {r_n \sin \varphi \sin \theta  - y_2 } \right)^2  + \left( {\left( {r_n \sin \theta  - y_3 } \right)^2 } \right)} } \right)^n }}} \right|\nonumber\\
+& \leqslant &\left| {\frac{{R^2 \mathop {\max }\limits_{B_R } u}}
+{{\mathop {\min }\limits_{\partial B_{R - \frac{1}
+{{N_0 }}} } \left| {x - y} \right|}}} \right| \equiv g \left( {x\left( {\theta ,\varphi } \right)} \right)\nonumber
+\end{eqnarray}
+Thêm với các điều kiện:\\
+$\triangleright$ $g$ khả tích trên $
+\left[ {0,2\pi } \right] \times \left[ {0,\pi } \right]
+$ theo biến $
+{\left( {\theta ,\varphi } \right)}
+$.
+\[
+\int\limits_0^\pi  {\int\limits_0^{2\pi } {g\left( {x\left( {\theta ,\varphi } \right)} \right)d\theta d\varphi } }  = \int\limits_0^\pi  {\int\limits_0^{2\pi } {\left| {\frac{{R^2 \mathop {\max }\limits_{B_R } u}}
+{{\mathop {\min }\limits_{\partial B_{R - \frac{1}
+{{N_0 }}} } \left| {x - y} \right|}}} \right|d\theta d\varphi } }  = \left| {\frac{{R^2 \mathop {\max }\limits_{B_R } u}}
+{{\mathop {\min }\limits_{\partial B_{R - \frac{1}
+{{N_0 }}} } \left| {x - y} \right|}}} \right|2\pi .\pi  < \infty 
+\]
+$\triangleright$ Cho $
+\left( {\theta ,\varphi } \right) \in \left[ {0,2\pi } \right] \times \left[ {0,\pi } \right]
+$, khi $
+n \to \infty 
+$ ta có:
+\begin{eqnarray}
+x\left( {n,\theta ,\varphi } \right) &=& r_n \sin \varphi \cos \theta \overrightarrow i  + r_n \sin \varphi \sin \theta \overrightarrow j  + r_n \cos \varphi \overrightarrow k \nonumber\\
+& \to & x_R \left( {\theta ,\varphi } \right) = R\sin \varphi \cos \theta \overrightarrow i  + R\sin \varphi \sin \theta \overrightarrow j  + R\cos \varphi \overrightarrow k \nonumber
+\end{eqnarray}
+Do tính liên tục của $u$ trên $B_R$ ta có:
+\begin{eqnarray}
+g_n \left( {x\left( {\theta ,\varphi } \right)} \right)& = &\frac{{u\left( {x\left( {n,\theta ,\varphi } \right)} \right).r_n^2 \sin \varphi }}
+{{\left( {\sqrt {\left( {r_n \sin \varphi \cos \theta  - y_1 } \right)^2  + \left( {r_n \sin \varphi \sin \theta  - y_2 } \right)^2  + \left( {\left( {r_n \sin \theta  - y_3 } \right)^2 } \right)} } \right)^n }}\nonumber\\
+ &\to & \frac{{u\left( {x_R \left( {\theta ,\varphi } \right)} \right).R^2 \sin \varphi }}
+{{\left( {\sqrt {\left( {R\sin \varphi \cos \theta  - y_1 } \right)^2  + \left( {R\sin \varphi \sin \theta  - y_2 } \right)^2  + \left( {\left( {R\sin \theta  - y_3 } \right)^2 } \right)} } \right)^n }}\nonumber
+\end{eqnarray}
+với mọi $
+\left( {\theta ,\varphi } \right) \in \left[ {0,2\pi } \right] \times \left[ {0,\pi } \right]$.\\
+Từ đó, áp dụng Định lý hội tụ bị chận, ta có:
+\[
+\int\limits_0^\pi  {\int\limits_0^{2\pi } {g_n \left( {x\left( {\theta ,\varphi } \right)} \right)d\theta d\varphi } }  = \int\limits_0^\pi  {\int\limits_0^{2\pi } {\frac{{u\left( {x\left( {n,\theta ,\varphi } \right)} \right).r_n^2 \sin \varphi d\theta d\varphi }}
+{{\left( {\sqrt {\left( {r_n \sin \varphi \cos \theta  - y_1 } \right)^2  + \left( {r_n \sin \varphi \sin \theta  - y_2 } \right)^2  + \left( {\left( {r_n \sin \theta  - y_3 } \right)^2 } \right)} } \right)^n }}} } 
+\]
+\[
+ \to \int\limits_0^\pi  {\int\limits_0^{2\pi } {\frac{{u\left( {x_R \left( {\theta ,\varphi } \right)} \right).R^2 \sin \varphi d\theta d\varphi }}
+{{\left( {\sqrt {\left( {R\sin \varphi \cos \theta  - y_1 } \right)^2  + \left( {R\sin \varphi \sin \theta  - y_2 } \right)^2  + \left( {\left( {R\sin \theta  - y_3 } \right)^2 } \right)} } \right)^n }}} }  = \int\limits_{\partial B_R } {\frac{{uds_x }}
+{{\left| {x - y} \right|^n }}} 
+\]
+Thêm với $
+\frac{{r_n ^2  - \left| y \right|^2 }}
+{{n\omega _n r_n }} \to \frac{{R^2  - \left| y \right|^2 }}
+{{n\omega _n R}}
+$ khi $
+n \to \infty 
+$.\\
+Do đó ta có
+\[
+u\left( y \right) = \frac{{R^2  - \left| y \right|^2 }}
+{{n\omega _n R}}\int\limits_{\partial B_R } {\frac{{uds_x }}
+{{\left| {x - y} \right|^n }}} 
+\]
+Vậy ta có {\it Công thức tích phân Poisson} cho những hàm $
+u \in C^2 \left( {B_R } \right) \cap C^0 \left( {\overline {B_R } } \right)
+$ với $n=3$.\\
+$\blacktriangleright$ Đối với trường hợp $n$ bất kỳ, ta cũng chứng minh tương tự.$\blacklozenge$
+\\
+\\
+\textbf{\underline{Định lý 2.6:} }
+\\
+{\it Cho $
+B = B_R \left( 0 \right)
+$ và $
+\phi 
+$ là một hàm số liên tục trên $
+\partial B
+$. Thì khi đó hàm $u$ được định nghĩa như sau:
+\[
+u\left( x \right) = \left\{ \begin{gathered}
+  \frac{{R^2  - \left| x \right|^2 }}
+{{n\omega _n R}}\int\limits_{\partial B} {\frac{{\phi \left( y \right)ds_y }}
+{{\left| {x - y} \right|^n }}} \quad \quad ,x \in B \hfill \\
+  \phi \left( x \right)\quad \quad \quad \quad \quad \quad \quad ,x \in \partial B \hfill \\ 
+\end{gathered}  \right.\quad \quad \left( {3.2.1} \right)
+\]
+là một hàm thuộc vào $
+C^2 \left( B \right) \cap C^0 \left( {\overline B } \right)
+$ và thỏa $
+\Delta u = 0
+$ trong $B$.}
+\\
+{\bf Chứng minh:}\\
+$\bullet$ Đầu tiên, ta chứng minh $
+\Delta u = 0
+$ trong $B$.
+Viết lại \[
+u\left( x \right) = \int\limits_{\partial B} {\phi \left( y \right)\frac{{\partial G}}
+{{\partial \nu _y }}ds_y } 
+\]
+với $
+x \in B
+$.\\
+Cho $
+x \in B
+$, theo tính chất $
+\left( {iii} \right)
+$ thì $
+{\frac{{\partial G}}
+{{\partial \nu _y }}}
+$ bị chận
+\[
+\left| {\frac{{\partial G}}
+{{\partial \nu _y }}} \right| = \left| {\frac{{R^2  - \left| x \right|^2 }}
+{{n\omega _n R\left| {x - y} \right|^n }}} \right| \leqslant \frac{R}
+{{n\omega _n \mathop {\min }\limits_{y \in \partial B} \left| {x - y} \right|^n }}
+\]
+Khi đó ta có các điều sau:\\
+$\triangleright$ Với mọi $
+x \in B
+$, hàm số $
+x \mapsto \phi \left( y \right)\frac{{\partial G}}
+{{\partial \nu _y }}
+$ khả tích trên $
+\partial B
+$ theo biến $y$ do
+\begin{eqnarray}
+\left| {\int\limits_{\partial B} {\phi \left( y \right)\frac{{\partial G}}
+{{\partial \nu _y }}ds_y } } \right| &\leqslant & \int\limits_{\partial B} {\left| {\phi \left( y \right)\frac{{\partial G}}
+{{\partial \nu _y }}} \right|ds_y }  \leqslant \int\limits_{\partial B} {\left| {\mathop {\max }\limits_{\partial B} \phi \left( y \right).\frac{R}
+{{n\omega _n \mathop {\min }\limits_{y \in \partial B} \left| {x - y} \right|^n }}} \right|ds_y } \nonumber\\
+& \leqslant & \mathop {\max }\limits_{\partial B} \phi \left( y \right).\frac{R}
+{{n\omega _n \mathop {\min }\limits_{y \in \partial B} \left| {x - y} \right|^n }}.\left| {\partial B} \right| < \infty \nonumber
+\end{eqnarray}
+\\$\triangleright$ Với mọi $
+y \in \partial B
+$ ta có:
+\begin{eqnarray}
+\frac{\partial }
+{{\partial x_i }}\left( {\phi \left( y \right)\frac{{\partial G}}
+{{\partial \nu _y }}} \right)& =& \phi \left( y \right)\frac{\partial }
+{{\partial x_i }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right) = \phi \left( y \right)\frac{\partial }
+{{\partial x_i }}\left( {\frac{{R^2  - \left| x \right|^2 }}
+{{n\omega _n R\left| {x - y} \right|^n }}} \right) = \frac{{\phi \left( y \right)}}
+{{n\omega _n R}}\frac{\partial }
+{{\partial x_i }}\left( {\frac{{R^2  - \left| x \right|^2 }}
+{{\left| {x - y} \right|^n }}} \right)\nonumber\\
+& = &\frac{{\phi \left( y \right)}}
+{{n\omega _n R}}\frac{\partial }
+{{\partial x_i }}\left( {\frac{{R^2  - \left| x \right|^2 }}
+{{\left| {x - y} \right|^n }}} \right) = \frac{{\phi \left( y \right)}}
+{{n\omega _n R}}\left( {\frac{{ - x_i^2 \left| {x - y} \right|^2  - n\left( {x_i  - y_i } \right)}}
+{{\left| {x - y} \right|^{n + 2} }}} \right)\nonumber
+\end{eqnarray}
+\\$\triangleright$ Với mọi $
+x \in B
+$ và $
+y \in \partial B
+$ ta có:
+\begin{eqnarray}
+\left| {\frac{\partial }
+{{\partial x_i }}\left( {\phi \left( y \right)\frac{{\partial G}}
+{{\partial \nu _y }}} \right)} \right| &= &\left| {\frac{{\phi \left( y \right)}}
+{{n\omega _n R}}\left( {\frac{{ - x_i^2 \left| {x - y} \right|^2  - n\left( {x_i  - y_i } \right)}}
+{{\left| {x - y} \right|^{n + 2} }}} \right)} \right|\nonumber\\
+& \leqslant &\frac{{\mathop {\max }\limits_{t \in \partial B} \left| {\phi \left( t \right)} \right|}}
+{{n\omega _n R}}.\frac{{\left( {R^2 \mathop {\max }\limits_{x \in B} \left| {x - y} \right| + n} \right)}}
+{{\mathop {\min }\limits_{x \in B} \left| {x - y} \right|^{n + 1} }} = M_1  < \infty \nonumber
+\end{eqnarray}
+Vậy ta suy ra được:
+\[
+\frac{\partial }
+{{\partial x_i }}\left( {\int\limits_{\partial B} {\phi \left( y \right)\frac{{\partial G}}
+{{\partial \nu _y }}ds_y } } \right) = \int\limits_{\partial B} {\phi \left( y \right)\frac{\partial }
+{{\partial x_i }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right)ds_y } 
+\]
+Lập luận tương tự như trên, ta cũng có các điều sau:\\
+$\triangleright$ Với mọi $
+x \in B
+$, hàm số $
+x \mapsto \phi \left( y \right)\frac{\partial }
+{{\partial x_i }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right)
+$ khả tích theo biến $y$ do:
+\begin{eqnarray}
+\left| {\int\limits_{\partial B} {\phi \left( y \right)\frac{\partial }
+{{\partial x_i }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right)ds_y } } \right| &\leqslant & \int\limits_{\partial B} {\left| {\phi \left( y \right)\frac{\partial }
+{{\partial x_i }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right)} \right|ds_y }  \leqslant \int\limits_{\partial B} {\left| {\mathop {\max }\limits_{\partial B} \phi \left( y \right).M_1 } \right|ds_y } \nonumber\\
+& \leqslant &\left| {\mathop {\max }\limits_{\partial B} \phi \left( y \right)M_1 } \right|\left| {\partial B} \right| < \infty \nonumber
+\end{eqnarray}
+\\$\triangleright$ Với mọi $
+y \in \partial B
+$ ta có hàm $
+y \mapsto \phi \left( y \right)\frac{\partial }
+{{\partial x_i }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right)
+$ có đạo hàm riêng phần theo biến $x_i$ do $
+\phi \left( y \right)\frac{\partial }
+{{\partial x_i }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right)
+$ là hợp nối của các hàm số sơ cấp, vì công thức của $
+\phi \left( y \right)\frac{{\partial ^2 }}
+{{\partial x_i^2 }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right)
+$ rất phức tạp nên ta không trình bày ở đây.\\
+$\triangleright$ Với mọi $
+x \in B
+$ và $
+y \in \partial B
+$ thì $
+\phi \left( y \right)\frac{{\partial ^2 }}
+{{\partial x_i^2 }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right)
+$ bị chận với mọi $
+\left( {x,y} \right) \in B \times \partial B
+$ do nó là một hàm số liên tục trên $
+B \times \partial B
+$ là một tập bị chận.\\
+Do đó, ta cũng có khẳng định sau:
+\[
+\frac{{\partial ^2 }}
+{{\partial x_i^2 }}\left( {\int\limits_{\partial B} {\phi \left( y \right)\frac{{\partial G}}
+{{\partial \nu _y }}ds_y } } \right) = \int\limits_{\partial B} {\phi \left( y \right)\frac{{\partial ^2 }}
+{{\partial x_i^2 }}\left( {\frac{{\partial G}}
+{{\partial \nu _y }}} \right)ds_y } 
+\]
+Từ đó\\
+Với mọi $x \in B$,
+\begin{eqnarray}
+\Delta _x u\left( x \right)& = &\Delta _x \int\limits_{\partial B} {\phi \left( y \right)\frac{{\partial G}}
+{{\partial \nu _y }}ds_y }  = \int\limits_{\partial B} {\phi \left( y \right)\Delta _x \frac{{\partial G}}
+{{\partial \nu _y }}ds_y }  = \int\limits_{\partial B} {\phi \left( y \right)\Delta _x \frac{{\partial G}}
+{{\partial \nu _y }}ds_y } \nonumber\\
+& = &\int\limits_{\partial B} {\phi \left( y \right)\frac{\partial }
+{{\partial \nu _y }}\left( {\Delta _x G} \right)ds_y }  = 0 \nonumber
+\end{eqnarray}
+\\Vậy ta có $
+\Delta _x u\left( x \right) = 0
+$ trong $B$ và do đó $
+u \in C^2 \left( B \right)
+$.\\
+$\bullet$ Ta còn chứng minh $
+u \in C^0 \left( {\overline B } \right)
+$.\\
+Trong \textit{Công thức Tích phân Poisson} phần $
+\left( {3.1.1} \right)
+$ chọn $u=1$, ta được:
+\[
+\int\limits_{\partial B} {K\left( {x,y} \right)ds_y }  = u\left( x \right) = 1\quad \quad ;\forall x \in B\quad \quad \quad \left( {3.2.2} \right)
+\]
+Ở đây, $K$ là \textit{Nhân Poisson}
+\[
+K\left( {x,y} \right) = \frac{{R^2  - \left| x \right|^2 }}
+{{n\omega _n R\left| {x - y} \right|^n }}\quad \quad \left( {3.2.3} \right)
+\]
+$\triangleright$ Trước hết, ta chứng minh $u$ liên tục trên $
+{\partial B}
+$.\\
+Cho $x_0$ thuộc vào $
+{\partial B}
+$ thì với mọi số $\varepsilon > 0$, ta có:\\
+$\circ$ Tồn tại một số $\delta >0$ sao cho $
+\left| {\phi \left( x \right) - \phi \left( {x_0 } \right)} \right| \leqslant \varepsilon 
+$ với $
+x \in \partial B
+$ và $
+\left| {x - x_0 } \right| \leqslant \delta 
+$.\\
+$\circ$ Do hàm $
+{\phi \left( x \right)}
+$ liên tục trên $
+\partial B
+$ là một tập Compact nên có số $M>0$ sao cho $
+\mathop {\sup }\limits_{x \in \partial B} \left| {\phi \left( x \right)} \right| < M
+$.\\
+$\circ$ Đặt các tập hợp
+\[
+A_1  = \left\{ {y \in \partial B:\quad \left| {y - x_0 } \right| \leqslant \delta } \right\}
+\]
+\[
+A_2  = \left\{ {y \in \partial B:\quad \left| {y - x_0 } \right| > \delta } \right\}
+\]
+$\circ$ Xét $
+z \in \overline B 
+$ và $
+\left| {z - x_0 } \right| < \frac{\delta }
+{2}
+$ ta được:\\
+Nếu $
+z \in \partial B
+$ ta có \[
+\left| {u\left( z \right) - u\left( {x_0 } \right)} \right| = \left| {\phi \left( z \right) - \phi \left( {x_0 } \right)} \right| \leqslant \varepsilon 
+\]
+Cho $
+\delta  \to 0
+$ thì $
+\left| {u\left( z \right) - u\left( {x_0 } \right)} \right| = \left| {\phi \left( z \right) - \phi \left( {x_0 } \right)} \right| \to 0
+$\\
+Nếu $
+z \in B
+$ thì:
+\begin{eqnarray}
+\left| {u\left( z \right) - u\left( {x_0 } \right)} \right| &= &\left| {\int\limits_{\partial B} {K\left( {z,y} \right)\phi \left( y \right)ds_y  - \int\limits_{\partial B} {K\left( {z,y} \right)\phi \left( {x_0 } \right)ds_y } } } \right|\nonumber\\
+& =& \left| {\int\limits_{\partial B} {K\left( {z,y} \right)\left[ {\phi \left( y \right) - \phi \left( {x_0 } \right)} \right]ds_y } } \right| \leqslant \int\limits_{\partial B} {K\left( {z,y} \right)\left| {\phi \left( y \right) - \phi \left( {x_0 } \right)} \right|ds_y } \nonumber\\
+& \leqslant &\int\limits_{\partial B \cap A_1 } {K\left( {z,y} \right)\left| {\phi \left( y \right) - \phi \left( {x_0 } \right)} \right|ds_y }  + \int\limits_{\partial B \cap A_2 } {K\left( {z,y} \right)\left| {\phi \left( y \right) - \phi \left( {x_0 } \right)} \right|ds_y } \nonumber\\
+& \leqslant &\varepsilon  + 2M\frac{{R^2  - \left| z \right|^2 }}
+{{n\omega _n R}}\frac{1}
+{{\left( {{\delta  \mathord{\left/
+ {\vphantom {\delta  2}} \right.
+ \kern-\nulldelimiterspace} 2}} \right)^n }}n\omega _n R^{n - 1} \nonumber
+\end{eqnarray}
+Khi $
+\delta  \to 0
+$ thì $
+\left| z \right| \to R
+$ nên $
+\left| {u\left( z \right) - u\left( {x_0 } \right)} \right| \to 0
+$.\\
+Trong cả hai trường hợp ta đều có khi $
+\delta  \to 0
+$ thì $
+\left| {u\left( z \right) - u\left( {x_0 } \right)} \right| \to 0
+$.\\
+Vậy $
+{u\left( x \right)}
+$ liên tục trên $
+\partial B
+$.\\
+$\triangleright$ Cuối cùng, ta chứng minh rằng $u$ cũng liên tục trên $B$.\\
+Cho ${x_0} \in B$. Khi đó tồn tại số $r>0$ sao cho $
+B_r  = B\left( {{x_0},r} \right) \subset B
+$.\\
+Với mọi dãy $
+\left\{ {x_m } \right\}
+$ trong $
+\overline B 
+$ sao cho $
+\left\{ {x_m } \right\} \to x_0 
+$, ta chọn số $
+N_1 
+$ đủ lớn sao cho $
+x_m  \in B_r ,\quad \forall m > N_1 
+$.\\
+Với mọi $m > N_1$, ta có:
+\[
+u\left( {x_m } \right) = \frac{{R^2  - \left| {x_m } \right|^2 }}
+{{n\omega _n R}}\int\limits_{\partial B} {\frac{{\phi \left( y \right)}}
+{{\left| {x_m  - y} \right|^n }}ds_y } 
+\]
+Đặt
+\[
+f_m \left( y \right) = \frac{{\phi \left( y \right)}}
+{{\left| {x_m  - y} \right|^n }},\quad \forall m > N_1 
+\]
+và \[
+f\left( y \right) = \frac{{\phi \left( y \right)}}
+{{\left| {x - y} \right|^n }}
+\]
+với mọi $
+y \in \partial B
+$.\\
+Ta có các điều sau:\\
+$\circ$ Với mọi $
+y \in \partial B
+$ thì $
+\mathop {\lim }\limits_{m \to \infty } f_m \left( y \right) = f\left( y \right)
+$.\\
+$\circ$ Với mọi $m>{N_1}$, ta có:
+\[
+\left| {f_m \left( y \right)} \right| = \frac{{\left| {\phi \left( y \right)} \right|}}
+{{\left| {x_m  - y} \right|^n }} \leqslant M.\frac{1}
+{{\left( {R - r} \right)^n }}
+\]
+Đặt hàm \[
+h\left( y \right) = M.\frac{1}
+{{\left( {R - r} \right)^n }}
+\]
+với mọi $
+y \in \partial B
+$.\\
+Dễ thấy rằng $h$ khả tích trên $\partial B$ do
+\[
+\int\limits_{\partial B} {h\left( y \right)ds_y }  = \int\limits_{\partial B} {M.\frac{1}
+{{\left( {R - r} \right)^n }}ds_y  = M.\frac{1}
+{{\left( {R - r} \right)^n }}} n\omega _n R^{n - 1}  < \infty 
+\]
+Từ đó, ta có đủ điều kiện để áp dụng định lý hội tụ bị chận như sau:
+\[
+\mathop {\lim }\limits_{m \to \infty } \int\limits_{\partial B} {f_m \left( y \right)ds_y }  = \int\limits_{\partial B} {f\left( y \right)ds_y } 
+\]
+Thêm với \[
+\mathop {\lim }\limits_{m \to \infty } \frac{{R^2  - \left| {x_m } \right|^2 }}
+{{n\omega _n R}} = \frac{{R^2  - \left| {x_0 } \right|^2 }}
+{{n\omega _n R}}
+\]
+Suy ra
+\[
+\mathop {\lim }\limits_{m \to \infty } u\left( {x_m } \right) = u\left( {x_0 } \right)
+\]
+Vậy $u$ liên tục trên $B$.\\
+Kết luận $
+u \in C^0 \left( {\overline B } \right)
+$. Cùng với chứng minh trên ta có $
+u \in C^2 \left( B \right) \cap C^0 \left( {\overline B } \right)
+$.$\blacklozenge$

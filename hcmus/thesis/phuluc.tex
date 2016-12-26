@@ -1,0 +1,68 @@
+\textbf{\Large PHỤ LỤC}
+\\
+\\
+
+Phần này trình bày một kết quả đã được sử dụng ở mục 2.7: tính khả vi vô hạn lần của một hàm số thỏa mãn định lý giá trị trung bình.
+\\
+\textbf{\underline{Định lý:}}
+\\
+\textit{Giả sử $\Omega$ là một tập mở bị chặn. Nếu u là hàm số liên tục trên $\Omega$ thỏa mãn với mọi quả cầu $ B(y,R) \subset  \subset \Omega $ 
+ta có \[
+u(y) = \frac{1}{{n\omega _n R^{n - 1} }}\int\limits_{\partial B} u ds,
+\] thì u khả vi vô hạn lần trên $\Omega$. }
+\\
+\textbf{\underline{Chứng minh:}}
+
+Trước hết ta nhắc lại một số kết quả về tích chập(có thể tham khảo thêm trong quyển "Giải tích hàm lý thuyết và ứng dụng" của Brezis).
+
+Xét hàm p cho bởi 
+\begin{equation}
+p(x) = \left\{ \begin{array}{l}
+ Ce^{\frac{1}{{|x|^2  - 1}}} \quad \quad |x| > 1,\\ 
+ {\rm{0}} \quad \quad\quad\quad\quad |x| \le 1,\\ 
+ \end{array} \right.
+\end{equation}
+trong đó C là hằng số sao cho $\int\limits_{R^n } {p = 1} $.
+
+Đặt $p_k (x) = k^n p(kx)$.
+
+Ta có những tính chất sau:
+\\
+i) p khả vi vô hạn lần trên $R^n$ và do đó $p_k$ cũng vậy.
+\\
+ii) $Supp(p_k ) \subset B\left( {0,\frac{1}{k}} \right)$.
+
+Đó là vì $Supp(p ) \subset B\left( {0,1} \right)$ mà  $p_k (x) = k^n p(kx)$.
+\\
+iii) $p_k (x) \ge 0 \quad \quad \quad \forall x \in R^n $.
+\\
+iv) p là hàm chỉ phụ thuộc vào chuẩn x.
+\\
+\\
+\textit{\underline{Bổ đề:} Nếu $f \in C_{^c }^\infty (R^n )$ và $g \in L_{^{_{loc}} }^1 (R^n )$ 
+thì $f*g \in C^\infty(R^n)$.}
+\\
+
+Trở lại chứng minh định lý, trước tiên giả sử rằng u thuộc $C(\bar \Omega)$, bằng cách mở rộng hiển nhiên u lên $R^n$ (u = 0 trên $\Omega^c$) ta có $u \in L_{^{_{loc}} }^1 (R^n )$, theo kết quả ở trên $p_k*u$ khả vi vô hạn lần trên $R^n$, ta sẽ chứng minh rằng $p_k*u$ bằng u trên tập $\Omega_k$ trong đó  $\Omega _k  = \left\{ {x \in \Omega :d(x,\Omega^c ) > \frac{1}{k}} \right\}$, khi đó nhận xét $\bigcup\limits_{k = 1}^\infty  {\Omega _k }  = \Omega $, ta sẽ có điều phải chứng minh.
+
+Chứng minh $p_k*u$ bằng u trên tập $\Omega_k$.
+
+Với mọi x thuộc $\Omega_k$ ta có 
+\[
+ p_k  * u(x) = \int\limits_{R^n } {p_k (x - y)u(y)dy}  
+  = \int\limits_\Omega  {p_k (x - y)u(y)dy}\]
+ \[ = k^n \int\limits_\Omega  {p(k(x - y))u(y)dy}  
+  = k^n \int\limits_{B(x,\frac{1}{k})} {p(k(x - y))u(y)dy}  \]
+ \[ = k^n \int\limits_{B(x,\frac{1}{k})} {p(|k(x - y)|)u(y)dy} 
+  = k^n \int\limits_0^{1/k} {dr\int\limits_{\partial B(x,r)} {p(|k(x - y)|)u(y)ds_y } }\]
+ \[ = k^n \int\limits_0^{1/k} {p(kr)dr\int\limits_{\partial B(x,r)} {u(y)ds_y } }  
+  = k^n \int\limits_0^{1/k} {p(kr)n} \omega _n r^{n - 1} u(x)dr \]
+\[  = u(x)\int\limits_0^{1/k} {k^n n\omega _n p(kr)} r^{n - 1} dr 
+  = u(x)\int\limits_0^{1/k} {dr\int\limits_{\partial B(x,r)} {k^n p(kr)} } ds \]
+ \[ = u(x)\int\limits_0^{1/k} {dr\int\limits_{\partial B(x,r)} {k^n p(|k(x - y)|)} } ds_y 
+  = u(x)\int\limits_0^{1/k} {dr\int\limits_{\partial B(x,r)} {p_k (x - y)} } ds_y  \]
+\[  = u(x)\int\limits_{B(x,1/k)} {p_k (x - y)dy}  
+  = u(x)\int\limits_{R^n } {p_k (x - y)dy}  
+  = u(x). \]
+
+Trong trường hợp tổng quát, u không thuộc $C(\bar \Omega)$, khi đó với mọi x thuộc $\Omega$ thì tồn tại một quả cầu $B(x, r) \subset \subset \Omega$. Áp dụng kết quả trên cho B(x, r) ta cũng có u khả vi vô hạn lần tại x. $\blacksquare$

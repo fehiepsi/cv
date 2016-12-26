@@ -1,0 +1,107 @@
+\begin{center}
+\textbf{2.2. NGUYÊN LÝ CỰC ĐẠI VÀ CỰC TIỂU}
+\end{center}
+
+Áp dụng định lý 2.1, ta có \textbf{nguyên lý cực đại và cực tiểu mạnh}:
+\\
+\textbf{\underline{Định lý 2.2:}}
+\\
+\textit{Cho $\Delta$u $\geq$0 ($\leq$ 0) trong $\Omega$ và có một điểm $y\in\Omega$ thỏa $u(y) = \mathop {\sup u}\limits_\Omega $ ($\mathop {{\rm{inf}}}\limits_\Omega$u). Khi đó u là hằng số. Vì vậy hàm điều hòa không thể đạt cực trị bên trong trừ khi nó là hằng.}
+\\
+\textbf{Chứng minh:}
+
+Đặt M = $\mathop {\sup u}\limits_\Omega$ và $\mathop \Omega \nolimits_M = \lbrace x \in\Omega | u(x)=M \rbrace$. Như vậy $\mathop \Omega \nolimits_M $   khác trống vì chứa y. Do $u^{-1}\lbrace$M$\rbrace = \Omega_M$ nên $\Omega_M$ đóng trong $\Omega$.
+
+Lấy z bất kỳ trong $\Omega_M$, ta tìm $r > 0$ sao cho quả cầu $B(z,r) \subset\Omega_M$. Cho $z\in\Omega_M$, ta có $u(z) = M$ và $r > 0$ sao cho $0 < r < dist(z,\partial\Omega)$. Khi ấy, áp dụng định lý giá trị trung bình cho hàm subharmonic $u - M$ (vì $\bigtriangleup(u-M) \geq 0$)
+trong $B(z,r)\subset\subset\Omega$: 
+\[0 = u(z) - M \leq \frac{1}{\omega_n R^n} \int\limits_{B(z,r)} {(u - M)dx}.\]
+
+Mà $u(x) - M \leq 0$ nên \[\int\limits_{B(z,r)} {(u - M)dx}\leq 0.\]
+
+Suy ra \[\int\limits_{B(z,r)} {(u - M)dx}=0.\]
+
+Lại vì hàm $u - M$ liên tục trên $\Omega$, $u(x) - M \leq 0$ $\forall x \in\Omega$ nên $u(x) = M$   $\forall x \in B(z,r)$ hay $u(x) = M$ $\forall x \in B(z,r)$. Từ đó, $B(z,r) \subset\Omega_M $, nghĩa là $\Omega_M$ mở.
+
+Như vậy, ta có được $\Omega_M$ là tập vừa đóng vừa mở trong $\Omega$. Mà $\Omega$ liên thông nên $\Omega_M $ = $\Omega$. Ta có u(x) = M $\forall x \in\Omega$ hay $u$ là hằng số.
+
+Chứng minh tương tự cho hàm superharmonic bằng cách thay $u$ bởi $-u$. $\blacksquare$
+\\
+
+Nguyên lý cực đại và cực tiểu mạnh ngay lập tức cho ta kết quả sau (\textbf{nguyên lý cực đại và cực tiểu yếu}):
+\\
+\textbf{\underline{Định lý 2.3}:}
+\\
+\textit{Giả thiết rằng $u \in C^2 \left( \Omega  \right) \cap C^0 (\overline\Omega)$ với $\Delta$u $\geq$0 ($\leq$ 0) trong $\Omega$, miền $\Omega$ bị chặn. Ta có
+\[\mathop {\sup u}\limits_\Omega   = \mathop {\sup u}\limits_{\partial \Omega }  (\mathop {{\rm{inf u}}}\limits_\Omega   = \mathop {{\rm{inf u}}}\limits_{\partial \Omega } )\]
+Do đó với u là hàm điều hoà thì $\mathop{{\rm{inf}}u}\limits_{\partial\Omega } \leq u(x) \leq \mathop {sup u}\limits_{\partial \Omega }, \forall{x} \in \Omega$ (*)}
+\\
+\textbf{Chứng minh:}
+\\
+\underline{\textit{Nếu $u$ subharmonic:}} 
+
+Đặt M = $\mathop {\sup u}\limits_\Omega$, suy ra có dãy $\lbrace\mathop x\nolimits_n\rbrace\subset\Omega$
+thoả u$\left(\mathop x\nolimits_n\right)\rightarrow$M.(1)
+
+Do $\Omega$ bị chận trong $R^n$ nên $\lbrace x_n \rbrace$ có dãy con $\lbrace x_{n_k}\rbrace$ thoả $\mathop x\nolimits_{\mathop n\nolimits_k } \rightarrow x'$
+
+Mà u liên tục nên u$\left(\mathop x\nolimits_{\mathop n\nolimits_k }
+\right)\rightarrow$ u(x') (2)
+
+Từ (1), (2) suy ra $u(x')=M$.
+
+Nếu $x'\in\Omega$, theo Định lý 2.2, ta có u là hằng số hay $u = M$ trên $\Omega$. Bây giờ, ta chỉ ra rằng: $u=M$ trên $\partial\Omega$.
+
+Lấy $s \in\partial \Omega$ (s là điểm dính của $\Omega$) thì có dãy $\lbrace s_n \rbrace \subset\Omega$ sao cho $s_{n}\rightarrow s$. Vì $u$ liên tục nên $u(s_n) \rightarrow u(s)$. Mà $u(s_n) = M$ $\forall n \in N$. Suy ra $u(s) = M$. Ta có $u(s) = M$ $\forall$ x$\in\partial\Omega$, suy ra  $\mathop {\sup u}\limits_{\partial \Omega }$ = M. Vậy  $\mathop {\sup u}\limits_\Omega   = \mathop {\sup u}\limits_{\partial \Omega }$ = M ( đpcm).
+
+Nếu $x'\in\partial\Omega$. Suy ra $M \leq\mathop {\sup u}\limits_{\partial \Omega }$.
+
+Lấy $y' \in\partial\Omega$ có dãy $\lbrace\mathop {y'}\nolimits_n \rbrace\subset\Omega$ sao cho $\mathop {y'}\nolimits_n\rightarrow y'$. Khi ấy $M \geq u(y'_n)$, $\forall n \in N$.
+
+Do u liên tục nên cho $n \rightarrow \infty$ thì $M \geq u(y')$.
+
+Ta có $M \geq u(y')$ $\forall y' \in\partial\Omega$ nên $M \geq \mathop{\sup u}\limits_{\partial \Omega }$ . Suy ra: $\mathop {\sup u}\limits_\Omega   = \mathop {\sup u}\limits_{\partial \Omega } = M$ (đpcm).
+\\
+\underline{\textit{Nếu $u$ superharmonic:}}
+
+Đặt $v = -u$. Vì $\bigtriangleup u \leq 0$ nên $\bigtriangleup v \geq 0$. Áp dụng chứng minh trên, ta có:  $\mathop {\sup v}\limits_\Omega   = \mathop {\sup v}\limits_{\partial \Omega }$.
+
+ Mà  $\mathop {\sup v}\limits_\Omega = \mathop {\sup (-u)}\limits_\Omega  = -\mathop {\inf u}\limits_\Omega $ và $\mathop {\sup v}\limits_{\partial \Omega }
+=\mathop {\sup (-u)}\limits_{\partial \Omega } 
+=-\mathop {\inf u}\limits_{\partial \Omega } $.
+
+Suy ra $\mathop {\inf u}\limits_\Omega $ =$\mathop {\inf u}\limits_{\partial \Omega } $.
+\\
+\underline{\textit{Nếu u là hàm điều hòa:}}
+
+Ta có: 
+ $\mathop {\sup u}\limits_\Omega   = \mathop {\sup u}\limits_{\partial \Omega }$ và
+  $\mathop {\inf u}\limits_\Omega  = \mathop {\inf u}\limits_{\partial \Omega } $.
+  
+Mà  \[ \mathop {\inf u}\limits_\Omega \leq u(x) \leq \mathop {\sup u}\limits_\Omega, \forall x\in\Omega.\]
+
+Do đó có kết luận (*):
+$\mathop{{\rm{inf}}u}\limits_{\partial\Omega } \leq u(x) \leq\mathop {\sup u}\limits_{\partial \Omega }$,x$\in\Omega$. $\blacksquare$
+\\
+
+Như là hệ quả, ta có định lý về "tính duy nhất" sau:
+\\
+\textbf{\underline{Định lý 2.4:}}
+\\
+\textit{Cho $u \in C^2 (\Omega) \cap C^0 (\overline\Omega)$  thoả $\bigtriangleup u = \bigtriangleup v$ trong $\Omega$, $u = v$ trên $\partial\Omega$. Khi đó $u = v$ trong $\Omega$.}
+\\
+\textbf{Chứng minh:}
+
+Đặt $w = u - v$. Vì $u,v \in C^2( \Omega) \cap C^0(\overline\Omega)$ nên $w \in C^2( \Omega) \cap C^0 (\overline\Omega)$. Rõ ràng $\triangle w = \triangle (u-v) = \triangle u -\triangle v =0$ trong $\Omega$, $\Omega$ bị chận nên theo định lý 2.3 có: 
+\[\mathop {\sup w}\limits_\Omega   = \mathop {\sup w}\limits_{\partial \Omega }\]
+
+Giả thiết cho $w =u-v =0$ trên $\partial\Omega$. Do đó 
+$\mathop {\sup w}\limits_{\partial \Omega }=0$.
+Suy ra $\mathop {\sup w}\limits_\Omega   = 0$.
+Từ đó: $w=0$ trong $\Omega$ hay $u= v$ trong $\Omega$(đpcm). $\blacksquare$
+\\
+\\
+\textit{\underline{Nhận xét:}
+\\
+Trong chứng minh của định lý 2.2 (do đó trong 2.3 và 2.4), ta nhận thấy giả thuyết về tính điều hòa (subharmonic, superharmonic) của $u$ có thể được thay thế chỉ bởi giả thuyết $u$ liên tục trên $\Omega$ và với mọi quả cầu $B = B_R{(y)}$, $u$ thỏa mãn tính chất giá trị trung bình
+\[ u(y)=(\leq , \geq ) \frac{1}{n\omega_n R^{n-1}}\int\limits_{\partial B} {uds}.\]
+Nhận xét này sẽ hữu ích cho chứng minh của các định lý như 2.7 và các nhận xét trong mục 2.8.}

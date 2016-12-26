@@ -1,0 +1,295 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb, amsthm, xcolor}
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%Định nghĩa màu cho chữ viết, các bạn không nên xóa bỏ phần này
+
+\newcommand{\doo}[1]{\textcolor{red}{#1}}
+\newcommand{\xanh}[1]{\textcolor{green}{#1}}
+\newcommand{\duong}[1]{\textcolor{blue}{#1}}
+\newcommand{\bich}[1]{\textcolor{cyan}{#1}}
+\newcommand{\hong}[1]{\textcolor{magenta}{#1}}
+\newcommand{\vang}[1]{\textcolor{yellow}{#1}}
+
+%Định nghĩa màu cho khung và chữ viết, các bạn không nên xóa bỏ phần này
+
+\setbeamercolor{vangxanh}{fg=blue,bg=yellow!20!white}
+\setbeamercolor{vangden}{fg=black,bg=yellow!20!white}
+\setbeamercolor{vangdo}{fg=red,bg=yellow!20!white}
+\setbeamercolor{camden}{fg=black,bg=orange!20!white}
+\setbeamercolor{camxanh}{fg=blue,bg=orange!20!white}
+\setbeamercolor{bichdo}{fg=red,bg=cyan!15!white}
+\setbeamercolor{bichden}{fg=black,bg=cyan!15!white}
+\setbeamercolor{hongxanh}{fg=blue,bg=magenta!15!white}
+\setbeamercolor{hongden}{fg=black,bg=magenta!15!white}
+\setbeamercolor{lado}{fg=red,bg=lime!40}
+\setbeamercolor{laden}{fg=black,bg=lime!40}
+\setbeamercolor{laxanh}{fg=blue,bg=lime!40}
+
+\title{\bf Reduce measures}
+\author{\bf
+\hong{Student: Phan Van Du\\
+Advisor: Professor Laurent V\'eron}}
+\institute{\duong{LABORATOIRE DE MATHEMATIQUES et  \\PHYSIQUE THEORIQUE\\
+UNIVERSITE FRAN\c{C}OIS RABELAIS, TOURS--FRANCE}}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{\LARGE \bf  Contents}
+\tableofcontents
+\end{frame}
+
+
+\section{$L^1$ theory}
+
+\begin{frame}{$L^1$ theory}
+\newtheorem*{pro}{The problem}
+\begin{pro}
+\[
+\left\{
+\begin{aligned}
+-\Delta u + g(u) & = f && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\]
+\end{pro}
+\bigskip
+\begin{beamercolorbox}{camxanh}
+\begin{itemize}
+\item $\Omega \subset \mathbb{R}^N$ bounded, open, smooth boundary
+\item $g: \mathbb{R} \to \mathbb{R}$ continuous, non-decreasing, $g(0) = 0$
+\item $f \in L^1(\Omega)$
+\end{itemize}
+\end{beamercolorbox}
+\end{frame}
+
+\begin{frame}{$L^1$ theory}
+\begin{pro}
+\[
+\left\{
+\begin{aligned}
+-\Delta u + g(u) & = f && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\]
+\end{pro}
+\bigskip
+\newtheorem*{weak}{Weak solution}
+\begin{weak}
+\[
+\left\{
+\begin{aligned}
+& u \in L^1(\Omega ),\quad g(u) \in L^1(\Omega ) ,\\
+&-\int_{\Omega} u \Delta \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}f\varphi, \quad \forall \varphi \in C^2_0(\overline{\Omega}) .
+\end{aligned}
+\right.
+\]
+\end{weak}
+\end{frame}
+
+\begin{frame}{$L^1$ theory}
+\begin{theorem}[Brezis-Strauss, 1973]
+For $f \in L^1(\Omega)$, there is a unique solution to the problem
+\[
+\left\{
+\begin{aligned}
+-\Delta u + g(u) & = f && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega .
+\end{aligned}
+\right.
+\]
+\end{theorem}
+\end{frame}
+
+\section{Transitions to measure}
+
+\begin{frame}{Transitions to measure}
+\begin{pro}
+\[
+\left\{
+\begin{aligned}
+-\Delta u + g(u) & = \mu && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\]
+\end{pro}
+\bigskip
+\begin{weak}
+\[
+\left\{
+\begin{aligned}
+& u \in L^1(\Omega ),\quad g(u) \in L^1(\Omega ) ,\\
+&-\int_{\Omega} u \Delta \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}\varphi\,d\mu, \quad \forall \varphi \in C^2_0(\overline{\Omega}) .
+\end{aligned}
+\right.
+\]
+\end{weak}
+\end{frame}
+
+\begin{frame}{Transition to measure}
+\newtheorem*{cou}{Counterexample}
+\begin{cou}
+Assume $N\ge 3$. If $p \ge \frac{N}{N-2}$, then, for any $a\in \Omega$, the problem
+\[
+\left\{
+\begin{aligned}
+-\Delta u + |u|^{p-1}u & = \delta_a && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\]
+has no solution $u\in L^p(\Omega)$.
+\end{cou}
+\bigskip
+\begin{beamercolorbox}{camxanh}
+\[
+g(t) = |t|^{p-1}t
+\]
+\end{beamercolorbox}
+\end{frame}
+
+\begin{frame}{Transition to measure}
+\begin{theorem}
+Assume $N \ge 2$ and there exists $p \in [1, \frac{N}{N-2})$ such that
+\[
+|g(t)| \le C(|t|^p + 1), \quad\forall t\in \mathbb{R}.
+\]
+Then, for every $\mu\in \mathcal{M}(\Omega)$, there is a unique solution to the problem
+\[
+\left\{
+\begin{aligned}
+-\Delta u + g(u) & = \mu && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\]
+\end{theorem}
+\medskip
+\begin{beamercolorbox}{camxanh}
+\[
+g(t) = |t|^{p-1}t \quad \Rightarrow \quad |g(t)| \le C(|t|^p + 1)
+\]
+\end{beamercolorbox}
+\begin{beamercolorbox}{camxanh}
+\[
+g \text{ bounded} \quad \Rightarrow \quad |g(t)| \le C(|t|^p + 1)
+\]
+\end{beamercolorbox}
+\end{frame}
+
+\section{Reduce measures}
+
+\begin{frame}{Reduce measures}
+\begin{pro}
+\[
+\left\{
+\begin{aligned}
+-\Delta u + g(u) & = \mu && \text{in } \Omega , \\
+u & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\]
+\end{pro}
+\begin{beamercolorbox}{camxanh}
+\begin{itemize}
+\item $N \geq 2$
+\item $g(t) = 0,\ \forall t \leq 0$
+\end{itemize}
+\end{beamercolorbox}
+\medskip
+\begin{beamercolorbox}{camxanh}
+\[
+g_n(t) = \min \{g(t), n \}\leq n,\quad\forall t
+\]
+\end{beamercolorbox}
+\newtheorem*{thm}{}
+\begin{thm}
+\[
+\left\{
+\begin{aligned}
+-\Delta u_n + g_n(u_n) & = \mu && \text{in } \Omega , \\
+u_n & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\]
+\end{thm}
+\end{frame}
+
+\begin{frame}{Reduce measures}
+\begin{thm}
+\[
+\left\{
+\begin{aligned}
+-\Delta u_n + g_n(u_n) & = \mu && \text{in } \Omega , \\
+u_n & = 0 && \text{on } \partial \Omega ,
+\end{aligned}
+\right.
+\]
+\end{thm}
+\bigskip
+\begin{thm}
+\begin{itemize}
+\item $u_n \to u^* \quad\text{in }L^1(\Omega)$
+\item $g(u_n) \to g(u^*) \quad\text{a.e in }\Omega$
+\item $\Rightarrow \quad\text{Fatou}$
+\end{itemize}
+\end{thm}
+\end{frame}
+
+\begin{frame}{Reduce measures}
+\begin{weak}
+\[
+\left\{
+\begin{aligned}
+& u \in L^1(\Omega ),\quad g(u) \in L^1(\Omega ) ,\\
+&-\int_{\Omega} u \Delta \varphi + \int_{\Omega} g(u)\varphi = \int_{\Omega}\varphi\,d\mu, \quad \forall \varphi \in C^2_0(\overline{\Omega}) .
+\end{aligned}
+\right.
+\]
+\end{weak}
+\bigskip
+\newtheorem*{wss}{Subsolution}
+\begin{wss}
+\[
+\left\{
+\begin{aligned}
+& u \in L^1(\Omega ),\quad g(u) \in L^1(\Omega ) ,\\
+&-\int_{\Omega} u \Delta \varphi + \int_{\Omega} g(u)\varphi \leq \int_{\Omega}\varphi\,d\mu, \quad \forall \varphi \in C^2_0(\overline{\Omega}),\varphi \geq 0 .
+\end{aligned}
+\right.
+\]
+\end{wss}
+\end{frame}
+
+\begin{frame}{Reduce measures}
+\begin{theorem}[1]
+We have $u^*$ is the largest subsolution to our problem.
+\end{theorem}
+\bigskip
+\begin{beamercolorbox}{camxanh}
+\[-\int_{\Omega} u^* \Delta \varphi + \int_{\Omega} g(u^*)\varphi = \int_{\Omega}\varphi\,d\mu^*, \quad \forall \varphi \in C^2_0(\overline{\Omega})\]
+\end{beamercolorbox}
+\bigskip
+\begin{theorem}[2]
+We have $\mu^*$ is the largest good measure $\leq \mu$.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\vspace{56pt}
+\begin{center}
+Thank you for your attention
+\end{center}
+
+\end{frame}
+
+\end{document}
